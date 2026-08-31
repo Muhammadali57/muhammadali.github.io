@@ -1,382 +1,260 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="uz">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Muhammadali — Game Programmer, Gamer, Music Lover.">
-  <title>Muhammadali — Personal Space</title>
-  <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="Muhammadali — Game Programmer, Gamer and Music Lover. A personal space for games, music, programming and favorite characters.">
-  <meta property="og:title" content="Muhammadali — Game Programmer · Gamer · Music Lover">
-  <meta property="og:description" content="Games, music, programming and things I love.">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammadali | Portfolio & Bio</title>
+    <!-- FontAwesome ikonkalar to'plami -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body><div class="hero-orbit" aria-hidden="true"></div>
-  <div id="pageLoader" class="page-loader"><div class="loader-mark">M</div><div class="loader-line"><span></span></div><small>MUHAMMADALI / LOADING</small></div>
-  <div id="scrollProgress" class="scroll-progress"></div>
-  <div class="language-switcher" aria-label="Language selector">
-    <button id="languageButton" type="button" aria-expanded="false">EN <span>⌄</span></button>
-    <div id="languageMenu" class="language-menu">
-      <button type="button" data-lang="en">English</button>
-      <button type="button" data-lang="uz">O‘zbekcha</button>
-      <button type="button" data-lang="ru">Русский</button>
-    </div>
-  </div>
-  <div class="stars" aria-hidden="true"></div>
+<body>
 
-  <header class="site-header">
-    <a class="brand" href="#home" aria-label="Muhammadali home">MUHAMMADALI</a>
-    <button id="menuToggle" class="menu-toggle" aria-label="Open menu">☰</button>
-    <nav class="nav" aria-label="Primary navigation">
-      <a href="#about" data-i18n="nav.about">About</a>
-      <a href="#interests" data-i18n="nav.interests">Interests</a>
-      <a href="#games" data-i18n="nav.games">Games</a>
-      <a href="#characters" data-i18n="nav.favorites">Favorites</a>
-      <a href="#music" data-i18n="nav.music">Music</a>
-      <a href="#programming" data-i18n="nav.projects">Programming</a>
-      <a href="#platforms" data-i18n="nav.platforms">Platforms</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header><div class="hero-meta"><span>01 / HOME</span><span>UZ · EN · RU</span><span>AVAILABLE FOR IDEAS</span></div>
-
-  <main>
-    <section class="hero section" id="home">
-      <div class="hero-copy">
-        <p class="eyebrow" data-i18n="hero.eyebrow">PERSONAL SPACE // 01</p>
-        <h1>Muhammadali</h1>
-        <p class="tagline" data-i18n="hero.tagline">Game Programmer · Gamer · Music Lover</p>
-        <p class="intro" data-i18n="hero.intro">
-          Welcome to my little corner of the internet — a place for the things I create, play and listen to.
-        </p>
-        <a class="cta" href="#about"><span data-i18n="hero.cta">Explore my world</span><span>↘</span></a>
-      </div>
-
-      <div class="avatar-frame" aria-label="Avatar placeholder">
-        <div class="avatar-orbit orbit-one"></div>
-        <div class="avatar-orbit orbit-two"></div>
-        <div class="avatar-placeholder">
-          <span>MM</span>
-          <small>AVATAR</small>
+    <!-- NAVIGATSIYA BORI -->
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-accent">M</span>UHAMMADALI
         </div>
-        <div class="frame-label">NO. 001 / MM</div>
-      </div>
-    </section>
+        <nav class="nav-links">
+            <button class="nav-btn active" onclick="switchTab('home', event)">
+                <i class="fa-solid fa-house"></i> <span data-i18n="nav_home">Bosh sahifa</span>
+            </button>
+            <button class="nav-btn" onclick="switchTab('about', event)">
+                <i class="fa-solid fa-user"></i> <span data-i18n="nav_about">Haqimda</span>
+            </button>
+            <button class="nav-btn" onclick="switchTab('favorites', event)">
+                <i class="fa-solid fa-heart"></i> <span data-i18n="nav_favorites">Sevimlilar</span>
+            </button>
+            <button class="nav-btn" onclick="switchTab('projects', event)">
+                <i class="fa-solid fa-code"></i> <span data-i18n="nav_projects">Loyihalar</span>
+            </button>
+            <button class="nav-btn" onclick="switchTab('contact', event)">
+                <i class="fa-solid fa-paper-plane"></i> <span data-i18n="nav_contact">Aloqa</span>
+            </button>
+        </nav>
+    </header>
 
-    <section class="section about-section" id="about">
-      <div class="section-heading">
-        <span>02</span>
-        <h2 data-i18n="about.title">About Me</h2>
-        <em>MM / PROFILE</em>
-      </div>
+    <main class="main-container">
 
-      <div class="about-intro">
-        <div class="about-index">01<br><small>PROFILE</small></div>
-        <div>
-          <p class="large-copy" data-i18n="about.text">
-            I'm Muhammadali, a Game Programmer, Gamer and Music Lover. I enjoy creating things with code,
-            exploring virtual worlds and discovering music that becomes part of my memories.
-          </p>
-          <p class="about-note" data-i18n="about.note">
-            This is my personal space — a small archive of the things I create, play and listen to.
-          </p>
-        </div>
-      </div>
+        <!-- 1-SEKTSIYA: BOSH SAHIFA -->
+        <section id="home" class="page-section active-section">
+            <div class="hero-card">
+                <div class="avatar-wrapper">
+                    <img src="assets/avatar/profile.jpg" alt="Muhammadali Sobirov" class="avatar-img">
+                </div>
+                <h1 class="hero-title">Muhammadali Sobirov</h1>
+                <p class="hero-subtitle" data-i18n="hero_role">Game Developer & Python Programmer</p>
+                <div class="tag-group">
+                    <span class="tag">Python</span>
+                    <span class="tag">Aiogram 3</span>
+                    <span class="tag">C++</span>
+                    <span class="tag">Gamedev</span>
+                </div>
+                <p class="hero-bio" data-i18n="hero_bio">
+                    O'yinlar yaratish va Telegram bot arxitekturasi bilan shug'ullanaman. Kuro Games dasturchisi bo'lish asosiy maqsadim.
+                </p>
+            </div>
+        </section>
 
-      <div class="about-principles">
-        <article>
-          <div class="principle-top"><span>01</span><i>⌘</i></div>
-          <h3 data-i18n="about.card1.title">Game Programming</h3>
-          <p data-i18n="about.card1.text">I build Telegram bots and web apps while growing toward game development.</p>
-          <div class="principle-line"></div>
-        </article>
-        <article>
-          <div class="principle-top"><span>02</span><i>◈</i></div>
-          <h3 data-i18n="about.card2.title">Games</h3>
-          <p data-i18n="about.card2.text">I love discovering new worlds, stories, characters and the memories behind them.</p>
-          <div class="principle-line"></div>
-        </article>
-        <article>
-          <div class="principle-top"><span>03</span><i>♫</i></div>
-          <h3 data-i18n="about.card3.title">Music</h3>
-          <p data-i18n="about.card3.text">Some songs become more than music — they become part of a moment.</p>
-          <div class="principle-line"></div>
-        </article>
-      </div>
+        <!-- 2-SEKTSIYA: HAQIMDA -->
+        <section id="about" class="page-section">
+            <div class="content-card">
+                <h2 class="section-title"><i class="fa-solid fa-user-ninja"></i> <span data-i18n="about_title">Men haqimda</span></h2>
+                <div class="info-grid">
+                    <div class="info-box">
+                        <h3><i class="fa-solid fa-gamepad"></i> Gaming & Anime</h3>
+                        <p>Wuthering Waves, Punishing: Gray Raven va Genshin Impact o'yinlarini faol o'ynayman. Anime va Donghua olamiga qiziqaman.</p>
+                    </div>
+                    <div class="info-box">
+                        <h3><i class="fa-solid fa-language"></i> <span data-i18n="lang_goal">Tillar</span></h3>
+                        <p>O'zbek tili (Ona tili), Yapon tili (JLPT N2 darajasiga tayyorgarlik) va Ingliz tili.</p>
+                    </div>
+                    <div class="info-box">
+                        <h3><i class="fa-solid fa-microchip"></i> Hardware</h3>
+                        <p>Banana Pi M2 Zero serveri va Android terminali (Termux, Pydroid 3) orqali loyihalar ishlayman.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      <div class="about-footer">
-        <span>MUHAMMADALI / 001</span>
-        <span data-i18n="about.footer">CREATING • PLAYING • LISTENING</span>
-      </div>
-    </section>
+        <!-- 3-SEKTSIYA: SEVIMLILAR & MUSIQA PLEYER -->
+        <section id="favorites" class="page-section">
+            <div class="content-card">
+                <h2 class="section-title"><i class="fa-solid fa-heart"></i> <span data-i18n="fav_title">Sevimlilar</span></h2>
+                
+                <!-- Musiqa Pleyer -->
+                <div class="player-card">
+                    <div class="cover-wrapper">
+                        <img id="cover-art" src="assets/music/Voyaging Star's Farewell.jpeg" alt="Track Cover" class="cover-art">
+                    </div>
 
-    <section class="section interests-section" id="interests">
-      <div class="section-heading">
-        <span>03</span>
-        <h2 data-i18n="interests.title">Interests</h2>
-        <em>CORE / 03</em>
-      </div>
+                    <div class="track-info">
+                        <h3 id="track-title">Voyaging Star's Farewell</h3>
+                        <p id="track-artist">Tarokiki</p>
+                    </div>
+                    
+                    <div class="progress-container" id="progress-container">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+                    <div class="time-stamps">
+                        <span id="current-time">0:00</span>
+                        <span id="duration-time">0:00</span>
+                    </div>
 
-      <div class="interest-feature">
-        <div class="interest-number">01</div>
-        <div class="interest-symbol">⌘</div>
-        <div class="interest-content">
-          <small data-i18n="interests.card1.label">CREATION / CODE</small>
-          <h3 data-i18n="interests.card1.title">Game Programming</h3>
-          <p data-i18n="interests.card1.text">Turning ideas into something that can actually run, react and be experienced.</p>
-          <div class="interest-tags"><span>TELEGRAM BOTS</span><span>WEB APPS</span><span>GAME DEV / NEXT</span></div>
-        </div>
-        <div class="interest-mark">CODE<br>01</div>
-      </div>
+                    <div class="player-controls">
+                        <button class="control-btn" id="prev-btn"><i class="fa-solid fa-backward-step"></i></button>
+                        <button class="control-btn play-btn" id="play-btn"><i class="fa-solid fa-play" id="play-icon"></i></button>
+                        <button class="control-btn" id="next-btn"><i class="fa-solid fa-forward-step"></i></button>
+                    </div>
 
-      <div class="interest-feature reverse">
-        <div class="interest-number">02</div>
-        <div class="interest-symbol">◈</div>
-        <div class="interest-content">
-          <small data-i18n="interests.card2.label">EXPLORATION / PLAY</small>
-          <h3 data-i18n="interests.card2.title">Games</h3>
-          <p data-i18n="interests.card2.text">Virtual worlds are places to explore — full of stories, characters, atmosphere and memories.</p>
-          <div class="interest-tags"><span>WORLDS</span><span>STORIES</span><span>CHARACTERS</span></div>
-        </div>
-        <div class="interest-mark">PLAY<br>02</div>
-      </div>
+                    <ul class="track-list" id="track-list">
+                        <!-- Qo'shiqlar ro'yxati JS orqali yaratiladi -->
+                    </ul>
+                </div>
 
-      <div class="interest-feature">
-        <div class="interest-number">03</div>
-        <div class="interest-symbol">♫</div>
-        <div class="interest-content">
-          <small data-i18n="interests.card3.label">ATMOSPHERE / SOUND</small>
-          <h3 data-i18n="interests.card3.title">Music</h3>
-          <p data-i18n="interests.card3.text">Music can change the feeling of a scene, a day or an entire memory.</p>
-          <div class="interest-tags"><span>LISTENING</span><span>MEMORIES</span><span>FAVORITES</span></div>
-        </div>
-        <div class="interest-mark">SOUND<br>03</div>
-      </div>
+                <!-- Personajlar Grid -->
+                <h3 class="subsection-title" style="margin-top: 30px;"><i class="fa-solid fa-users"></i> Sevimli Qahramonlar</h3>
+                <div class="characters-grid">
+                    <div class="character-card">
+                        <img src="assets/characters/aemeath.jpg" alt="Aemeath">
+                        <div class="char-info">
+                            <h3>Aemeath</h3>
+                            <p>Wuthering Waves</p>
+                        </div>
+                    </div>
+                    <div class="character-card">
+                        <img src="assets/characters/carlotta.jpg" alt="Carlotta">
+                        <div class="char-info">
+                            <h3>Carlotta</h3>
+                            <p>Wuthering Waves</p>
+                        </div>
+                    </div>
+                    <div class="character-card">
+                        <img src="assets/characters/shorekeeper.jpg" alt="Shorekeeper">
+                        <div class="char-info">
+                            <h3>Shorekeeper</h3>
+                            <p>Wuthering Waves</p>
+                        </div>
+                    </div>
+                    <div class="character-card">
+                        <img src="assets/characters/selena.jpg" alt="Selena">
+                        <div class="char-info">
+                            <h3>Selena</h3>
+                            <p>Punishing: Gray Raven</p>
+                        </div>
+                    </div>
+                </div>
 
-      <div class="interest-footer">
-        <span>THREE THINGS / ONE PERSONALITY</span>
-        <span data-i18n="interests.footer">WHAT I CREATE • WHAT I PLAY • WHAT I HEAR</span>
-      </div>
-    </section>
+                <!-- O'yinlar Grid -->
+                <h3 class="subsection-title" style="margin-top: 30px;"><i class="fa-solid fa-gamepad"></i> Sevimli O'yinlar</h3>
+                <div class="games-grid">
+                    <div class="game-card">
+                        <img src="assets/games/Wuthering Waves.jpeg" alt="Wuthering Waves" class="game-img">
+                        <div class="game-info">
+                            <h4>Wuthering Waves</h4>
+                            <span class="game-badge">Kuro Games</span>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <img src="assets/games/Punishing Gray Raven.jpg" alt="Punishing Gray Raven" class="game-img">
+                        <div class="game-info">
+                            <h4>Punishing: Gray Raven</h4>
+                            <span class="game-badge">Kuro Games</span>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <img src="assets/games/Genshin Impact.jpeg" alt="Genshin Impact" class="game-img">
+                        <div class="game-info">
+                            <h4>Genshin Impact</h4>
+                            <span class="game-badge">HoYoverse</span>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <img src="assets/games/ZenlessZoneZero.jpg" alt="Zenless Zone Zero" class="game-img">
+                        <div class="game-info">
+                            <h4>Zenless Zone Zero</h4>
+                            <span class="game-badge">HoYoverse</span>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <img src="assets/games/Honkai Star Rail.png" alt="Honkai Star Rail" class="game-img">
+                        <div class="game-info">
+                            <h4>Honkai: Star Rail</h4>
+                            <span class="game-badge">HoYoverse</span>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <img src="assets/games/Neverness to Everness.jpg" alt="Neverness to Everness" class="game-img">
+                        <div class="game-info">
+                            <h4>Neverness to Everness</h4>
+                            <span class="game-badge">Hotta Studio</span>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <img src="assets/games/Arknights Endfield.jpg" alt="Arknights Endfield" class="game-img">
+                        <div class="game-info">
+                            <h4>Arknights: Endfield</h4>
+                            <span class="game-badge">Gryphline</span>
+                        </div>
+                    </div>
+                </div>
 
-    <section class="section" id="games">
-      <div class="section-heading"><span>04</span><h2>Favorite Games</h2></div>
-      <div class="game-list">
-        <div>Wuthering Waves <span>01</span></div>
-        <div>Punishing: Gray Raven <span>02</span></div>
-        <div>Honkai: Star Rail <span>03</span></div>
-        <div>Zenless Zone Zero <span>04</span></div>
-        <div>Genshin Impact <span>05</span></div>
-        <div>Arknights: Endfield <span>06</span></div>
-        <div>NTE: Neverness to Everness <span>07</span></div>
-      </div>
-    </section>
-    <section class="section anime-section" id="anime">
-      <div class="section-heading"><span>06</span><h2 data-i18n="anime.title">Favorite Anime & Donghua</h2><em>WATCHLIST / 04</em></div>
-      <div class="media-group">
-        <div class="media-group-head"><div><small>01 / ANIME</small><h3 data-i18n="anime.anime">Anime</h3></div><span>02 TITLES</span></div>
-        <div class="media-gallery">
-          <article class="media-card"><img src="assets/anime/Classroom of the elite.jpg" alt="Classroom of the Elite"><div class="media-shade"></div><div class="media-meta"><span>01</span><small>ANIME</small></div><div class="media-name">Classroom of the Elite</div></article>
-          <article class="media-card"><img src="assets/anime/Oshi no ko.webp" alt="Oshi no Ko"><div class="media-shade"></div><div class="media-meta"><span>02</span><small>ANIME</small></div><div class="media-name">Oshi no Ko</div></article>
-        </div>
-      </div>
-      <div class="media-group">
-        <div class="media-group-head"><div><small>02 / DONGHUA</small><h3 data-i18n="anime.donghua">Donghua</h3></div><span>02 TITLES</span></div>
-        <div class="media-gallery">
-          <article class="media-card"><img src="assets/anime/Throne Of Seal.jpg" alt="Throne of Seal"><div class="media-shade"></div><div class="media-meta"><span>03</span><small>DONGHUA</small></div><div class="media-name">Throne of Seal</div></article>
-          <article class="media-card"><img src="assets/anime/Soul Land.webp" alt="Soul Land"><div class="media-shade"></div><div class="media-meta"><span>04</span><small>DONGHUA</small></div><div class="media-name">Soul Land</div></article>
-        </div>
-      </div>
-      <div class="anime-footer"><span>WATCHLIST / 04 TITLES</span><span data-i18n="anime.footer">STORIES I CARRY WITH ME.</span></div>
-    </section>
-      <section class="section programming-section" id="programming">
-      <div class="section-heading">
-        <span>07</span>
-        <h2 data-i18n="programming">Programming</h2>
-        <em>BUILD / LEARN / CREATE</em>
-      </div>
+            </div>
+        </section>
 
-      <div class="programming-intro">
-        <div>
-          <small>MY CURRENT DIRECTION</small>
-          <h3>Turning ideas into something real.</h3>
-        </div>
-        <p>Game Programming is my main interest. For now, I am also building Telegram bots and web applications.</p>
-      </div>
+        <!-- 4-SEKTSIYA: LOYIHALAR -->
+        <section id="projects" class="page-section">
+            <div class="content-card">
+                <h2 class="section-title"><i class="fa-solid fa-code-branch"></i> <span data-i18n="proj_title">Loyihalarim</span></h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <i class="fa-brands fa-telegram project-icon"></i>
+                        <h3>Gacha Top-Up Bot</h3>
+                        <p>Aiogram 3 va SQLite bazasida qurilgan avtomatlashtirilgan top-up xizmati boti.</p>
+                        <span class="project-tag">Python</span>
+                    </div>
+                    <div class="project-card">
+                        <i class="fa-solid fa-cubes project-icon"></i>
+                        <h3>Minecraft MCBE Add-on</h3>
+                        <p>O'zbek tilidagi custom loyihalar hamda ovozli modifikatsiyalar to'plami (Carlotta totem).</p>
+                        <span class="project-tag">JSON / ResourcePack</span>
+                    </div>
+                    <div class="project-card">
+                        <i class="fa-solid fa-server project-icon"></i>
+                        <h3>Banana Pi Home Server</h3>
+                        <p>Linux muhitida 24/7 ishlovchi shaxsiy server va bot xosting tizimi.</p>
+                        <span class="project-tag">Linux / Shell</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      <div class="programming-grid">
-        <article class="program-card program-main">
-          <span class="program-index">01</span>
-          <div class="program-icon">◈</div>
-          <small>CORE INTEREST</small>
-          <h3>Game Programming</h3>
-          <p>Exploring game development, systems, mechanics and the process of turning ideas into playable experiences.</p>
-          <div class="program-tag">GAME DEV</div>
-        </article>
+        <!-- 5-SEKTSIYA: ALOQA -->
+        <section id="contact" class="page-section">
+            <div class="content-card">
+                <h2 class="section-title"><i class="fa-solid fa-paper-plane"></i> <span data-i18n="contact_title">Aloqa</span></h2>
+                <div class="contact-links">
+                    <a href="https://t.me" target="_blank" class="social-btn telegram">
+                        <i class="fa-brands fa-telegram"></i> Telegram
+                    </a>
+                    <a href="https://github.com/Muhammadali57" target="_blank" class="social-btn github">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="https://youtube.com" target="_blank" class="social-btn youtube">
+                        <i class="fa-brands fa-youtube"></i> YouTube
+                    </a>
+                </div>
+            </div>
+        </section>
 
-        <article class="program-card">
-          <span class="program-index">02</span>
-          <div class="program-icon">⌘</div>
-          <small>CURRENTLY WORKING WITH</small>
-          <h3>Telegram Bots</h3>
-          <p>Creating useful and interactive Telegram bots while learning and experimenting with different ideas.</p>
-          <div class="program-tag">TELEGRAM</div>
-        </article>
+    </main>
 
-        <article class="program-card">
-          <span class="program-index">03</span>
-          <div class="program-icon">⌁</div>
-          <small>CURRENTLY WORKING WITH</small>
-          <h3>Web Applications</h3>
-          <p>Building web experiences and experimenting with frontend ideas, interfaces and functionality.</p>
-          <div class="program-tag">WEB</div>
-        </article>
+    <!-- Audio Element (Player uchun) -->
+    <audio id="audio-player"></audio>
 
-        <article class="program-card future-card">
-          <span class="program-index">04</span>
-          <div class="program-icon">+</div>
-          <small>COMING LATER</small>
-          <h3>Projects</h3>
-          <p>GitHub projects will appear here as I build things worth sharing.</p>
-          <div class="program-tag">SOON</div>
-        </article>
-      </div>
-
-      <div class="programming-footer">
-        <span>PROGRAMMING / 03 ACTIVE DIRECTIONS</span>
-        <span>MORE PROJECTS WILL COME.</span>
-      </div>
-    </section>
-
-    <section class="section character-section" id="characters">
-      <div class="section-heading"><span>08</span><h2 data-i18n="favoriteCharacters">Favorite Characters</h2><em>RESONATORS / 04</em></div>
-      <div class="character-grid">
-        <article class="character-card"><img src="assets/characters/Carlotta.jpg" alt="Carlotta"><div class="character-shade"></div><div class="character-meta"><span>01</span><small>WUTHERING WAVES</small></div><div class="character-name">Carlotta</div></article>
-        <article class="character-card"><img src="assets/characters/Denia.jpg" alt="Denia"><div class="character-shade"></div><div class="character-meta"><span>02</span><small>WUTHERING WAVES</small></div><div class="character-name">Denia</div></article>
-        <article class="character-card"><img src="assets/characters/Aemeath.jpg" alt="Aemeath"><div class="character-shade"></div><div class="character-meta"><span>03</span><small>WUTHERING WAVES</small></div><div class="character-name">Aemeath</div></article>
-        <article class="character-card"><img src="assets/characters/Selena Pianissimo.jpg" alt="Selena: Pianissimo"><div class="character-shade"></div><div class="character-meta"><span>04</span><small>PUNISHING: GRAY RAVEN</small></div><div class="character-name">Selena: Pianissimo</div></article>
-      </div>
-      <div class="character-footer"><span>FAVORITES / 04 CHARACTERS</span><span>CHARACTERS THAT STAY WITH ME.</span></div>
-    </section>
-
-    <section class="section music-section" id="music">
-      <div class="section-heading"><span>09</span><h2 data-i18n="favoriteMusic">Favorite Music</h2><em>LISTENING / 05</em></div>
-      <div class="music-player">
-        <div class="music-now">
-          <div class="now-cover"><img id="nowCover" src="assets/music/Voyaging Star's Farewell.jpeg" alt=""></div>
-          <div class="now-info"><small>NOW PLAYING / <span id="nowIndex">01</span></small><h3 id="nowTitle">Voyaging Star's Farewell</h3><p id="nowArtist">Wuthering Waves · Tarokiki</p>
-            <div class="player-controls"><button id="prevTrack">‹</button><button id="playTrack" class="play-main">▶</button><button id="nextTrack">›</button></div>
-            <div class="progress-row"><span id="currentTime">00:00</span><input id="progressBar" type="range" min="0" max="100" value="0"><span id="duration">00:00</span></div>
-            <audio id="audioPlayer" preload="metadata"></audio>
-          </div>
-        </div>
-        <div class="track-list">
-          <button class="track-item active" data-index="0"><span class="track-no">01</span><img src="assets/music/Voyaging Star's Farewell.jpeg" alt=""><span class="track-text"><b>Voyaging Star's Farewell</b><small>Wuthering Waves · Tarokiki</small></span><span class="track-play">▶</span></button>
-          <button class="track-item" data-index="1"><span class="track-no">02</span><img src="assets/music/A Small Miracle.jpeg" alt=""><span class="track-text"><b>A Small Miracle</b><small>Wuthering Waves · Tarokiki</small></span><span class="track-play">▶</span></button>
-          <button class="track-item" data-index="2"><span class="track-no">03</span><img src="assets/music/Paper Plane.jpg" alt=""><span class="track-text"><b>Paper Plane</b><small>Wuthering Waves · Tarokiki</small></span><span class="track-play">▶</span></button>
-          <button class="track-item" data-index="3"><span class="track-no">04</span><img src="assets/music/Unwavering Startorch.jpg" alt=""><span class="track-text"><b>Unwavering Startorch</b><small>Wuthering Waves · Tarokiki</small></span><span class="track-play">▶</span></button>
-          <button class="track-item" data-index="4"><span class="track-no">05</span><img src="assets/music/Brand New Sky.jpg" alt=""><span class="track-text"><b>Brand New Sky</b><small>Wuthering Waves · Tarokiki</small></span><span class="track-play">▶</span></button>
-        </div>
-      </div>
-      <div class="music-footer"><span>FAVORITES / 05 TRACKS</span><span>SONGS THAT BECAME MEMORIES.</span></div>
-    </section>
-
-    <section class="section platforms-section" id="platforms">
-      <div class="section-heading">
-        <span>10</span>
-        <h2 data-i18n="platforms">Platforms</h2>
-        <em>FIND ME / 15</em>
-      </div>
-
-      <div class="platforms-intro">
-        <small>ELSEWHERE ON THE INTERNET</small>
-        <h3>Different platforms.<br>One identity.</h3>
-      </div>
-
-      <div class="platform-grid">
-        <a class="platform-card" href="https://www.youtube.com/@Muhammadali_0912" target="_blank" rel="noopener"><span>01</span><b>YouTube</b><small>@Muhammadali_0912</small><i>↗</i></a>
-        <a class="platform-card" href="https://www.tiktok.com/@muhammadali.sobirov1" target="_blank" rel="noopener"><span>02</span><b>TikTok</b><small>@muhammadali.sobirov1</small><i>↗</i></a>
-        <a class="platform-card" href="https://www.instagram.com/muhammadali.sobirov1" target="_blank" rel="noopener"><span>03</span><b>Instagram</b><small>@muhammadali.sobirov1</small><i>↗</i></a>
-        <a class="platform-card" href="https://www.facebook.com/profile.php?id=61561137915551" target="_blank" rel="noopener"><span>04</span><b>Facebook</b><small>Muhammadali</small><i>↗</i></a>
-        <a class="platform-card" href="https://x.com/Muhammadalioo9" target="_blank" rel="noopener"><span>05</span><b>X / Twitter</b><small>@Muhammadalioo9</small><i>↗</i></a>
-        <a class="platform-card" href="https://discord.gg/tHE2TcTy" target="_blank" rel="noopener"><span>06</span><b>Discord</b><small>Community / Invite</small><i>↗</i></a>
-        <a class="platform-card" href="https://github.com/Muhammadali57" target="_blank" rel="noopener"><span>07</span><b>GitHub</b><small>@Muhammadali57</small><i>↗</i></a>
-        <a class="platform-card" href="https://s.team/p/jpjg-tkvc/MPPWFTWB" target="_blank" rel="noopener"><span>08</span><b>Steam</b><small>Muhammadali</small><i>↗</i></a>
-        <a class="platform-card" href="https://store.epicgames.com/u/0c2f865920ac4f34ad29173044d0b444" target="_blank" rel="noopener"><span>09</span><b>Epic Games</b><small>Muhammadali</small><i>↗</i></a>
-        <a class="platform-card" href="https://profile.playstation.com/Muhammadali_09" target="_blank" rel="noopener"><span>10</span><b>PlayStation</b><small>Muhammadali_09</small><i>↗</i></a>
-        <a class="platform-card" href="https://www.twitch.tv/muhammadali_009" target="_blank" rel="noopener"><span>11</span><b>Twitch</b><small>@muhammadali_009</small><i>↗</i></a>
-        <a class="platform-card" href="https://www.reddit.com/u/Medium-Grand672/s/29fR9CXoka" target="_blank" rel="noopener"><span>12</span><b>Reddit</b><small>u/Medium-Grand672</small><i>↗</i></a>
-        <a class="platform-card" href="https://open.spotify.com/user/31hmx45thahbz5jisotb22dgmdky" target="_blank" rel="noopener"><span>13</span><b>Spotify</b><small>Muhammadali</small><i>↗</i></a>
-        <a class="platform-card" href="https://t.me/Foydalanuvchi_o9" target="_blank" rel="noopener"><span>14</span><b>Telegram</b><small>@Foydalanuvchi_o9</small><i>↗</i></a>
-        <a class="platform-card" href="https://b23.tv/TyxaSDs" target="_blank" rel="noopener"><span>15</span><b>Bilibili</b><small>Profile</small><i>↗</i></a>
-      </div>
-
-      <div class="platforms-footer">
-        <span>PLATFORMS / 15</span>
-        <span>CONNECT / FOLLOW / PLAY</span>
-      </div>
-    </section>
-
-    <section class="section contact-section" id="contact">
-      <div class="contact-wrap">
-        <div class="contact-copy">
-          <small>11 / CONTACT</small>
-          <h2 data-i18n="letsConnect">Let's connect.</h2>
-          <p><span data-i18n="contactText">Have an idea, project, or just want to talk about games, music or programming?</span></p>
-        </div>
-        <div class="contact-links">
-          <a href="mailto:muhammadalisobirov300@gmail.com"><span>EMAIL</span><b>muhammadalisobirov300@gmail.com</b><i>↗</i></a>
-          <a href="https://t.me/Foydalanuvchi_o9" target="_blank" rel="noopener"><span>TELEGRAM</span><b>@Foydalanuvchi_o9</b><i>↗</i></a>
-          <a href="https://github.com/Muhammadali57" target="_blank" rel="noopener"><span>GITHUB</span><b>@Muhammadali57</b><i>↗</i></a>
-        </div>
-      </div>
-    </section>
-
-
-<section class="section account-section" id="wuwa-account">
-      <div class="section-heading"><span>WUTHERING WAVES / ACCOUNT</span><h2>My Resonator Profile</h2></div>
-      <div class="account-grid">
-        <div><span>PLAYER NAME</span><strong>Muhammadali</strong></div>
-        <div><span>UID</span><strong>605549481</strong></div>
-        <div><span>UNION LEVEL</span><strong>80</strong></div>
-        <div><span>SERVER</span><strong>Europe</strong></div>
-        <div class="account-wide"><span>MAIN / FAVORITE RESONATORS</span><strong>Carlotta · Denia</strong></div>
-      </div>
-    </section>
-
-
-    <section class="closing">
-      <p>ONE DAY.</p>
-      <h2>I'll build the things<br>I dream about.</h2>
-      <span>© <span id="year"></span> Muhammadali</span>
-    </section>
-
-    <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
-    <footer class="site-footer">
-      <div><strong>MUHAMMADALI</strong><span>Game Programmer · Gamer · Music Lover</span></div>
-      <div><span>© 2026 Muhammadali</span><a href="#home">BACK TO TOP ↑</a></div>
-    </footer>
-
-</main>
-
-  <script src="js/main.js"></script>
-<script>
-(function () {
-  function hidePageLoader() {
-    var loader = document.getElementById('pageLoader');
-    if (!loader) return;
-    loader.classList.add('done');
-    loader.setAttribute('aria-hidden', 'true');
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', hidePageLoader, { once: true });
-  } else {
-    hidePageLoader();
-  }
-  window.addEventListener('load', hidePageLoader, { once: true });
-  setTimeout(hidePageLoader, 1500);
-})();
-</script>
-
+    <!-- JavaScript fayllari ulanishi -->
+    <script src="js/i18n.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
