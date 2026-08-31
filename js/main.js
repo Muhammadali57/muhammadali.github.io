@@ -93,3 +93,22 @@ ap.onloadedmetadata=()=>dur.textContent=fmt(ap.duration);ap.ontimeupdate=()=>{cu
     }
   }
 })();
+
+
+// V20 page-loader safety: release the splash screen even if optional app code fails.
+(function () {
+  function hidePageLoader() {
+    var loader = document.getElementById('pageLoader');
+    if (loader) {
+      loader.classList.add('done');
+      loader.setAttribute('aria-hidden', 'true');
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', hidePageLoader, { once: true });
+  } else {
+    hidePageLoader();
+  }
+  window.addEventListener('load', hidePageLoader, { once: true });
+  setTimeout(hidePageLoader, 1500);
+})();
