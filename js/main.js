@@ -1,147 +1,470 @@
-const translations = {
-  en: {
-    nav: { about:"About", interests:"Interests", games:"Games", favorites:"Favorites", music:"Music", projects:"Programming", platforms:"Platforms", contact:"Contact" },
-    hero: { eyebrow:"PERSONAL SPACE // 01", tagline:"Game Programmer · Gamer · Music Lover", intro:"Welcome to my little corner of the internet — a place for the things I create, play and listen to.", cta:"Explore my world" },
-    about: { title:"About Me", text:"I'm Muhammadali, a Game Programmer, Gamer and Music Lover. I enjoy creating things with code, exploring virtual worlds and discovering music that becomes part of my memories.", note:"This is my personal space — a small archive of the things I create, play and listen to.", card1:{title:"Game Programming",text:"I build Telegram bots and web apps while growing toward game development."}, card2:{title:"Games",text:"I love discovering new worlds, stories, characters and the memories behind them."}, card3:{title:"Music",text:"Some songs become more than music — they become part of a moment."}, footer:"CREATING • PLAYING • LISTENING" },
-    interests: { title:"Interests", card1:{label:"CREATION / CODE",title:"Game Programming",text:"Turning ideas into something that can actually run, react and be experienced."}, card2:{label:"EXPLORATION / PLAY",title:"Games",text:"Virtual worlds are places to explore — full of stories, characters, atmosphere and memories."}, card3:{label:"ATMOSPHERE / SOUND",title:"Music",text:"Music can change the feeling of a scene, a day or an entire memory."}, footer:"WHAT I CREATE • WHAT I PLAY • WHAT I HEAR" },
-    anime:{title:"Favorite Anime & Donghua",anime:"Anime",donghua:"Donghua",footer:"STORIES I CARRY WITH ME."},
-    tagline:"Game Programmer · Gamer · Music Lover", favoriteCharacters:"Favorite Characters", favoriteMusic:"Favorite Music", programming:"Programming", platforms:"Platforms", letsConnect:"Let's connect.", contactText:"Have an idea, project, or just want to talk about games, music or programming?"
-  },
-  uz: {
-    nav: { about:"Men haqimda", interests:"Qiziqishlar", games:"O‘yinlar", favorites:"Sevimlilar", music:"Musiqa", projects:"Dasturlash", platforms:"Platformalar", contact:"Aloqa" },
-    hero: { eyebrow:"SHAXSIY MAKON // 01", tagline:"Game Programmer · Gamer · Music Lover", intro:"Internetdagi kichik shaxsiy makonimga xush kelibsiz — men yaratadigan, o‘ynaydigan va tinglaydigan narsalar shu yerda.", cta:"Mening dunyomni ko‘rish" },
-    about: { title:"Men haqimda", text:"Men Muhammadali — Game Programmer, Gamer va Music Lover. Kod orqali narsalar yaratishni, virtual olamlarni kashf qilishni va xotiraga aylanadigan musiqalarni topishni yoqtiraman.", note:"Bu mening shaxsiy makonim — yaratadigan, o‘ynaydigan va tinglaydigan narsalarimning kichik arxivi.", card1:{title:"Game Programming",text:"Hozir Telegram botlar va web applar yarataman, kelajakda esa game development tomon rivojlanmoqchiman."}, card2:{title:"Games",text:"Yangi olamlar, hikoyalar, qahramonlar va ular qoldiradigan xotiralarni kashf qilishni yaxshi ko‘raman."}, card3:{title:"Music",text:"Ba'zi qo‘shiqlar shunchaki musiqa bo‘lib qolmaydi — ular ma'lum bir lahzaning bir qismiga aylanadi."}, footer:"YARATISH • O‘YNASH • TINGLASH" },
-    interests: { title:"Qiziqishlar", card1:{label:"YARATISH / KOD",title:"Game Programming",text:"G‘oyalarni ishlaydigan, javob beradigan va his qilinadigan narsaga aylantirish."}, card2:{label:"KASHFIYOT / O‘YIN",title:"Games",text:"Virtual olamlar — hikoyalar, qahramonlar, atmosfera va xotiralar bilan to‘la kashfiyot joylari."}, card3:{label:"ATMOSFERA / OVOZ",title:"Music",text:"Musiqa sahna, kun yoki butun bir xotiraning kayfiyatini o‘zgartira oladi."}, footer:"MEN YARATADIGAN • MEN O‘YNAYDIGAN • MEN TINGLAYDIGAN" },
-    anime:{title:"Sevimli Anime va Donghua",anime:"Anime",donghua:"Donghua",footer:"MEN BILAN QOLGAN HIKOYA VA XOTIRALAR."},
-    tagline:"Game Programmer · Gamer · Music Lover", favoriteCharacters:"Sevimli qahramonlar", favoriteMusic:"Sevimli musiqalar", programming:"Dasturlash", platforms:"Platformalar", letsConnect:"Bog‘lanamiz.", contactText:"G‘oya, loyiha yoki shunchaki o‘yinlar, musiqa va dasturlash haqida suhbatlashmoqchimisiz?"
-  },
-  ru: {
-    nav: { about:"Обо мне", interests:"Интересы", games:"Игры", favorites:"Избранное", music:"Музыка", projects:"Программирование", platforms:"Платформы", contact:"Контакты" },
-    hero: { eyebrow:"ЛИЧНОЕ ПРОСТРАНСТВО // 01", tagline:"Game Programmer · Gamer · Music Lover", intro:"Добро пожаловать в мой маленький уголок интернета — место для того, что я создаю, играю и слушаю.", cta:"Исследовать мой мир" },
-    about: { title:"Обо мне", text:"Я Мухаммадали — Game Programmer, Gamer и Music Lover. Мне нравится создавать вещи с помощью кода, исследовать виртуальные миры и находить музыку, которая становится частью воспоминаний.", note:"Это моё личное пространство — небольшой архив того, что я создаю, играю и слушаю.", card1:{title:"Game Programming",text:"Сейчас я создаю Telegram-ботов и веб-приложения, постепенно двигаясь к разработке игр."}, card2:{title:"Games",text:"Мне нравится открывать новые миры, истории, персонажей и воспоминания, которые они оставляют."}, card3:{title:"Music",text:"Некоторые песни становятся чем-то большим — они становятся частью определённого момента."}, footer:"СОЗДАЮ • ИГРАЮ • СЛУШАЮ" },
-    interests: { title:"Интересы", card1:{label:"СОЗДАНИЕ / КОД",title:"Game Programming",text:"Превращать идеи во что-то, что действительно работает, реагирует и ощущается."}, card2:{label:"ИССЛЕДОВАНИЕ / ИГРА",title:"Games",text:"Виртуальные миры — это истории, персонажи, атмосфера и воспоминания."}, card3:{label:"АТМОСФЕРА / ЗВУК",title:"Music",text:"Музыка может изменить настроение сцены, дня или целого воспоминания."}, footer:"ЧТО Я СОЗДАЮ • ВО ЧТО ИГРАЮ • ЧТО СЛУШАЮ" },
-    anime:{title:"Любимое аниме и дунхуа",anime:"Аниме",donghua:"Дунхуа",footer:"ИСТОРИИ, КОТОРЫЕ ОСТАЛИСЬ СО МНОЙ."},
-    tagline:"Game Programmer · Gamer · Music Lover", favoriteCharacters:"Любимые персонажи", favoriteMusic:"Любимая музыка", programming:"Программирование", platforms:"Платформы", letsConnect:"Давайте на связи.", contactText:"Есть идея, проект или просто хотите поговорить об играх, музыке или программировании?"
-  }
-};
-
-const getPath = (obj, path) => path.split(".").reduce((value, key) => value?.[key], obj);
-const languageButton = document.getElementById("languageButton");
-const languageMenu = document.getElementById("languageMenu");
-
-function applyLanguage(lang, save = true) {
-  if (!translations[lang]) lang = "en";
-  document.documentElement.lang = lang;
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const value = getPath(translations[lang], el.dataset.i18n);
-    if (value) el.textContent = value;
-  });
-  if (languageButton) languageButton.firstChild.textContent = lang.toUpperCase() + " ";
-  if (save) localStorage.setItem("site-language", lang);
-  languageMenu?.classList.remove("open");
-  languageButton?.setAttribute("aria-expanded", "false");
+/* =========================================
+   1. ASOSIY O'ZGARUVCHILAR VA RESET
+========================================= */
+@font-face {
+    font-family: 'WutheringWaves';
+    src: url('../assets/fonts/wuthering-waves.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
-if (languageButton && languageMenu) {
-  languageButton.addEventListener("click", event => {
-    event.stopPropagation();
-    const open = languageMenu.classList.toggle("open");
-    languageButton.setAttribute("aria-expanded", String(open));
-  });
-  languageMenu.querySelectorAll("[data-lang]").forEach(item => item.addEventListener("click", () => applyLanguage(item.dataset.lang)));
-  document.addEventListener("click", () => languageMenu.classList.remove("open"));
-  const saved = localStorage.getItem("site-language");
-  const browser = (navigator.language || "en").toLowerCase();
-  applyLanguage(saved && translations[saved] ? saved : browser.startsWith("uz") ? "uz" : browser.startsWith("ru") ? "ru" : "en", false);
+:root {
+    --bg-main: #0d0e15;
+    --bg-card: rgba(20, 22, 33, 0.7);
+    --text-main: #e2e8f0;
+    --text-muted: #94a3b8;
+    --primary: #7c5cff;
+    --primary-glow: rgba(124, 92, 255, 0.4);
+    --border: rgba(124, 92, 255, 0.2);
+    --hover-bg: rgba(124, 92, 255, 0.1);
 }
 
-const menuToggle = document.getElementById("menuToggle");
-const nav = document.querySelector(".nav");
-menuToggle?.addEventListener("click", event => {
-  event.stopPropagation();
-  nav?.classList.toggle("open");
-});
-nav?.querySelectorAll("a").forEach(link => link.addEventListener("click", () => nav.classList.remove("open")));
-
-const musicTracks = [
-  {title:"Voyaging Star's Farewell",artist:"Wuthering Waves · Tarokiki",audio:"assets/music/Voyaging Stars Farewell - Wuthering Waves Jixwang Tarokiki Emi Evans.mp3",cover:"assets/music/Voyaging Star's Farewell.jpeg"},
-  {title:"A Small Miracle",artist:"Wuthering Waves · Tarokiki",audio:"assets/music/A Small Miracle - Wuthering Waves.mp3",cover:"assets/music/A Small Miracle.jpeg"},
-  {title:"Paper Plane",artist:"Wuthering Waves · Tarokiki",audio:"assets/music/Paper Plane - Wuthering Waves.mp3",cover:"assets/music/Paper Plane.jpg"},
-  {title:"Unwavering Startorch",artist:"Wuthering Waves · Tarokiki",audio:"assets/music/Unwavering Startorch - Wuthering Waves.mp3",cover:"assets/music/Unwavering Startorch.jpg"},
-  {title:"Brand New Sky",artist:"Wuthering Waves · Tarokiki",audio:"assets/music/Brand New Sky - Wuthering Waves.mp3",cover:"assets/music/Brand New Sky.jpg"}
-];
-
-const audio = document.getElementById("audioPlayer");
-if (audio) {
-  const cover = document.getElementById("nowCover");
-  const title = document.getElementById("nowTitle");
-  const artist = document.getElementById("nowArtist");
-  const index = document.getElementById("nowIndex");
-  const play = document.getElementById("playTrack");
-  const progress = document.getElementById("progressBar");
-  const current = document.getElementById("currentTime");
-  const duration = document.getElementById("duration");
-  const items = [...document.querySelectorAll(".track-item")];
-  let currentIndex = 0;
-  const formatTime = seconds => Number.isFinite(seconds) ? `${String(Math.floor(seconds / 60)).padStart(2,"0")}:${String(Math.floor(seconds % 60)).padStart(2,"0")}` : "00:00";
-
-  function updateButtons() {
-    play.textContent = audio.paused ? "▶" : "Ⅱ";
-    items.forEach((item, itemIndex) => {
-      item.classList.toggle("active", itemIndex === currentIndex);
-      item.querySelector(".track-play").textContent = itemIndex === currentIndex && !audio.paused ? "Ⅱ" : "▶";
-    });
-  }
-
-  function loadTrack(trackIndex, autoplay = false) {
-    currentIndex = (trackIndex + musicTracks.length) % musicTracks.length;
-    const track = musicTracks[currentIndex];
-    audio.src = track.audio;
-    cover.src = track.cover;
-    title.textContent = track.title;
-    artist.textContent = track.artist;
-    index.textContent = String(currentIndex + 1).padStart(2, "0");
-    progress.value = 0;
-    current.textContent = "00:00";
-    duration.textContent = "00:00";
-    updateButtons();
-    if (autoplay) audio.play().catch(() => {});
-  }
-
-  play?.addEventListener("click", () => audio.paused ? audio.play().catch(() => {}) : audio.pause());
-  document.getElementById("prevTrack")?.addEventListener("click", () => loadTrack(currentIndex - 1, true));
-  document.getElementById("nextTrack")?.addEventListener("click", () => loadTrack(currentIndex + 1, true));
-  items.forEach((item, itemIndex) => item.addEventListener("click", () => loadTrack(itemIndex, true)));
-  audio.addEventListener("loadedmetadata", () => duration.textContent = formatTime(audio.duration));
-  audio.addEventListener("timeupdate", () => { current.textContent = formatTime(audio.currentTime); progress.value = audio.duration ? audio.currentTime / audio.duration * 100 : 0; });
-  progress?.addEventListener("input", () => { if (audio.duration) audio.currentTime = progress.value / 100 * audio.duration; });
-  audio.addEventListener("play", updateButtons);
-  audio.addEventListener("pause", updateButtons);
-  audio.addEventListener("ended", () => loadTrack(currentIndex + 1, true));
-  loadTrack(0);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-const scrollProgress = document.getElementById("scrollProgress");
-const backToTop = document.getElementById("backToTop");
-function updateScrollUI() {
-  const max = document.documentElement.scrollHeight - window.innerHeight;
-  if (scrollProgress) scrollProgress.style.width = `${max > 0 ? window.scrollY / max * 100 : 0}%`;
-  backToTop?.classList.toggle("show", window.scrollY > 500);
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
 }
-window.addEventListener("scroll", updateScrollUI, {passive:true});
-backToTop?.addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
-updateScrollUI();
 
-const year = document.getElementById("year");
-if (year) year.textContent = new Date().getFullYear();
-
-function hidePageLoader() {
-  const loader = document.getElementById("pageLoader");
-  if (!loader) return;
-  loader.classList.add("done");
-  loader.setAttribute("aria-hidden", "true");
+h1, h2, h3, h4, .logo {
+    font-family: 'WutheringWaves', sans-serif;
+    letter-spacing: 1px;
 }
-if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", hidePageLoader, {once:true});
-else hidePageLoader();
-window.addEventListener("load", hidePageLoader, {once:true});
-setTimeout(hidePageLoader, 1500);
+
+/* =========================================
+   2. NAVIGATSIYA (HEADER)
+========================================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(13, 14, 21, 0.9);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo-accent {
+    color: var(--primary);
+    text-shadow: 0 0 10px var(--primary-glow);
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-btn:hover {
+    color: var(--primary);
+    background: var(--hover-bg);
+}
+
+.nav-btn.active {
+    color: #fff;
+    background: var(--primary);
+    box-shadow: 0 0 15px var(--primary-glow);
+}
+
+/* =========================================
+   3. SPA (YAGONA SAHIFA) MANTIQI
+========================================= */
+.main-container {
+    max-width: 1000px;
+    margin: 100px auto 40px auto;
+    padding: 0 20px;
+}
+
+.page-section {
+    display: none;
+    animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+.page-section.active-section {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Umumiy Kartochka Stili */
+.content-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.section-title {
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+}
+
+.subsection-title {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+/* =========================================
+   4. BOSH SAHIFA (HERO)
+========================================= */
+.hero-card {
+    text-align: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.avatar-wrapper {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px auto;
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(135deg, var(--primary), #3b82f6);
+    box-shadow: 0 0 20px var(--primary-glow);
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--bg-main);
+}
+
+.hero-title {
+    font-size: 2.2rem;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.hero-subtitle {
+    color: var(--primary);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.tag-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tag {
+    background: var(--hover-bg);
+    color: var(--text-main);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid var(--border);
+}
+
+.hero-bio {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--text-muted);
+}
+
+/* =========================================
+   5. HAQIMDA VA LOYIHALAR GRIDLARI
+========================================= */
+.info-grid, .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.info-box, .project-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.info-box:hover, .project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+.info-box h3, .project-card h3 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.info-box p, .project-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.project-icon {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.project-tag {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: var(--primary);
+    background: var(--hover-bg);
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+
+/* =========================================
+   6. SEVIMLILAR (PLAYER, CHARACTERS, GAMES)
+========================================= */
+/* Player */
+.player-card {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.cover-wrapper {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 20px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px var(--primary-glow);
+}
+
+.cover-art {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.player-card.playing .cover-art {
+    transform: scale(1.05);
+}
+
+.track-info h3 { color: #fff; font-size: 1.2rem; }
+.track-info p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; }
+
+.player-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.control-btn {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.control-btn:hover { color: var(--primary); }
+
+.play-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px var(--primary-glow);
+}
+
+.play-btn:hover {
+    background: #6a4deb;
+    color: #fff;
+}
+
+.track-list {
+    list-style: none;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.track-item {
+    padding: 10px 15px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-radius: 8px;
+}
+
+.track-item:hover { background: var(--hover-bg); }
+.track-item.active { background: var(--primary-glow); border-left: 4px solid var(--primary); color: #fff; }
+.track-item .badge { font-size: 0.8rem; color: var(--text-muted); }
+
+/* Personajlar va O'yinlar Gridi */
+.characters-grid, .games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.character-card, .game-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.character-card:hover, .game-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+.character-card img, .game-img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+
+.char-info, .game-info {
+    padding: 12px;
+    text-align: center;
+}
+
+.char-info h3, .game-info h4 {
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.char-info p {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.game-badge {
+    font-size: 0.75rem;
+    background: rgba(124, 92, 255, 0.15);
+    color: #a78bfa;
+    padding: 2px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(124, 92, 255, 0.3);
+}
+
+/* =========================================
+   7. ALOQA (CONTACT)
+========================================= */
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.social-btn {
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.social-btn:hover {
+    transform: translateY(-3px);
+}
+
+.telegram { background: #229ED9; }
+.telegram:hover { box-shadow: 0 5px 15px rgba(34, 158, 217, 0.4); }
+
+.github { background: #333; }
+.github:hover { box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2); }
+
+.youtube { background: #FF0000; }
+.youtube:hover { box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4); }
+
+/* =========================================
+   8. RESPONSIVLIK (MEDIA QUERIES)
+========================================= */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px;
+    }
+    
+    .nav-links {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-btn span {
+        display: none; /* Telefonda faqat ikonkalar qoladi */
+    }
+
+    .nav-btn {
+        padding: 10px;
+        font-size: 1.2rem;
+    }
+
+    .main-container {
+        margin-top: 120px; /* Navbar kattalashgani uchun */
+    }
+
+    .characters-grid, .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    }
+
+    .character-card img, .game-img {
+        height: 100px;
+    }
+}
