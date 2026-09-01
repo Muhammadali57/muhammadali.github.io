@@ -1,145 +1,123 @@
-/* ==========================================
-   1. MULTILINGUAL DICTIONARY & TOGGLE SYSTEM
-   ========================================== */
-const dictionary = {
-  uz: {
-    "nav.about": "Men haqimda",
-    "nav.skills": "Yo'nalishlar",
-    "nav.games": "O'yinlar",
-    "nav.music": "Musiqa",
-    "nav.links": "Aloqa",
-    "hero.status": "TIZIM // ONLAYN",
-    "hero.tagline": "Game Programmer · Gamer · Tech Explorer",
-    "hero.btn1": "Kashf qilish",
-    "hero.btn2": "Bog'lanish",
-    "about.title": "Men haqimda",
-    "about.card1.title": "Dasturlash",
-    "about.card1.desc": "Python, Telegram botlar va Web ilovalar yarataman. Asosiy maqsadim — Game Development sohasini chuqur egallash.",
-    "about.card2.title": "O'yin Olamlari",
-    "about.card2.desc": "Wuthering Waves va PGR kabi murakkab jang tizimiga hamda chuqur syujetga ega virtual olamlarni o'rganishni yoqtiraman.",
-    "about.card3.title": "Atmosfera & Musiqa",
-    "about.card3.desc": "Musiqa o'yin va hayotiy lahzalarga o'zgacha kayfiyat bag'ishlaydi. Soundtraklar — ilhom manbaim.",
-    "games.title": "Sevimli O'yinlar & Qahramonlar",
-    "music.title": "Sevimli Musiqa",
-    "links.title": "Platformalar"
-  },
-  en: {
-    "nav.about": "About",
-    "nav.skills": "Focus",
-    "nav.games": "Games",
-    "nav.music": "Music",
-    "nav.links": "Connect",
-    "hero.status": "SYSTEM // ONLINE",
-    "hero.tagline": "Game Programmer · Gamer · Tech Explorer",
-    "hero.btn1": "Explore World",
-    "hero.btn2": "Get in Touch",
-    "about.title": "About Me",
-    "about.card1.title": "Programming",
-    "about.card1.desc": "Building Telegram bots & Web apps with Python, moving forward to Game Development.",
-    "about.card2.title": "Virtual Worlds",
-    "about.card2.desc": "Exploring rich storylines and intricate combat mechanics in games like Wuthering Waves & PGR.",
-    "about.card3.title": "Atmosphere & Sound",
-    "about.card3.desc": "Music turns simple moments into memories. OSTs are my primary source of inspiration.",
-    "games.title": "Favorite Games & Characters",
-    "music.title": "Favorite Music",
-    "links.title": "Find Me Online"
-  }
-};
+(() => {
+  'use strict';
 
-let currentLang = 'uz';
+  const $ = (s, root = document) => root.querySelector(s);
+  const $$ = (s, root = document) => [...root.querySelectorAll(s)];
 
-function initLanguageSwitcher() {
-  const langBtn = document.getElementById('langToggle');
-  if (!langBtn) return;
-
-  langBtn.addEventListener('click', () => {
-    currentLang = currentLang === 'uz' ? 'en' : 'uz';
-    langBtn.textContent = currentLang.toUpperCase();
-    
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (dictionary[currentLang] && dictionary[currentLang][key]) {
-        el.textContent = dictionary[currentLang][key];
-      }
-    });
-  });
-}
-
-/* ==========================================
-   2. AUDIO PLAYER CONTROLLER
-   ========================================== */
-const playlist = [
-  { 
-    title: "Voyaging Star's Farewell", 
-    artist: "Tarokiki · Wuthering Waves OST" 
-  },
-  { 
-    title: "A Small Miracle", 
-    artist: "Tarokiki · Wuthering Waves OST" 
-  },
-  { 
-    title: "Unwavering Startorch", 
-    artist: "Tarokiki · Wuthering Waves OST" 
-  }
-];
-
-let currentTrackIndex = 0;
-let isPlaying = false;
-
-function initMusicPlayer() {
-  const playBtn = document.getElementById('playBtn');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  const trackTitle = document.getElementById('trackTitle');
-  const trackArtist = document.getElementById('trackArtist');
-
-  if (!playBtn) return;
-
-  playBtn.addEventListener('click', () => {
-    isPlaying = !isPlaying;
-    playBtn.textContent = isPlaying ? "Ⅱ" : "▶";
-    playBtn.style.borderColor = isPlaying ? "var(--accent)" : "var(--border-color)";
+  // Loader
+  window.addEventListener('load', () => {
+    setTimeout(() => $('#pageLoader')?.classList.add('done'), 250);
   });
 
-  nextBtn.addEventListener('click', () => {
-    currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
-    updateTrackDisplay(trackTitle, trackArtist);
+  // Mobile navigation — one menu only.
+  const menuToggle = $('#menuToggle');
+  const nav = $('#mainNav');
+  const closeMenu = () => {
+    nav?.classList.remove('open');
+    menuToggle?.classList.remove('open');
+    menuToggle?.setAttribute('aria-expanded', 'false');
+  };
+  menuToggle?.addEventListener('click', () => {
+    const open = !nav.classList.contains('open');
+    nav.classList.toggle('open', open);
+    menuToggle.classList.toggle('open', open);
+    menuToggle.setAttribute('aria-expanded', String(open));
   });
+  $$('#mainNav a').forEach(a => a.addEventListener('click', closeMenu));
 
-  prevBtn.addEventListener('click', () => {
-    currentTrackIndex = (currentTrackIndex - 1 + playlist.length) % playlist.length;
-    updateTrackDisplay(trackTitle, trackArtist);
-  });
-}
-
-function updateTrackDisplay(titleEl, artistEl) {
-  if (titleEl) titleEl.textContent = playlist[currentTrackIndex].title;
-  if (artistEl) artistEl.textContent = playlist[currentTrackIndex].artist;
-}
-
-/* ==========================================
-   3. UI INTERACTIVES & SCROLL ANIMATIONS
-   ========================================== */
-function initHeaderScrollEffect() {
-  const header = document.querySelector('header');
-  if (!header) return;
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      header.style.background = 'rgba(7, 9, 14, 0.95)';
-      header.style.borderBottomColor = 'rgba(112, 165, 255, 0.2)';
-    } else {
-      header.style.background = 'rgba(7, 9, 14, 0.85)';
-      header.style.borderBottomColor = 'var(--border-color)';
+  // Language — a single source of truth, no duplicate handlers or API calls.
+  const translations = {
+    uz: {
+      nav:{home:'Bosh sahifa',about:'Men haqimda',interests:'Qiziqishlar',games:'O‘yinlar',characters:'Qahramonlar',music:'Musiqa',programming:'Dasturlash',platforms:'Platformalar',contact:'Aloqa'},
+      hero:{eyebrow:'SHAXSIY MAKON // 01',tagline:'Game Programmer · Gamer · Music Lover',intro:'Internetdagi kichik shaxsiy makonimga xush kelibsiz — men yaratadigan, o‘ynaydigan va tinglaydigan narsalar shu yerda.',cta:'Mening dunyomni ko‘rish'},
+      about:{title:'Men haqimda',text:'Men Muhammadali — Game Programmer, Gamer va Music Lover. Kod orqali narsalar yaratishni, virtual olamlarni kashf qilishni va xotiraga aylanadigan musiqalarni topishni yoqtiraman.',note:'Bu mening shaxsiy makonim — yaratadigan, o‘ynaydigan va tinglaydigan narsalarimning kichik arxivi.',card1:{title:'Game Programming',text:'Hozir Telegram botlar va web applar yarataman, kelajakda esa game development tomon rivojlanmoqchiman.'},card2:{title:'Games',text:'Yangi olamlar, hikoyalar, qahramonlar va ular qoldiradigan xotiralarni kashf qilishni yaxshi ko‘raman.'},card3:{title:'Music',text:'Ba’zi qo‘shiqlar shunchaki musiqa bo‘lib qolmaydi — ular ma’lum bir lahzaning bir qismiga aylanadi.'}},
+      interests:{title:'Qiziqishlar'},games:{title:'Sevimli o‘yinlar'},characters:{title:'Sevimli qahramonlar'},music:{title:'Sevimli musiqalar'},programming:{title:'Dasturlash'},platforms:{title:'Platformalar'},contact:{title:'Bog‘lanamiz.',text:'G‘oya, loyiha yoki shunchaki o‘yinlar, musiqa va dasturlash haqida suhbatlashmoqchimisiz?'}
+    },
+    en: {
+      nav:{home:'Home',about:'About',interests:'Interests',games:'Games',characters:'Characters',music:'Music',programming:'Programming',platforms:'Platforms',contact:'Contact'},
+      hero:{eyebrow:'PERSONAL SPACE // 01',tagline:'Game Programmer · Gamer · Music Lover',intro:'Welcome to my little corner of the internet — a place for the things I create, play and listen to.',cta:'Explore my world'},
+      about:{title:'About Me',text:'I’m Muhammadali — a Game Programmer, Gamer and Music Lover. I enjoy creating things with code, exploring virtual worlds and finding music that becomes part of my memories.',note:'This is my personal space — a small archive of the things I create, play and listen to.',card1:{title:'Game Programming',text:'I currently build Telegram bots and web apps while moving toward game development.'},card2:{title:'Games',text:'I love discovering new worlds, stories, characters and the memories they leave behind.'},card3:{title:'Music',text:'Some songs become more than music — they become part of a particular moment.'}},
+      interests:{title:'Interests'},games:{title:'Favorite Games'},characters:{title:'Favorite Characters'},music:{title:'Favorite Music'},programming:{title:'Programming'},platforms:{title:'Platforms'},contact:{title:'Let’s connect.',text:'Have an idea, project, or just want to talk about games, music or programming?'}
+    },
+    ru: {
+      nav:{home:'Главная',about:'Обо мне',interests:'Интересы',games:'Игры',characters:'Персонажи',music:'Музыка',programming:'Программирование',platforms:'Платформы',contact:'Контакты'},
+      hero:{eyebrow:'ЛИЧНОЕ ПРОСТРАНСТВО // 01',tagline:'Game Programmer · Gamer · Music Lover',intro:'Добро пожаловать в мой маленький уголок интернета — место для того, что я создаю, играю и слушаю.',cta:'Исследовать мой мир'},
+      about:{title:'Обо мне',text:'Я Мухаммадали — Game Programmer, Gamer и Music Lover. Мне нравится создавать вещи с помощью кода, исследовать виртуальные миры и находить музыку, которая становится частью воспоминаний.',note:'Это моё личное пространство — небольшой архив того, что я создаю, играю и слушаю.',card1:{title:'Game Programming',text:'Сейчас я создаю Telegram-ботов и веб-приложения, постепенно двигаясь к разработке игр.'},card2:{title:'Games',text:'Мне нравится открывать новые миры, истории, персонажей и воспоминания, которые они оставляют.'},card3:{title:'Music',text:'Некоторые песни становятся чем-то большим — они становятся частью определённого момента.'}},
+      interests:{title:'Интересы'},games:{title:'Любимые игры'},characters:{title:'Любимые персонажи'},music:{title:'Любимая музыка'},programming:{title:'Программирование'},platforms:{title:'Платформы'},contact:{title:'Давайте на связи.',text:'Есть идея, проект или просто хотите поговорить об играх, музыке или программировании?'}
     }
+  };
+  const get = (obj, path) => path.split('.').reduce((v, k) => v?.[k], obj);
+  const languageButton = $('#languageButton');
+  const languageMenu = $('#languageMenu');
+  function applyLanguage(lang, save = true) {
+    if (!translations[lang]) lang = 'uz';
+    document.documentElement.lang = lang;
+    $$('[data-i18n]').forEach(el => {
+      const value = get(translations[lang], el.dataset.i18n);
+      if (value != null) el.textContent = value;
+    });
+    if (languageButton) languageButton.innerHTML = `${lang.toUpperCase()} <span>⌄</span>`;
+    if (save) localStorage.setItem('site-language', lang);
+    languageMenu?.classList.remove('open');
+    languageButton?.setAttribute('aria-expanded', 'false');
+  }
+  languageButton?.addEventListener('click', e => {
+    e.stopPropagation();
+    const open = languageMenu.classList.toggle('open');
+    languageButton.setAttribute('aria-expanded', String(open));
   });
-}
+  languageMenu?.querySelectorAll('[data-lang]').forEach(btn => btn.addEventListener('click', () => applyLanguage(btn.dataset.lang)));
+  document.addEventListener('click', () => languageMenu?.classList.remove('open'));
+  const savedLang = localStorage.getItem('site-language');
+  const browserLang = (navigator.language || '').toLowerCase();
+  applyLanguage(savedLang || (browserLang.startsWith('ru') ? 'ru' : browserLang.startsWith('en') ? 'en' : 'uz'), false);
 
-/* ==========================================
-   4. DOM INITIALIZATION
-   ========================================== */
-document.addEventListener('DOMContentLoaded', () => {
-  initLanguageSwitcher();
-  initMusicPlayer();
-  initHeaderScrollEffect();
-});
+  // Scroll UI
+  const progress = $('#scrollProgress');
+  const back = $('#backToTop');
+  const onScroll = () => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    if (progress) progress.style.width = `${max > 0 ? scrollY / max * 100 : 0}%`;
+    back?.classList.toggle('visible', scrollY > 600);
+  };
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  back?.addEventListener('click', () => scrollTo({ top:0, behavior:'smooth' }));
+
+  // Reveal animations
+  const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.classList.add('show'); revealObserver.unobserve(entry.target); }
+  }), { threshold:.12 });
+  $$('.reveal').forEach(el => revealObserver.observe(el));
+
+  // Music player
+  const tracks = [
+    {title:"Voyaging Star's Farewell",artist:'Wuthering Waves · Tarokiki',audio:"assets/music/Voyaging Stars Farewell - Wuthering Waves Jixwang Tarokiki Emi Evans.mp3",cover:"assets/music/Voyaging Star's Farewell.jpeg"},
+    {title:'A Small Miracle',artist:'Wuthering Waves · Tarokiki',audio:'assets/music/A Small Miracle - Wuthering Waves.mp3',cover:'assets/music/A Small Miracle.jpeg'},
+    {title:'Paper Plane',artist:'Wuthering Waves · Tarokiki',audio:'assets/music/Paper Plane - Wuthering Waves.mp3',cover:'assets/music/Paper Plane.jpg'},
+    {title:'Unwavering Startorch',artist:'Wuthering Waves · Tarokiki',audio:'assets/music/Unwavering Startorch - Wuthering Waves.mp3',cover:'assets/music/Unwavering Startorch.jpg'},
+    {title:'Brand New Sky',artist:'Wuthering Waves · Tarokiki',audio:'assets/music/Brand New Sky - Wuthering Waves.mp3',cover:'assets/music/Brand New Sky.jpg'}
+  ];
+  const audio = $('#audioPlayer');
+  if (audio) {
+    const cover = $('#nowCover'), title = $('#nowTitle'), artist = $('#nowArtist'), index = $('#nowIndex'), play = $('#playTrack'), progressBar = $('#progressBar'), current = $('#currentTime'), duration = $('#duration');
+    const items = $$('.track-item'); let currentIndex = 0;
+    const fmt = s => Number.isFinite(s) ? `${String(Math.floor(s/60)).padStart(2,'0')}:${String(Math.floor(s%60)).padStart(2,'0')}` : '00:00';
+    const updateButtons = () => { play.textContent = audio.paused ? '▶' : 'Ⅱ'; items.forEach((item,i) => item.querySelector('.track-play').textContent = i === currentIndex && !audio.paused ? 'Ⅱ' : '▶'); };
+    const load = (n, autoplay = false) => {
+      currentIndex = (n + tracks.length) % tracks.length;
+      const track = tracks[currentIndex]; audio.src = track.audio; cover.src = track.cover; title.textContent = track.title; artist.textContent = track.artist; index.textContent = String(currentIndex+1).padStart(2,'0'); progressBar.value = 0; current.textContent='00:00'; duration.textContent='00:00'; items.forEach((x,i)=>x.classList.toggle('active',i===currentIndex)); updateButtons();
+      if (autoplay) audio.play().catch(()=>{});
+    };
+    play.addEventListener('click', () => audio.paused ? audio.play().catch(()=>{}) : audio.pause());
+    $('#prevTrack')?.addEventListener('click', () => load(currentIndex-1,true));
+    $('#nextTrack')?.addEventListener('click', () => load(currentIndex+1,true));
+    items.forEach(item => item.addEventListener('click', () => load(Number(item.dataset.index), true)));
+    audio.addEventListener('loadedmetadata', () => duration.textContent = fmt(audio.duration));
+    audio.addEventListener('timeupdate', () => { current.textContent=fmt(audio.currentTime); progressBar.value=audio.duration ? audio.currentTime/audio.duration*100 : 0; });
+    progressBar.addEventListener('input', () => { if(audio.duration) audio.currentTime = progressBar.value/100*audio.duration; });
+    audio.addEventListener('play', updateButtons); audio.addEventListener('pause', updateButtons); audio.addEventListener('ended', () => load(currentIndex+1,true));
+    load(0);
+  }
+
+  $('#year').textContent = new Date().getFullYear();
+})();
