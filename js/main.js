@@ -4,10 +4,21 @@
   const $ = (s, root = document) => root.querySelector(s);
   const $$ = (s, root = document) => [...root.querySelectorAll(s)];
 
-  // Loader
-  window.addEventListener('load', () => {
-    setTimeout(() => $('#pageLoader')?.classList.add('done'), 250);
-  });
+  // Loader — never wait for every image/audio/network request.
+  // The page can continue loading in the background while the loader disappears quickly.
+  const hideLoader = () => {
+    const loader = $('#pageLoader');
+    if (!loader) return;
+    loader.classList.add('done');
+    setTimeout(() => loader.remove(), 260);
+  };
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => setTimeout(hideLoader, 80), { once: true });
+  } else {
+    setTimeout(hideLoader, 80);
+  }
+  // Safety fallback in case DOM events are interrupted.
+  setTimeout(hideLoader, 900);
 
   // Mobile navigation — one menu only.
   const menuToggle = $('#menuToggle');
