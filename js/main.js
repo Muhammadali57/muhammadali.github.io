@@ -16,12 +16,14 @@
     nav?.classList.remove('open');
     menuToggle?.classList.remove('open');
     menuToggle?.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
   };
   menuToggle?.addEventListener('click', () => {
     const open = !nav.classList.contains('open');
     nav.classList.toggle('open', open);
     menuToggle.classList.toggle('open', open);
     menuToggle.setAttribute('aria-expanded', String(open));
+    document.body.classList.toggle('menu-open', open);
   });
   $$('#mainNav a').forEach(a => a.addEventListener('click', closeMenu));
 
