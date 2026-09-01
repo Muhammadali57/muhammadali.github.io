@@ -1,430 +1,180 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uz">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muhammadali — Personal Core</title>
-  <style>
-    :root {
-      --bg: #07090e;
-      --card-bg: rgba(16, 22, 34, 0.6);
-      --accent: #70a5ff;
-      --accent-glow: rgba(112, 165, 255, 0.25);
-      --text: #e6edf3;
-      --muted: #8b949e;
-      --border: rgba(255, 255, 255, 0.1);
-      --font-mono: 'Fira Code', 'Courier New', monospace;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* Grid Background Effect */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: 
-        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-      background-size: 50px 50px;
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    /* Header */
-    header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      height: 70px;
-      padding: 0 8vw;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(7, 9, 14, 0.8);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      z-index: 100;
-    }
-
-    .brand {
-      font-family: var(--font-mono);
-      font-weight: 700;
-      letter-spacing: 2px;
-      color: var(--text);
-      text-decoration: none;
-      font-size: 1.1rem;
-    }
-    .brand span { color: var(--accent); }
-
-    nav { display: flex; gap: 2rem; }
-    nav a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-family: var(--font-mono);
-      transition: 0.2s;
-    }
-    nav a:hover { color: var(--accent); }
-
-    .lang-btn {
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 6px 14px;
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .lang-btn:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* Main Container */
-    main { max-width: 1100px; margin: 0 auto; padding: 0 5vw; }
-    section { padding: 100px 0 60px; }
-
-    /* Section Titles */
-    .section-title {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      color: var(--accent);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-    h2 { font-size: 2.2rem; font-weight: 400; margin-bottom: 30px; }
-
-    /* Hero Section */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding-top: 120px;
-    }
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid var(--border);
-      padding: 4px 12px;
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--muted);
-      width: fit-content;
-      margin-bottom: 25px;
-    }
-    .dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 8px var(--accent); }
-    .hero h1 { font-size: clamp(3rem, 8vw, 6rem); font-weight: 800; line-height: 1; letter-spacing: -1px; }
-    .hero p.subtitle { font-size: 1.2rem; color: var(--muted); margin: 20px 0 35px; max-width: 600px; }
-    .hero-btns { display: flex; gap: 15px; }
-    
-    .btn {
-      padding: 12px 24px;
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      text-decoration: none;
-      color: var(--bg);
-      background: var(--text);
-      transition: 0.3s;
-      border: 1px solid var(--text);
-    }
-    .btn-outline { background: transparent; color: var(--text); border-color: var(--border); }
-    .btn:hover { background: var(--accent); border-color: var(--accent); color: var(--bg); }
-
-    /* Cards Grid */
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      padding: 28px;
-      position: relative;
-      transition: transform 0.3s, border-color 0.3s;
-    }
-    .card:hover { transform: translateY(-4px); border-color: var(--accent); }
-    .card-num { position: absolute; top: 20px; right: 20px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--border); }
-    .card h3 { font-size: 1.3rem; margin: 15px 0 10px; font-weight: 500; }
-    .card p { color: var(--muted); font-size: 0.9rem; }
-
-    /* Games & Characters Section */
-    .game-badge-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
-    .badge {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border);
-      padding: 6px 14px;
-      font-size: 0.85rem;
-      font-family: var(--font-mono);
-    }
-
-    /* Simple Music Player UI */
-    .player-box {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      padding: 30px;
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 30px;
-      align-items: center;
-    }
-    .player-info h3 { font-size: 1.4rem; }
-    .player-info p { color: var(--muted); font-size: 0.9rem; }
-    .controls { display: flex; gap: 15px; margin-top: 20px; }
-    .control-btn {
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--text);
-      width: 45px; height: 45px;
-      cursor: pointer;
-      display: grid; place-items: center;
-      transition: 0.2s;
-    }
-    .control-btn:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* Links Section */
-    .links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
-    .link-card {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 20px;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      color: var(--text);
-      text-decoration: none;
-      font-family: var(--font-mono);
-      font-size: 0.9rem;
-      transition: 0.3s;
-    }
-    .link-card:hover { border-color: var(--accent); background: var(--accent-glow); }
-
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 40px 0;
-      text-align: center;
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    @media (max-width: 768px) {
-      nav { display: none; }
-      .player-box { grid-template-columns: 1fr; }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#07090d">
+  <meta name="description" content="Muhammadali — Game Programmer · Gamer · Music Lover.">
+  <meta property="og:title" content="Muhammadali — Personal Space">
+  <meta property="og:description" content="Games, music, programming and things I love.">
+  <meta property="og:type" content="website">
+  <title>Muhammadali — Personal Space</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <div class="ambient" aria-hidden="true"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div><div class="stars"></div></div>
+  <div id="pageLoader" class="page-loader" aria-hidden="true"><div class="loader-mark">MM</div><div class="loader-line"><span></span></div><small>MUHAMMADALI / LOADING</small></div>
+  <div id="scrollProgress" class="scroll-progress"></div>
 
-  <header>
-    <a href="#home" class="brand">MUHAMMADALI<span>//</span>DEV</a>
-    <nav>
+  <header class="site-header">
+    <a class="brand" href="#home">MUHAMMADALI</a>
+    <div class="header-actions">
+      <button id="menuToggle" class="icon-button menu-toggle" type="button" aria-label="Menyu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="language-wrap">
+        <button id="languageButton" class="language-button" type="button" aria-expanded="false">UZ <span>⌄</span></button>
+        <div id="languageMenu" class="language-menu">
+          <button type="button" data-lang="uz">O‘zbekcha</button>
+          <button type="button" data-lang="en">English</button>
+          <button type="button" data-lang="ru">Русский</button>
+        </div>
+      </div>
+    </div>
+    <nav id="mainNav" class="nav" aria-label="Primary navigation">
+      <a href="#home" data-i18n="nav.home">Bosh sahifa</a>
       <a href="#about" data-i18n="nav.about">Men haqimda</a>
-      <a href="#skills" data-i18n="nav.skills">Yo'nalishlar</a>
-      <a href="#games" data-i18n="nav.games">O'yinlar</a>
+      <a href="#interests" data-i18n="nav.interests">Qiziqishlar</a>
+      <a href="#games" data-i18n="nav.games">O‘yinlar</a>
+      <a href="#characters" data-i18n="nav.characters">Qahramonlar</a>
       <a href="#music" data-i18n="nav.music">Musiqa</a>
-      <a href="#links" data-i18n="nav.links">Aloqa</a>
+      <a href="#programming" data-i18n="nav.programming">Dasturlash</a>
+      <a href="#platforms" data-i18n="nav.platforms">Platformalar</a>
+      <a href="#contact" data-i18n="nav.contact">Aloqa</a>
     </nav>
-    <button class="lang-btn" id="langToggle">UZ</button>
   </header>
 
   <main>
-    <!-- HERO -->
-    <section class="hero" id="home">
-      <div class="hero-tag"><span class="dot"></span> <span data-i18n="hero.status">SYSTEM // ONLINE</span></div>
-      <h1>Muhammadali</h1>
-      <p class="subtitle" data-i18n="hero.tagline">Game Programmer · Gamer · Tech Explorer</p>
-      <div class="hero-btns">
-        <a href="#about" class="btn" data-i18n="hero.btn1">Kashf qilish</a>
-        <a href="#links" class="btn btn-outline" data-i18n="hero.btn2">Bog'lanish</a>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="section-title">01 // PROFILE</div>
-      <h2 data-i18n="about.title">Men haqimda</h2>
-      <div class="grid">
-        <div class="card">
-          <span class="card-num">01</span>
-          <h3 data-i18n="about.card1.title">Dasturlash</h3>
-          <p data-i18n="about.card1.desc">Python, Telegram botlar va Web ilovalar yarataman. Asosiy maqsadim — Game Development sohasini chuqur egallash.</p>
+    <section class="hero section" id="home">
+      <div class="hero-grid">
+        <div class="hero-copy reveal">
+          <div class="section-kicker"><span>01 / HOME</span><span>UZ · EN · RU</span></div>
+          <p class="eyebrow" data-i18n="hero.eyebrow">SHAXSIY MAKON // 01</p>
+          <h1>Muhammadali<span>.</span></h1>
+          <p class="tagline" data-i18n="hero.tagline">Game Programmer · Gamer · Music Lover</p>
+          <p class="intro" data-i18n="hero.intro">Internetdagi kichik shaxsiy makonimga xush kelibsiz — men yaratadigan, o‘ynaydigan va tinglaydigan narsalar shu yerda.</p>
+          <a class="cta" href="#about"><span data-i18n="hero.cta">Mening dunyomni ko‘rish</span><b>↘</b></a>
         </div>
-        <div class="card">
-          <span class="card-num">02</span>
-          <h3 data-i18n="about.card2.title">O'yin Olamlari</h3>
-          <p data-i18n="about.card2.desc">Wuthering Waves va PGR kabi murakkab jang tizimiga hamda chuqur syujetga ega virtual olamlarni o'rganishni yoqtiraman.</p>
-        </div>
-        <div class="card">
-          <span class="card-num">03</span>
-          <h3 data-i18n="about.card3.title">Atmosfera & Musiqa</h3>
-          <p data-i18n="about.card3.desc">Musiqa o'yin va hayotiy lahzalarga o'zgacha kayfiyat bag'ishlaydi. Soundtraklar — ilhom manbaim.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- GAMES -->
-    <section id="games">
-      <div class="section-title">02 // ARCHIVE</div>
-      <h2 data-i18n="games.title">Sevimli O'yinlar & Qahramonlar</h2>
-      <div class="game-badge-list">
-        <span class="badge">Wuthering Waves (UL 80)</span>
-        <span class="badge">Punishing: Gray Raven</span>
-        <span class="badge">Genshin Impact</span>
-        <span class="badge">Zenless Zone Zero</span>
-        <span class="badge">Minecraft</span>
-      </div>
-      <br>
-      <div class="grid" style="margin-top: 20px;">
-        <div class="card">
-          <h3 style="color: var(--accent);">Carlotta</h3>
-          <p>Wuthering Waves</p>
-        </div>
-        <div class="card">
-          <h3 style="color: var(--accent);">Aemeath</h3>
-          <p>Wuthering Waves</p>
-        </div>
-        <div class="card">
-          <h3 style="color: var(--accent);">Selena: Pianissimo</h3>
-          <p>Punishing: Gray Raven</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- MUSIC -->
-    <section id="music">
-      <div class="section-title">03 // AUDIO</div>
-      <h2 data-i18n="music.title">Sevimli Musiqa</h2>
-      <div class="player-box">
-        <div style="font-size: 3rem; text-align: center; color: var(--accent);">♫</div>
-        <div class="player-info">
-          <small style="color: var(--accent); font-family: var(--font-mono);">NOW PLAYING</small>
-          <h3 id="trackTitle">Voyaging Star's Farewell</h3>
-          <p id="trackArtist">Tarokiki · Wuthering Waves OST</p>
-          <div class="controls">
-            <button class="control-btn" id="prevBtn">‹</button>
-            <button class="control-btn" id="playBtn">▶</button>
-            <button class="control-btn" id="nextBtn">›</button>
+        <div class="hero-visual reveal reveal-delay">
+          <div class="avatar-frame">
+            <div class="avatar-image"><img src="assets/avatar/avatar.jpg" alt="Muhammadali"></div>
+            <div class="avatar-ring ring-one"></div><div class="avatar-ring ring-two"></div>
+            <div class="avatar-corner c1"></div><div class="avatar-corner c2"></div><div class="avatar-corner c3"></div><div class="avatar-corner c4"></div>
+            <span class="avatar-code">NO. 001 / MM</span>
           </div>
         </div>
       </div>
+      <div class="hero-bottom"><span>GAME PROGRAMMING</span><span>CREATING · PLAYING · LISTENING</span><span>SCROLL ↓</span></div>
     </section>
 
-    <!-- LINKS -->
-    <section id="links">
-      <div class="section-title">04 // CONNECT</div>
-      <h2 data-i18n="links.title">Platformalar</h2>
-      <div class="links-grid">
-        <a href="https://github.com/Muhammadali57" target="_blank" class="link-card">GitHub <span>↗</span></a>
-        <a href="https://t.me/Foydalanuvchi_o9" target="_blank" class="link-card">Telegram <span>↗</span></a>
-        <a href="https://www.youtube.com/@Muhammadali_0912" target="_blank" class="link-card">YouTube <span>↗</span></a>
-        <a href="mailto:muhammadalisobirov300@gmail.com" class="link-card">Email <span>↗</span></a>
+    <section class="section" id="about">
+      <div class="section-head"><div class="section-number">02</div><div><p class="eyebrow">PROFILE / 02</p><h2 data-i18n="about.title">Men haqimda</h2></div><span class="section-code">MM / PROFILE</span></div>
+      <div class="about-layout">
+        <div class="about-lead"><span class="big-index">01</span><p class="large-copy" data-i18n="about.text">Men Muhammadali — Game Programmer, Gamer va Music Lover. Kod orqali narsalar yaratishni, virtual olamlarni kashf qilishni va xotiraga aylanadigan musiqalarni topishni yoqtiraman.</p></div>
+        <div class="about-note"><span>ABOUT / NOTE</span><p data-i18n="about.note">Bu mening shaxsiy makonim — yaratadigan, o‘ynaydigan va tinglaydigan narsalarimning kichik arxivi.</p></div>
       </div>
+      <div class="principles">
+        <article class="info-card"><span class="card-index">01</span><span class="card-symbol">⌘</span><p class="card-label">CREATION / CODE</p><h3 data-i18n="about.card1.title">Game Programming</h3><p data-i18n="about.card1.text">Hozir Telegram botlar va web applar yarataman, kelajakda esa game development tomon rivojlanmoqchiman.</p></article>
+        <article class="info-card"><span class="card-index">02</span><span class="card-symbol">◈</span><p class="card-label">EXPLORATION / PLAY</p><h3 data-i18n="about.card2.title">Games</h3><p data-i18n="about.card2.text">Yangi olamlar, hikoyalar, qahramonlar va ular qoldiradigan xotiralarni kashf qilishni yaxshi ko‘raman.</p></article>
+        <article class="info-card"><span class="card-index">03</span><span class="card-symbol">♫</span><p class="card-label">ATMOSPHERE / SOUND</p><h3 data-i18n="about.card3.title">Music</h3><p data-i18n="about.card3.text">Ba'zi qo‘shiqlar shunchaki musiqa bo‘lib qolmaydi — ular ma'lum bir lahzaning bir qismiga aylanadi.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="interests">
+      <div class="section-head"><div class="section-number">03</div><div><p class="eyebrow">CORE / 03</p><h2 data-i18n="interests.title">Qiziqishlar</h2></div><span class="section-code">THREE DIRECTIONS</span></div>
+      <div class="interest-list">
+        <article class="interest-row"><div class="interest-no">01</div><div class="interest-icon">⌘</div><div class="interest-main"><span>YARATISH / KOD</span><h3>Game Programming</h3><p>G‘oyalarni ishlaydigan, javob beradigan va his qilinadigan narsaga aylantirish.</p><div class="tags"><i>TELEGRAM BOTS</i><i>WEB APPS</i><i>GAME DEV / NEXT</i></div></div><strong>CODE</strong></article>
+        <article class="interest-row"><div class="interest-no">02</div><div class="interest-icon">◈</div><div class="interest-main"><span>KASHFIYOT / O‘YIN</span><h3>Games</h3><p>Virtual olamlar — hikoyalar, qahramonlar, atmosfera va xotiralar bilan to‘la kashfiyot joylari.</p><div class="tags"><i>WORLDS</i><i>STORIES</i><i>CHARACTERS</i></div></div><strong>PLAY</strong></article>
+        <article class="interest-row"><div class="interest-no">03</div><div class="interest-icon">♫</div><div class="interest-main"><span>ATMOSFERA / OVOZ</span><h3>Music</h3><p>Musiqa sahna, kun yoki butun bir xotiraning kayfiyatini o‘zgartira oladi.</p><div class="tags"><i>LISTENING</i><i>MEMORIES</i><i>FAVORITES</i></div></div><strong>SOUND</strong></article>
+      </div>
+    </section>
+
+    <section class="section" id="games">
+      <div class="section-head"><div class="section-number">04</div><div><p class="eyebrow">PLAY / 07</p><h2 data-i18n="games.title">Sevimli o‘yinlar</h2></div><span class="section-code">GAMES / 07</span></div>
+      <div class="game-grid">
+        <article class="game-card featured"><img src="assets/games/Wuthering Waves.jpeg" alt="Wuthering Waves"><div><span>01 / WUTHERING WAVES</span><h3>Wuthering Waves</h3></div></article>
+        <article class="game-card"><img src="assets/games/Punishing Gray Raven.jpg" alt="Punishing Gray Raven"><div><span>02</span><h3>Punishing: Gray Raven</h3></div></article>
+        <article class="game-card"><img src="assets/games/Honkai Star Rail.png" alt="Honkai Star Rail"><div><span>03</span><h3>Honkai: Star Rail</h3></div></article>
+        <article class="game-card"><img src="assets/games/ZenlessZoneZero.jpg" alt="Zenless Zone Zero"><div><span>04</span><h3>Zenless Zone Zero</h3></div></article>
+        <article class="game-card"><img src="assets/games/Genshin Impact.jpeg" alt="Genshin Impact"><div><span>05</span><h3>Genshin Impact</h3></div></article>
+        <article class="game-card"><img src="assets/games/Arknights Endfield.jpg" alt="Arknights Endfield"><div><span>06</span><h3>Arknights: Endfield</h3></div></article>
+        <article class="game-card"><img src="assets/games/Neverness to Everness.jpg" alt="Neverness to Everness"><div><span>07</span><h3>Neverness to Everness</h3></div></article>
+      </div>
+    </section>
+
+    <section class="section" id="characters">
+      <div class="section-head"><div class="section-number">05</div><div><p class="eyebrow">RESONATORS / 04</p><h2 data-i18n="characters.title">Sevimli qahramonlar</h2></div><span class="section-code">FAVORITES / 04</span></div>
+      <div class="character-grid">
+        <article class="character-card"><img src="assets/characters/Carlotta.jpg" alt="Carlotta"><div class="media-shade"></div><div class="media-meta"><span>01</span><small>WUTHERING WAVES</small></div><h3>Carlotta</h3></article>
+        <article class="character-card"><img src="assets/characters/Denia.jpg" alt="Denia"><div class="media-shade"></div><div class="media-meta"><span>02</span><small>WUTHERING WAVES</small></div><h3>Denia</h3></article>
+        <article class="character-card"><img src="assets/characters/Aemeath.jpg" alt="Aemeath"><div class="media-shade"></div><div class="media-meta"><span>03</span><small>WUTHERING WAVES</small></div><h3>Aemeath</h3></article>
+        <article class="character-card"><img src="assets/characters/Selena Pianissimo.jpg" alt="Selena Pianissimo"><div class="media-shade"></div><div class="media-meta"><span>04</span><small>PUNISHING: GRAY RAVEN</small></div><h3>Selena: Pianissimo</h3></article>
+      </div>
+    </section>
+
+    <section class="section" id="anime">
+      <div class="section-head"><div class="section-number">06</div><div><p class="eyebrow">WATCHLIST / 04</p><h2>Favorite Anime &amp; Donghua</h2></div><span class="section-code">04 TITLES</span></div>
+      <div class="media-group"><div class="media-group-head"><span>01 / ANIME</span><h3>Anime</h3><small>02 TITLES</small></div><div class="poster-grid"><article class="poster"><img src="assets/anime/Classroom of the elite.jpg" alt="Classroom of the Elite"><div><span>01 / ANIME</span><h3>Classroom of the Elite</h3></div></article><article class="poster"><img src="assets/anime/Oshi no ko.webp" alt="Oshi no Ko"><div><span>02 / ANIME</span><h3>Oshi no Ko</h3></div></article></div></div>
+      <div class="media-group"><div class="media-group-head"><span>02 / DONGHUA</span><h3>Donghua</h3><small>02 TITLES</small></div><div class="poster-grid"><article class="poster"><img src="assets/anime/Throne Of Seal.jpg" alt="Throne of Seal"><div><span>03 / DONGHUA</span><h3>Throne of Seal</h3></div></article><article class="poster"><img src="assets/anime/Soul Land.webp" alt="Soul Land"><div><span>04 / DONGHUA</span><h3>Soul Land</h3></div></article></div></div>
+    </section>
+
+    <section class="section" id="music">
+      <div class="section-head"><div class="section-number">07</div><div><p class="eyebrow">LISTENING / 05</p><h2 data-i18n="music.title">Sevimli musiqalar</h2></div><span class="section-code">05 TRACKS</span></div>
+      <div class="music-player">
+        <div class="music-now"><div class="now-cover"><img id="nowCover" src="assets/music/Voyaging Star's Farewell.jpeg" alt=""></div><div class="now-info"><span class="now-label">NOW PLAYING / <b id="nowIndex">01</b></span><h3 id="nowTitle">Voyaging Star's Farewell</h3><p id="nowArtist">Wuthering Waves · Tarokiki</p><div class="player-controls"><button id="prevTrack" type="button" aria-label="Previous">‹</button><button id="playTrack" class="play-main" type="button" aria-label="Play">▶</button><button id="nextTrack" type="button" aria-label="Next">›</button></div><div class="progress-row"><span id="currentTime">00:00</span><input id="progressBar" type="range" min="0" max="100" value="0" aria-label="Track progress"><span id="duration">00:00</span></div><audio id="audioPlayer" preload="metadata"></audio></div></div>
+        <div class="track-list">
+          <button class="track-item active" data-index="0" type="button"><span class="track-no">01</span><img src="assets/music/Voyaging Star's Farewell.jpeg" alt=""><span class="track-text"><b>Voyaging Star's Farewell</b><small>Wuthering Waves · Tarokiki</small></span><span class="track-play">▶</span></button>
+          <button class="track-item" data-index="1" type="button"><span class="track-no">02</span><img src="assets/music/A Small Miracle.jpeg" alt=""><span class="track-text"><b>A Small Miracle</b><small>Wuthering Waves · Tarokiki</small></span><span class="track-play">▶</span></button>
+          <button class="track-item" data-index="2" type="button"><span class="track-no">03</span><img src="assets/music/Paper Plane.jpg" alt=""><span class="track-text"><b>Paper Plane</b><small>Wuthering Waves · Tarokiki</small></span><span class="track-play">▶</span></button>
+          <button class="track-item" data-index="3" type="button"><span class="track-no">04</span><img src="assets/music/Unwavering Startorch.jpg" alt=""><span class="track-text"><b>Unwavering Startorch</b><small>Wuthering Waves · Tarokiki</small></span><span class="track-play">▶</span></button>
+          <button class="track-item" data-index="4" type="button"><span class="track-no">05</span><img src="assets/music/Brand New Sky.jpg" alt=""><span class="track-text"><b>Brand New Sky</b><small>Wuthering Waves · Tarokiki</small></span><span class="track-play">▶</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="programming">
+      <div class="section-head"><div class="section-number">08</div><div><p class="eyebrow">BUILD / LEARN / CREATE</p><h2 data-i18n="programming.title">Dasturlash</h2></div><span class="section-code">ACTIVE / 03</span></div>
+      <div class="programming-intro"><div><span>MY CURRENT DIRECTION</span><h3>Turning ideas into something real.</h3></div><p>Game Programming is my main interest. For now, I am also building Telegram bots and web applications.</p></div>
+      <div class="programming-grid"><article class="program-card main"><span>01</span><small>CORE INTEREST</small><i>◈</i><h3>Game Programming</h3><p>Exploring game development, systems, mechanics and the process of turning ideas into playable experiences.</p><b>GAME DEV</b></article><article class="program-card"><span>02</span><small>CURRENTLY WORKING WITH</small><i>⌘</i><h3>Telegram Bots</h3><p>Creating useful and interactive Telegram bots while learning and experimenting with different ideas.</p><b>TELEGRAM</b></article><article class="program-card"><span>03</span><small>CURRENTLY WORKING WITH</small><i>⌁</i><h3>Web Applications</h3><p>Building web experiences and experimenting with frontend ideas, interfaces and functionality.</p><b>WEB</b></article><article class="program-card"><span>04</span><small>COMING LATER</small><i>+</i><h3>Projects</h3><p>GitHub projects will appear here as I build things worth sharing.</p><b>SOON</b></article></div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-head"><div class="section-number">09</div><div><p class="eyebrow">WORK / 09</p><h2>Projects</h2></div><span class="section-code">BUILDING / NEXT</span></div>
+      <div class="project-placeholder"><div><span>⌁</span><p>PROJECT ARCHIVE / 001</p></div><h3>More projects are coming.</h3><p>This space will grow as I build and publish new things.</p></div>
+    </section>
+
+    <section class="section" id="platforms">
+      <div class="section-head"><div class="section-number">10</div><div><p class="eyebrow">ELSEWHERE ON THE INTERNET</p><h2 data-i18n="platforms.title">Platformalar</h2></div><span class="section-code">FIND ME / 15</span></div>
+      <div class="platform-intro"><h3>Different platforms.<br><span>One identity.</span></h3><p>15 places, one digital identity.</p></div>
+      <div class="platform-grid">
+        <a class="platform-card" href="https://www.youtube.com/@Muhammadali_0912" target="_blank" rel="noopener"><span>01</span><div><b>YouTube</b><small>@Muhammadali_0912</small></div><i>↗</i></a>
+        <a class="platform-card" href="https://www.tiktok.com/@muhammadali.sobirov1" target="_blank" rel="noopener"><span>02</span><div><b>TikTok</b><small>@muhammadali.sobirov1</small></div><i>↗</i></a>
+        <a class="platform-card" href="https://www.instagram.com/muhammadali.sobirov1" target="_blank" rel="noopener"><span>03</span><div><b>Instagram</b><small>@muhammadali.sobirov1</small></div><i>↗</i></a>
+        <a class="platform-card" href="https://www.facebook.com/profile.php?id=61561137915551" target="_blank" rel="noopener"><span>04</span><div><b>Facebook</b><small>Muhammadali</small></div><i>↗</i></a>
+        <a class="platform-card" href="https://x.com/Muhammadalioo9" target="_blank" rel="noopener"><span>05</span><div><b>X / Twitter</b><small>@Muhammadalioo9</small></div><i>↗</i></a>
+        <a class="platform-card" href="https://discord.gg/tHE2TcTy" target="_blank" rel="noopener"><span>06</span><div><b>Discord</b><small>Community / Invite</small></div><i>↗</i></a>
+        <a class="platform-card" href="https://github.com/Muhammadali57" target="_blank" rel="noopener"><span>07</span><div><b>GitHub</b><small>@Muhammadali57</small></div><i>↗</i></a>
+        <a class="platform-card" href="https://s.team/p/jpjg-tkvc/MPPWFTWB" target="_blank" rel="noopener"><span>08</span><div><b>Steam</b><small>Muhammadali</small></div><i>↗</i></a>
+        <a class="platform-card" href="https://store.epicgames.com/u/0c2f865920ac4f34ad29173044d0b444" target="_blank" rel="noopener"><span>09</span><div><b>Epic Games</b><small>Muhammadali</small></div><i>↗</i></a>
+        <a class="platform-card" href="https://profile.playstation.com/Muhammadali_09" target="_blank" rel="noopener"><span>10</span><div><b>PlayStation</b><small>Muhammadali_09</small></div><i>↗</i></a>
+        <a class="platform-card" href="https://www.twitch.tv/muhammadali_009" target="_blank" rel="noopener"><span>11</span><div><b>Twitch</b><small>@muhammadali_009</small></div><i>↗</i></a>
+        <a class="platform-card" href="https://www.reddit.com/u/Medium-Grand672/s/29fR9CXoka" target="_blank" rel="noopener"><span>12</span><div><b>Reddit</b><small>u/Medium-Grand672</small></div><i>↗</i></a>
+        <a class="platform-card" href="https://open.spotify.com/user/31hmx45thahbz5jisotb22dgmdky" target="_blank" rel="noopener"><span>13</span><div><b>Spotify</b><small>Muhammadali</small></div><i>↗</i></a>
+        <a class="platform-card" href="https://t.me/Foydalanuvchi_o9" target="_blank" rel="noopener"><span>14</span><div><b>Telegram</b><small>@Foydalanuvchi_o9</small></div><i>↗</i></a>
+        <a class="platform-card" href="https://b23.tv/TyxaSDs" target="_blank" rel="noopener"><span>15</span><div><b>Bilibili</b><small>Profile</small></div><i>↗</i></a>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="contact-wrap"><div class="contact-copy"><p class="eyebrow">11 / CONTACT</p><h2 data-i18n="contact.title">Bog‘lanamiz.</h2><p data-i18n="contact.text">G‘oya, loyiha yoki shunchaki o‘yinlar, musiqa va dasturlash haqida suhbatlashmoqchimisiz?</p></div><div class="contact-links"><a href="mailto:muhammadalisobirov300@gmail.com"><span>EMAIL</span><b>muhammadalisobirov300@gmail.com</b><i>↗</i></a><a href="https://t.me/Foydalanuvchi_o9" target="_blank" rel="noopener"><span>TELEGRAM</span><b>@Foydalanuvchi_o9</b><i>↗</i></a><a href="https://github.com/Muhammadali57" target="_blank" rel="noopener"><span>GITHUB</span><b>@Muhammadali57</b><i>↗</i></a></div></div>
+    </section>
+
+    <section class="section account-section" id="wuwa-account">
+      <div class="section-head"><div class="section-number">12</div><div><p class="eyebrow">WUTHERING WAVES / ACCOUNT</p><h2>My Resonator Profile</h2></div><span class="section-code">PLAYER / 605549481</span></div>
+      <div class="account-grid"><div><span>PLAYER NAME</span><strong>Muhammadali</strong></div><div><span>UID</span><strong>605549481</strong></div><div><span>UNION LEVEL</span><strong>80</strong></div><div><span>SERVER</span><strong>Europe</strong></div><div class="account-wide"><span>MAIN / FAVORITE RESONATORS</span><strong>Carlotta · Denia</strong></div></div>
     </section>
   </main>
 
-  <footer>
-    <p>© 2026 MUHAMMADALI // DESIGNED FOR FUTURE</p>
-  </footer>
-
-  <script>
-    // Multilingual Dictionary
-    const dictionary = {
-      uz: {
-        "nav.about": "Men haqimda",
-        "nav.skills": "Yo'nalishlar",
-        "nav.games": "O'yinlar",
-        "nav.music": "Musiqa",
-        "nav.links": "Aloqa",
-        "hero.status": "TIZIM // ONLAYN",
-        "hero.tagline": "Game Programmer · Gamer · Tech Explorer",
-        "hero.btn1": "Kashf qilish",
-        "hero.btn2": "Bog'lanish",
-        "about.title": "Men haqimda",
-        "about.card1.title": "Dasturlash",
-        "about.card1.desc": "Python, Telegram botlar va Web ilovalar yarataman. Asosiy maqsadim — Game Development sohasini chuqur egallash.",
-        "about.card2.title": "O'yin Olamlari",
-        "about.card2.desc": "Wuthering Waves va PGR kabi murakkab jang tizimiga hamda chuqur syujetga ega virtual olamlarni o'rganishni yoqtiraman.",
-        "about.card3.title": "Atmosfera & Musiqa",
-        "about.card3.desc": "Musiqa o'yin va hayotiy lahzalarga o'zgacha kayfiyat bag'ishlaydi. Soundtraklar — ilhom manbaim.",
-        "games.title": "Sevimli O'yinlar & Qahramonlar",
-        "music.title": "Sevimli Musiqa",
-        "links.title": "Platformalar"
-      },
-      en: {
-        "nav.about": "About",
-        "nav.skills": "Focus",
-        "nav.games": "Games",
-        "nav.music": "Music",
-        "nav.links": "Connect",
-        "hero.status": "SYSTEM // ONLINE",
-        "hero.tagline": "Game Programmer · Gamer · Tech Explorer",
-        "hero.btn1": "Explore World",
-        "hero.btn2": "Get in Touch",
-        "about.title": "About Me",
-        "about.card1.title": "Programming",
-        "about.card1.desc": "Building Telegram bots & Web apps with Python, moving forward to Game Development.",
-        "about.card2.title": "Virtual Worlds",
-        "about.card2.desc": "Exploring rich storylines and intricate combat mechanics in games like Wuthering Waves & PGR.",
-        "about.card3.title": "Atmosphere & Sound",
-        "about.card3.desc": "Music turns simple moments into memories. OSTs are my primary source of inspiration.",
-        "games.title": "Favorite Games & Characters",
-        "music.title": "Favorite Music",
-        "links.title": "Find Me Online"
-      }
-    };
-
-    let currentLang = 'uz';
-    const langBtn = document.getElementById('langToggle');
-
-    langBtn.addEventListener('click', () => {
-      currentLang = currentLang === 'uz' ? 'en' : 'uz';
-      langBtn.textContent = currentLang.toUpperCase();
-      
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (dictionary[currentLang][key]) {
-          el.textContent = dictionary[currentLang][key];
-        }
-      });
-    });
-
-    // Simple Track Switcher Demo
-    const tracks = [
-      { title: "Voyaging Star's Farewell", artist: "Tarokiki · Wuthering Waves OST" },
-      { title: "A Small Miracle", artist: "Tarokiki · Wuthering Waves OST" },
-      { title: "Unwavering Startorch", artist: "Tarokiki · Wuthering Waves OST" }
-    ];
-    let trackIdx = 0;
-    const playBtn = document.getElementById('playBtn');
-    let isPlaying = false;
-
-    playBtn.addEventListener('click', () => {
-      isPlaying = !isPlaying;
-      playBtn.textContent = isPlaying ? "Ⅱ" : "▶";
-    });
-
-    document.getElementById('nextBtn').addEventListener('click', () => {
-      trackIdx = (trackIdx + 1) % tracks.length;
-      updateTrack();
-    });
-
-    document.getElementById('prevBtn').addEventListener('click', () => {
-      trackIdx = (trackIdx - 1 + tracks.length) % tracks.length;
-      updateTrack();
-    });
-
-    function updateTrack() {
-      document.getElementById('trackTitle').textContent = tracks[trackIdx].title;
-      document.getElementById('trackArtist').textContent = tracks[trackIdx].artist;
-    }
-  </script>
+  <footer class="site-footer"><div><strong>MUHAMMADALI</strong><span>Game Programmer · Gamer · Music Lover</span></div><div><span>© <span id="year"></span> Muhammadali</span><a href="#home">BACK TO TOP ↑</a></div></footer>
+  <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">↑</button>
+  <script src="js/main.js"></script>
 </body>
 </html>
