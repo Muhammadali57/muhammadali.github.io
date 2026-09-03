@@ -291,70 +291,72 @@
 
     const parseLrc = text => {
       const lines = [];
+
       text.split(/\r?\n/).forEach(raw => {
         const matches = [...raw.matchAll(/\[(\d{1,3}):(\d{2})(?:[.:](\d{1,3}))?\]/g)];
-        const lyric = raw.replace(/\[[^\]]+\]/g, '').trim();
-        matches.forEach(m => {
-          const fraction = m[3] ? Number(`0.${m[3]}`) : 0;
-          lines.push({start:Number(m[1]) * 60 + Number(m[2]) + fraction, text:lyric});
-        });
+        if (!matches.length) return;
+
+        const timeOf = m => Number(m[1]) * 60 + Number(m[2]) + (m[3] ? Number(`0.${m[3]}`) : 0);
+        const firstStart = timeOf(matches[0]);
+
+        if (matches.length > 1) {
+          const words = matches.map((m, i) => ({
+            text: raw.slice(m.index + m[0].length, i + 1 < matches.length ? matches[i + 1].index : raw.length).trim(),
+            start: timeOf(m),
+            end: i + 1 < matches.length ? timeOf(matches[i + 1]) : Infinity
+          })).filter(word => word.text);
+
+          if (words.length) {
+            lines.push({start:firstStart, end:Infinity, text:words.map(w => w.text).join(' '), words});
+          }
+        } else {
+          const lyric = raw.replace(/\[[^\]]+\]/g, '').trim();
+          if (lyric) lines.push({start:firstStart, end:Infinity, text:lyric, words:null});
+        }
       });
+
       lines.sort((a,b) => a.start - b.start);
-      return {type:'lrc', lines};
+      lines.forEach((line, i) => { if (!line.words) line.end = lines[i + 1]?.start ?? Infinity; });
+
+      return {type:lines.some(line => line.words) ? 'lrc-word' : 'lrc', lines};
     };
 
     const parseTtml = text => {
       const doc = new DOMParser().parseFromString(text, 'application/xml');
       if (doc.querySelector('parsererror')) return null;
-      const root = doc.documentElement;
-      const timed = [...root.querySelectorAll('p')];
+      const timed = [...doc.getElementsByTagNameNS('http://www.w3.org/ns/ttml', 'p')];
       const lines = [];
-      const getAttr = (el, name) => el.getAttribute(name) || el.getAttribute(`{http://www.w3.org/ns/ttml}#${name}`);
-      const localBegin = el => parseTime(getAttr(el, 'begin')) ?? 0;
-      const inheritedBegin = el => {
-        let total = 0, parent = el.parentElement;
-        while (parent) { total += localBegin(parent); parent = parent.parentElement; }
+      const getAttr = (el, name) => el.getAttribute(name) || el.getAttributeNS('http://www.w3.org/ns/ttml', name);
+
+      const parentOffset = el => {
+        let total = 0;
+        let parent = el.parentElement;
+        while (parent) {
+          const begin = parseTime(getAttr(parent, 'begin'));
+          if (begin != null) total += begin;
+          parent = parent.parentElement;
+        }
         return total;
       };
 
       timed.forEach(p => {
-        const lineBase = inheritedBegin(p);
-        const ownBegin = parseTime(getAttr(p, 'begin')) ?? 0;
-        const start = lineBase + ownBegin;
-        let end = parseTime(getAttr(p, 'end'));
-        if (end != null) end += lineBase - ownBegin;
-        if (end == null) {
-          const dur = parseTime(getAttr(p, 'dur'));
-          end = dur != null ? start + dur : Infinity;
-        }
-
-        const wordNodes = [...p.querySelectorAll('span')].filter(el => el.textContent.trim());
-        const words = [];
-        if (wordNodes.length) {
-          wordNodes.forEach((span, i) => {
-            const parentBase = inheritedBegin(span);
-            const begin = parseTime(getAttr(span, 'begin'));
-            const finish = parseTime(getAttr(span, 'end'));
-            const textWords = span.textContent.trim().split(/\s+/);
-            const wordStart = begin == null ? start : parentBase;
-            const wordParentBase = begin == null ? start : parentBase - begin;
-            const wordEnd = finish == null ? null : wordParentBase + finish;
-            const nextNode = wordNodes[i + 1];
-            const nextBegin = nextNode ? parseTime(getAttr(nextNode, 'begin')) : null;
-            const spanEnd = wordEnd ?? (nextBegin != null ? inheritedBegin(nextNode) : end);
-            const spanDuration = Number.isFinite(spanEnd) && spanEnd > wordStart ? (spanEnd - wordStart) : 0;
-            textWords.forEach((word, wi) => {
-              const a = wordStart + (spanDuration ? spanDuration * wi / textWords.length : 0);
-              const b = wordStart + (spanDuration ? spanDuration * (wi + 1) / textWords.length : 0);
-              words.push({text:word,start:a,end:b || a});
-            });
-          });
-        } else {
-          const textValue = p.textContent.trim();
-          if (textValue) words.push({text:textValue,start,end});
-        }
-        const textValue = p.textContent.trim();
-        if (textValue) lines.push({start,end,text:textValue,words});
+        const base = parentOffset(p);
+        const begin = parseTime(getAttr(p, 'begin')) ?? 0;
+        const start = base + begin;
+        const rawEnd = parseTime(getAttr(p, 'end'));
+        const rawDur = parseTime(getAttr(p, 'dur'));
+        const end = rawEnd != null ? base + rawEnd : (rawDur != null ? start + rawDur : Infinity);
+        const wordNodes = [...p.getElementsByTagNameNS('http://www.w3.org/ns/ttml', 'span')].filter(el => el.textContent.trim());
+        const words = wordNodes.map(span => {
+          const spanBase = parentOffset(span);
+          const ws = spanBase + (parseTime(getAttr(span, 'begin')) ?? 0);
+          const weRaw = parseTime(getAttr(span, 'end'));
+          const wdRaw = parseTime(getAttr(span, 'dur'));
+          const we = weRaw != null ? spanBase + weRaw : (wdRaw != null ? ws + wdRaw : null);
+          return {text: span.textContent.trim(), start: ws, end: we ?? ws};
+        });
+        const textValue = p.textContent.replace(/\s+/g, ' ').trim();
+        if (textValue) lines.push({start, end, text:textValue, words});
       });
       lines.sort((a,b) => a.start - b.start);
       return {type:'ttml', lines};
@@ -364,7 +366,8 @@
       const audioBase = track.audio.split('/').pop().replace(/\.[^.]+$/, '');
       const titleBase = track.title;
       const bases = [...new Set([audioBase, titleBase])];
-      return bases.flatMap(base => [`assets/music/${base}.ttml`,`assets/music/${base}.lrc`]);
+      // One lyrics file per track: .lrc may contain either normal LRC or full TTML XML.
+      return bases.map(base => `assets/music/${base}.lrc`);
     };
 
     const renderEmptyLyrics = () => {
@@ -375,17 +378,19 @@
       if (!lyricsBox || !lyricsData?.lines?.length) return;
       const lines = lyricsData.lines;
       let active = -1;
+
       for (let i = 0; i < lines.length; i++) {
         const line = lines[i];
-        const next = lines[i + 1];
-        const end = Number.isFinite(line.end) ? line.end : (next ? next.start : Infinity);
-        if (time >= line.start && time < end) { active = i; break; }
+        if (time >= line.start && time < line.end) { active = i; break; }
       }
+
       if (active < 0) {
         if (!lyricsBox.querySelector('.lyrics-empty')) renderEmptyLyrics();
         return;
       }
+
       const line = lines[active];
+
       if (lyricsData.type === 'lrc') {
         const existing = lyricsBox.querySelector('.lrc-line');
         if (!existing || existing.dataset.index !== String(active)) {
@@ -393,6 +398,7 @@
         }
         return;
       }
+
       let el = lyricsBox.querySelector('.word-sync');
       if (!el || el.dataset.index !== String(active)) {
         el = document.createElement('span');
@@ -401,6 +407,7 @@
         el.innerHTML = line.words.map((word, i) => `<span class="lyrics-word" data-word="${i}">${escapeHtml(word.text)}</span>`).join(' ');
         lyricsBox.replaceChildren(el);
       }
+
       [...el.querySelectorAll('.lyrics-word')].forEach((wordEl, i) => {
         const word = line.words[i];
         if (!word) return;
@@ -426,7 +433,7 @@
           const response = await fetch(url, {cache:'no-cache'});
           if (!response.ok) continue;
           const text = await response.text();
-          const data = url.toLowerCase().endsWith('.ttml') ? parseTtml(text) : parseLrc(text);
+          const data = parseLrc(text);
           if (data?.lines?.length) {
             lyricsCache.set(track.audio, data);
             if (requestId !== lyricsRequestId) return;
