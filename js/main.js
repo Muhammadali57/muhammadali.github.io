@@ -42,27 +42,27 @@
   const translations = {
     uz: {
       loader:{loading:'MUHAMMADALI / YUKLANMOQDA'}, ui:{menu:'Menyuni ochish',backTop:'Yuqoriga qaytish'},
-      nav:{home:'Bosh sahifa',about:'Men haqimda',interests:'Qiziqishlar',games:'O‘yinlar',characters:'Qahramonlar',music:'Musiqa',programming:'Dasturlash',platforms:'Platformalar',contact:'Aloqa'},
-      hero:{home:'01 / BOSH SAHIFA',languages:'UZ · EN · RU · JA · ZH',eyebrow:'SHAXSIY MAKON // 01',tagline:'O‘yin dasturchisi · O‘yinchi · Musiqa ishqibozi',intro:'Internetdagi kichik shaxsiy makonimga xush kelibsiz — men yaratadigan, o‘ynaydigan va tinglaydigan narsalar shu yerda.',cta:'Mening dunyomni ko‘rish',bottom1:'O‘YIN DASTURLASH',bottom2:'YARATISH · O‘YNASH · TINGLASH',bottom3:'PASTGA AYLANING ↓',avatarAlt:'Muhammadalining portreti'},
-      about:{eyebrow:'PROFIL / 02',title:'Men haqimda',code:'MM / PROFIL',text:'Men Muhammadali — o‘yin dasturchisi, o‘yinchi va musiqa ishqibozi. Kod orqali narsalar yaratishni, virtual olamlarni kashf qilishni va xotiraga aylanadigan musiqalarni topishni yoqtiraman.',noteLabel:'HAQIDA / ESLATMA',note:'Bu mening shaxsiy makonim — yaratadigan, o‘ynaydigan va tinglaydigan narsalarimning kichik arxivi.',card1:{label:'YARATISH / KOD',title:'O‘yin dasturlash',text:'Hozir Telegram botlar va web applar yarataman, kelajakda esa o‘yin ishlab chiqish tomon rivojlanmoqchiman.'},card2:{label:'KASHFIYOT / O‘YIN',title:'O‘yinlar',text:'Yangi olamlar, hikoyalar, qahramonlar va ular qoldiradigan xotiralarni kashf qilishni yaxshi ko‘raman.'},card3:{label:'ATMOSFERA / OVOZ',title:'Musiqa',text:'Ba’zi qo‘shiqlar shunchaki musiqa bo‘lib qolmaydi — ular ma’lum bir lahzaning bir qismiga aylanadi.'}},
-      interests:{eyebrow:'ASOS / 03',title:'Qiziqishlar',code:'UCH YO‘NALISH',item1:{label:'YARATISH / KOD',title:'O‘yin dasturlash',text:'G‘oyalarni ishlaydigan, javob beradigan va his qilinadigan narsaga aylantirish.',code:'KOD'},item2:{label:'KASHFIYOT / O‘YIN',title:'O‘yinlar',text:'Virtual olamlar — hikoyalar, qahramonlar, atmosfera va xotiralar bilan to‘la kashfiyot joylari.',code:'O‘YIN'},item3:{label:'ATMOSFERA / OVOZ',title:'Musiqa',text:'Musiqa sahna, kun yoki butun bir xotiraning kayfiyatini o‘zgartira oladi.',code:'OVOZ'},tags:{telegram:'TELEGRAM BOTLAR',web:'WEB ILOVALAR',gamedev:'GAME DEV / KEYIN',worlds:'OLAMLAR',stories:'HIKOYALAR',characters:'QAHRAMONLAR',listening:'TINGLASH',memories:'XOTIRALAR',favorites:'SEVIMLILAR'}},
-      games:{eyebrow:'O‘YIN / 07',title:'Sevimli o‘yinlar',code:'O‘YINLAR / 07'},
+      nav:{home:'Bosh sahifa',about:'Men haqimda',interests:'Qiziqishlar',games:'O\'yinlar',characters:'Qahramonlar',music:'Musiqa',programming:'Dasturlash',platforms:'Platformalar',contact:'Aloqa'},
+      hero:{home:'01 / BOSH SAHIFA',languages:'UZ · EN · RU · JA · ZH',eyebrow:'SHAXSIY MAKON // 01',tagline:'O\'yin dasturchisi · O\'yinchi · Musiqa ishqibozi',intro:'Internetdagi kichik shaxsiy makonimga xush kelibsiz — men yaratadigan, o\'ynaydigan va tinglaydigan narsalar shu yerda.',cta:'Mening dunyomni ko\'rish',bottom1:'O\'YIN DASTURLASH',bottom2:'YARATISH · O\'YNASH · TINGLASH',bottom3:'PASTGA AYLANING ↓',avatarAlt:'Muhammadalining portreti'},
+      about:{eyebrow:'PROFIL / 02',title:'Men haqimda',code:'MM / PROFIL',text:'Men Muhammadali — o\'yin dasturchisi, o\'yinchi va musiqa ishqibozi. Kod orqali narsalar yaratishni, virtual olamlarni kashf qilishni va xotiraga aylanadigan musiqalarni topishni yoqtiraman.',noteLabel:'HAQIDA / ESLATMA',note:'Bu mening shaxsiy makonim — yaratadigan, o\'ynaydigan va tinglaydigan narsalarimning kichik arxivi.',card1:{label:'YARATISH / KOD',title:'O\'yin dasturlash',text:'Hozir Telegram botlar va web applar yarataman, kelajakda esa o\'yin ishlab chiqish tomon rivojlanmoqchiman.'},card2:{label:'KASHFIYOT / O\'YIN',title:'O\'yinlar',text:'Yangi olamlar, hikoyalar, qahramonlar va ular qoldiradigan xotiralarni kashf qilishni yaxshi ko\'raman.'},card3:{label:'ATMOSFERA / OVOZ',title:'Musiqa',text:'Ba\'zi qo\'shiqlar shunchaki musiqa bo\'lib qolmaydi — ular ma\'lum bir lahzaning bir qismiga aylanadi.'}},
+      interests:{eyebrow:'ASOS / 03',title:'Qiziqishlar',code:'UCH YO\'NALISH',item1:{label:'YARATISH / KOD',title:'O\'yin dasturlash',text:'G\'oyalarni ishlaydigan, javob beradigan va his qilinadigan narsaga aylantirish.',code:'KOD'},item2:{label:'KASHFIYOT / O\'YIN',title:'O\'yinlar',text:'Virtual olamlar — hikoyalar, qahramonlar, atmosfera va xotiralar bilan to\'la kashfiyot joylari.',code:'O\'YIN'},item3:{label:'ATMOSFERA / OVOZ',title:'Musiqa',text:'Musiqa sahna, kun yoki butun bir xotiraning kayfiyatini o\'zgartira oladi.',code:'OVOZ'},tags:{telegram:'TELEGRAM BOTLAR',web:'WEB ILOVALAR',gamedev:'GAME DEV / KEYIN',worlds:'OLAMLAR',stories:'HIKOYALAR',characters:'QAHRAMONLAR',listening:'TINGLASH',memories:'XOTIRALAR',favorites:'SEVIMLILAR'}},
+      games:{eyebrow:'O\'YIN / 07',title:'Sevimli o\'yinlar',code:'O\'YINLAR / 07'},
       characters:{eyebrow:'REZONATORLAR / 04',title:'Sevimli qahramonlar',code:'SEVIMLILAR / 04'},
-      anime:{eyebrow:'TOMOSHA RO‘YXATI / 04',title:'Sevimli Anime va Donghua',code:'04 TA NOM',animeLabel:'01 / ANIME',animeTitle:'Anime',donghuaLabel:'02 / DONGHUA',donghuaTitle:'Donghua',titles2:'02 TA NOM',donghuaLabel2:'02 / DONGHUA',donghuaTitle2:'Donghua',item1Label:'01 / ANIME',item2Label:'02 / ANIME',item3Label:'03 / DONGHUA',item4Label:'04 / DONGHUA',growth:'Bu joy yangi narsalarni yaratib, nashr qilganim sari kengayadi.'},
+      anime:{eyebrow:'TOMOSHA RO\'YXATI / 04',title:'Sevimli Anime va Donghua',code:'04 TA NOM',animeLabel:'01 / ANIME',animeTitle:'Anime',donghuaLabel:'02 / DONGHUA',donghuaTitle:'Donghua',titles2:'02 TA NOM',donghuaLabel2:'02 / DONGHUA',donghuaTitle2:'Donghua',item1Label:'01 / ANIME',item2Label:'02 / ANIME',item3Label:'03 / DONGHUA',item4Label:'04 / DONGHUA',growth:'Bu joy yangi narsalarni yaratib, nashr qilganim sari kengayadi.'},
       music:{eyebrow:'TINGLASH / 05',title:'Sevimli musiqalar',code:'05 TA TREK',nowPlaying:'HOZIR IJRODA',previous:'Oldingi trek',play:'Ijro etish',next:'Keyingi trek',progress:'Trek jarayoni'},
-      programming:{eyebrow:'QURISH / O‘RGANISH / YARATISH',title:'Dasturlash',code:'FAOL / 03',directionLabel:'HOZIRGI YO‘NALISHIM',directionTitle:'G‘oyalarni haqiqatga aylantirish.',directionText:'O‘yin dasturlash — mening asosiy qiziqishim. Hozircha Telegram botlar va web ilovalar ham yaratmoqdaman.',card1:{label:'ASOSIY QIZIQISH',title:'O‘yin dasturlash',text:'O‘yin ishlab chiqish, tizimlar, mexanikalar va g‘oyalarni o‘ynaladigan tajribaga aylantirish jarayonini o‘rganish.',tag:'O‘YIN DASTURLASH'},card2:{label:'HOZIR ISHLAYAPMAN',title:'Telegram botlar',text:'Turli g‘oyalarni o‘rganish va sinash davomida foydali hamda interaktiv Telegram botlar yaratish.',tag:'TELEGRAM'},card3:{label:'HOZIR ISHLAYAPMAN',title:'Web ilovalar',text:'Web tajribalarini yaratish, frontend g‘oyalari, interfeyslar va funksionallikni sinab ko‘rish.',tag:'WEB'},card4:{label:'KEYINROQ',title:'Loyihalar',text:'Ulashishga arziydigan loyihalarni yaratganim sari GitHub loyihalari shu yerda paydo bo‘ladi.',tag:'TEZ ORADA'}},
+      programming:{eyebrow:'QURISH / O\'RGANISH / YARATISH',title:'Dasturlash',code:'FAOL / 03',directionLabel:'HOZIRGI YO\'NALISHIM',directionTitle:'G\'oyalarni haqiqatga aylantirish.',directionText:'O\'yin dasturlash — mening asosiy qiziqishim. Hozircha Telegram botlar va web ilovalar ham yaratmoqdaman.',card1:{label:'ASOSIY QIZIQISH',title:'O\'yin dasturlash',text:'O\'yin ishlab chiqish, tizimlar, mexanikalar va g\'oyalarni o\'ynaladigan tajribaga aylantirish jarayonini o\'rganish.',tag:'O\'YIN DASTURLASH'},card2:{label:'HOZIR ISHLAYAPMAN',title:'Telegram botlar',text:'Turli g\'oyalarni o\'rganish va sinash davomida foydali hamda interaktiv Telegram botlar yaratish.',tag:'TELEGRAM'},card3:{label:'HOZIR ISHLAYAPMAN',title:'Web ilovalar',text:'Web tajribalarini yaratish, frontend g\'oyalari, interfeyslar va funksionallikni sinab ko\'rish.',tag:'WEB'},card4:{label:'KEYINROQ',title:'Loyihalar',text:'Ulashishga arziydigan loyihalarni yaratganim sari GitHub loyihalari shu yerda paydo bo\'ladi.',tag:'TEZ ORADA'}},
       projects:{eyebrow:'ISH / 09',title:'Loyihalar',code:'YARATILMOQDA / KEYIN',archive:'LOYIHALAR ARXIVI / 001',coming:'Yana loyihalar tez orada.',text:'Bu joy yangi narsalarni yaratib, nashr qilganim sari kengayadi.'},
       platforms:{eyebrow:'INTERNETNING BOSHQA JOYLARIDA',title:'Platformalar',code:'MENI TOPING / 15',introTitle:'Turli platformalar. <br><span>Bitta identitet.</span>',introText:'15 ta joy, bitta raqamli identitet.',discord:'Hamjamiyat / Taklifnoma',profile:'Profil'},
-      contact:{eyebrow:'11 / ALOQA',title:'Bog‘lanamiz.',text:'G‘oya, loyiha yoki shunchaki o‘yinlar, musiqa va dasturlash haqida suhbatlashmoqchimisiz?',email:'EMAIL',telegram:'TELEGRAM',github:'GITHUB'},
-      account:{eyebrow:'WUTHERING WAVES / HISOB',title:'Rezonator profilim',code:'O‘YINCHI / 605549481',playerName:'O‘YINCHI NOMI',unionLevel:'UNION DARAJASI',server:'SERVER',favorite:'ASOSIY / SEVIMLI REZONATORLAR'},
-      footer:{tagline:'O‘yin dasturchisi · O‘yinchi · Musiqa ishqibozi',backTop:'YUQORIGA ↑'},
-      page:{title:'Muhammadali — Shaxsiy makon',description:'Muhammadali — O‘yin dasturchisi · O‘yinchi · Musiqa ishqibozi. O‘yinlar, musiqa, dasturlash va men sevgan narsalar.'}
+      contact:{eyebrow:'11 / ALOQA',title:'Bog\'lanamiz.',text:'G\'oya, loyiha yoki shunchaki o\'yinlar, musiqa va dasturlash haqida suhbatlashmoqchimisiz?',email:'EMAIL',telegram:'TELEGRAM',github:'GITHUB'},
+      account:{eyebrow:'WUTHERING WAVES / HISOB',title:'Rezonator profilim',code:'O\'YINCHI / 605549481',playerName:'O\'YINCHI NOMI',unionLevel:'UNION DARAJASI',server:'SERVER',favorite:'ASOSIY / SEVIMLI REZONATORLAR'},
+      footer:{tagline:'O\'yin dasturchisi · O\'yinchi · Musiqa ishqibozi',backTop:'YUQORIGA ↑'},
+      page:{title:'Muhammadali — Shaxsiy makon',description:'Muhammadali — O\'yin dasturchisi · O\'yinchi · Musiqa ishqibozi. O\'yinlar, musiqa, dasturlash va men sevgan narsalar.'}
     },
     en: {
       loader:{loading:'MUHAMMADALI / LOADING'}, ui:{menu:'Open menu',backTop:'Back to top'},
       nav:{home:'Home',about:'About Me',interests:'Interests',games:'Games',characters:'Characters',music:'Music',programming:'Programming',platforms:'Platforms',contact:'Contact'},
       hero:{home:'01 / HOME',languages:'UZ · EN · RU · JA · ZH',eyebrow:'PERSONAL SPACE // 01',tagline:'Game Programmer · Gamer · Music Lover',intro:'Welcome to my little corner of the internet — a place for the things I create, play and listen to.',cta:'Explore my world',bottom1:'GAME PROGRAMMING',bottom2:'CREATING · PLAYING · LISTENING',bottom3:'SCROLL ↓',avatarAlt:'Portrait of Muhammadali'},
-      about:{eyebrow:'PROFILE / 02',title:'About Me',code:'MM / PROFILE',text:'I’m Muhammadali — a game programmer, gamer and music lover. I enjoy creating things with code, exploring virtual worlds and finding music that becomes part of my memories.',noteLabel:'ABOUT / NOTE',note:'This is my personal space — a small archive of the things I create, play and listen to.',card1:{label:'CREATION / CODE',title:'Game Programming',text:'I currently build Telegram bots and web apps while moving toward game development.'},card2:{label:'EXPLORATION / PLAY',title:'Games',text:'I love discovering new worlds, stories, characters and the memories they leave behind.'},card3:{label:'ATMOSPHERE / SOUND',title:'Music',text:'Some songs become more than music — they become part of a particular moment.'}},
+      about:{eyebrow:'PROFILE / 02',title:'About Me',code:'MM / PROFILE',text:'I\'m Muhammadali — a game programmer, gamer and music lover. I enjoy creating things with code, exploring virtual worlds and finding music that becomes part of my memories.',noteLabel:'ABOUT / NOTE',note:'This is my personal space — a small archive of the things I create, play and listen to.',card1:{label:'CREATION / CODE',title:'Game Programming',text:'I currently build Telegram bots and web apps while moving toward game development.'},card2:{label:'EXPLORATION / PLAY',title:'Games',text:'I love discovering new worlds, stories, characters and the memories they leave behind.'},card3:{label:'ATMOSPHERE / SOUND',title:'Music',text:'Some songs become more than music — they become part of a particular moment.'}},
       interests:{eyebrow:'CORE / 03',title:'Interests',code:'THREE DIRECTIONS',item1:{label:'CREATION / CODE',title:'Game Programming',text:'Turning ideas into something that works, responds and feels alive.',code:'CODE'},item2:{label:'EXPLORATION / PLAY',title:'Games',text:'Virtual worlds filled with stories, characters, atmosphere and memories waiting to be discovered.',code:'PLAY'},item3:{label:'ATMOSPHERE / SOUND',title:'Music',text:'Music can change the mood of a scene, a day or an entire memory.',code:'SOUND'},tags:{telegram:'TELEGRAM BOTS',web:'WEB APPS',gamedev:'GAME DEV / NEXT',worlds:'WORLDS',stories:'STORIES',characters:'CHARACTERS',listening:'LISTENING',memories:'MEMORIES',favorites:'FAVORITES'}},
       games:{eyebrow:'PLAY / 07',title:'Favorite Games',code:'GAMES / 07'}, characters:{eyebrow:'RESONATORS / 04',title:'Favorite Characters',code:'FAVORITES / 04'},
       anime:{eyebrow:'WATCHLIST / 04',title:'Favorite Anime & Donghua',code:'04 TITLES',animeLabel:'01 / ANIME',animeTitle:'Anime',donghuaLabel:'02 / DONGHUA',donghuaTitle:'Donghua',titles2:'02 TITLES',donghuaLabel2:'02 / DONGHUA',donghuaTitle2:'Donghua',item1Label:'01 / ANIME',item2Label:'02 / ANIME',item3Label:'03 / DONGHUA',item4Label:'04 / DONGHUA',growth:'This space will grow as I build and publish new things.'},
@@ -70,7 +70,7 @@
       programming:{eyebrow:'BUILD / LEARN / CREATE',title:'Programming',code:'ACTIVE / 03',directionLabel:'MY CURRENT DIRECTION',directionTitle:'Turning ideas into something real.',directionText:'Game Programming is my main interest. For now, I am also building Telegram bots and web applications.',card1:{label:'CORE INTEREST',title:'Game Programming',text:'Exploring game development, systems, mechanics and the process of turning ideas into playable experiences.',tag:'GAME DEV'},card2:{label:'CURRENTLY WORKING WITH',title:'Telegram Bots',text:'Creating useful and interactive Telegram bots while learning and experimenting with different ideas.',tag:'TELEGRAM'},card3:{label:'CURRENTLY WORKING WITH',title:'Web Applications',text:'Building web experiences and experimenting with frontend ideas, interfaces and functionality.',tag:'WEB'},card4:{label:'COMING LATER',title:'Projects',text:'GitHub projects will appear here as I build things worth sharing.',tag:'SOON'}},
       projects:{eyebrow:'WORK / 09',title:'Projects',code:'BUILDING / NEXT',archive:'PROJECT ARCHIVE / 001',coming:'More projects are coming.',text:'This space will grow as I build and publish new things.'},
       platforms:{eyebrow:'ELSEWHERE ON THE INTERNET',title:'Platforms',code:'FIND ME / 15',introTitle:'Different platforms.<br><span>One identity.</span>',introText:'15 places, one digital identity.',discord:'Community / Invite',profile:'Profile'},
-      contact:{eyebrow:'11 / CONTACT',title:'Let’s connect.',text:'Have an idea, project, or just want to talk about games, music or programming?',email:'EMAIL',telegram:'TELEGRAM',github:'GITHUB'},
+      contact:{eyebrow:'11 / CONTACT',title:'Let\'s connect.',text:'Have an idea, project, or just want to talk about games, music or programming?',email:'EMAIL',telegram:'TELEGRAM',github:'GITHUB'},
       account:{eyebrow:'WUTHERING WAVES / ACCOUNT',title:'My Resonator Profile',code:'PLAYER / 605549481',playerName:'PLAYER NAME',unionLevel:'UNION LEVEL',server:'SERVER',favorite:'MAIN / FAVORITE RESONATORS'}, footer:{tagline:'Game Programmer · Gamer · Music Lover',backTop:'BACK TO TOP ↑'},
       page:{title:'Muhammadali — Personal Space',description:'Muhammadali — Game Programmer · Gamer · Music Lover. Games, music, programming and things I love.'}
     },
@@ -217,7 +217,7 @@
   });
 
   // Manual choice always wins. On a first visit, browser locale wins when supported;
-  // otherwise the visitor's IP country is checked. Unsupported countries fall back to English.
+  // otherwise the visitor\'s IP country is checked. Unsupported countries fall back to English.
   const savedLang = readSavedLanguage();
   if (savedLang) {
     applyLanguage(savedLang, false);
@@ -251,33 +251,225 @@
   }), { threshold:.12 });
   $$('.reveal').forEach(el => revealObserver.observe(el));
 
-  // Music player
+  // Music player + synced lyrics (LRC line sync / TTML word sync)
   const tracks = [
-    {title:"Voyaging Star's Farewell",artist:'Wuthering Waves · Tarokiki',audio:"assets/music/Voyaging Stars Farewell - Wuthering Waves Jixwang Tarokiki Emi Evans.mp3",cover:"assets/music/Voyaging Star's Farewell.jpeg"},
+    {title:"Voyaging Star\'s Farewell",artist:'Wuthering Waves · Tarokiki',audio:"assets/music/Voyaging Stars Farewell - Wuthering Waves Jixwang Tarokiki Emi Evans.mp3",cover:"assets/music/Voyaging Star\'s Farewell.jpeg"},
     {title:'A Small Miracle',artist:'Wuthering Waves · Tarokiki',audio:'assets/music/A Small Miracle - Wuthering Waves.mp3',cover:'assets/music/A Small Miracle.jpeg'},
     {title:'Paper Plane',artist:'Wuthering Waves · Tarokiki',audio:'assets/music/Paper Plane - Wuthering Waves.mp3',cover:'assets/music/Paper Plane.jpg'},
     {title:'Unwavering Startorch',artist:'Wuthering Waves · Tarokiki',audio:'assets/music/Unwavering Startorch - Wuthering Waves.mp3',cover:'assets/music/Unwavering Startorch.jpg'},
     {title:'Brand New Sky',artist:'Wuthering Waves · Tarokiki',audio:'assets/music/Brand New Sky - Wuthering Waves.mp3',cover:'assets/music/Brand New Sky.jpg'}
   ];
+
   const audio = $('#audioPlayer');
   if (audio) {
-    const cover = $('#nowCover'), title = $('#nowTitle'), artist = $('#nowArtist'), index = $('#nowIndex'), play = $('#playTrack'), progressBar = $('#progressBar'), current = $('#currentTime'), duration = $('#duration');
-    const items = $$('.track-item'); let currentIndex = 0;
+    const cover = $('#nowCover'), title = $('#nowTitle'), artist = $('#nowArtist'), index = $('#nowIndex');
+    const play = $('#playTrack'), progressBar = $('#progressBar'), current = $('#currentTime'), duration = $('#duration');
+    const lyricsBox = $('#lyrics');
+    const items = $$('.track-item');
+    let currentIndex = 0;
+    let lyricsData = null;
+    let lyricsRequestId = 0;
+    let lyricsCache = new Map();
+    let lyricsRaf = 0;
+
     const fmt = s => Number.isFinite(s) ? `${String(Math.floor(s/60)).padStart(2,'0')}:${String(Math.floor(s%60)).padStart(2,'0')}` : '00:00';
-    const updateButtons = () => { play.textContent = audio.paused ? '▶' : 'Ⅱ'; items.forEach((item,i) => item.querySelector('.track-play').textContent = i === currentIndex && !audio.paused ? 'Ⅱ' : '▶'); };
+    const escapeHtml = value => String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+
+    const parseTime = value => {
+      if (!value) return null;
+      const v = String(value).trim();
+      if (/^\d+(?:\.\d+)?ms$/i.test(v)) return parseFloat(v) / 1000;
+      if (/^\d+(?:\.\d+)?s$/i.test(v)) return parseFloat(v);
+      if (/^\d+(?:\.\d+)?m$/i.test(v)) return parseFloat(v) * 60;
+      if (/^\d+(?:\.\d+)?h$/i.test(v)) return parseFloat(v) * 3600;
+      const parts = v.split(':').map(Number);
+      if (parts.some(Number.isNaN)) return null;
+      if (parts.length === 3) return parts[0] * 3600 + parts[1] * 60 + parts[2];
+      if (parts.length === 2) return parts[0] * 60 + parts[1];
+      return Number.isFinite(parts[0]) ? parts[0] : null;
+    };
+
+    const parseLrc = text => {
+      const lines = [];
+      text.split(/\r?\n/).forEach(raw => {
+        const matches = [...raw.matchAll(/\[(\d{1,3}):(\d{2})(?:[.:](\d{1,3}))?\]/g)];
+        const lyric = raw.replace(/\[[^\]]+\]/g, '').trim();
+        matches.forEach(m => {
+          const fraction = m[3] ? Number(`0.${m[3]}`) : 0;
+          lines.push({start:Number(m[1]) * 60 + Number(m[2]) + fraction, text:lyric});
+        });
+      });
+      lines.sort((a,b) => a.start - b.start);
+      return {type:'lrc', lines};
+    };
+
+    const parseTtml = text => {
+      const doc = new DOMParser().parseFromString(text, 'application/xml');
+      if (doc.querySelector('parsererror')) return null;
+      const root = doc.documentElement;
+      const timed = [...root.querySelectorAll('p')];
+      const lines = [];
+      const getAttr = (el, name) => el.getAttribute(name) || el.getAttribute(`{http://www.w3.org/ns/ttml}#${name}`);
+      const localBegin = el => parseTime(getAttr(el, 'begin')) ?? 0;
+      const inheritedBegin = el => {
+        let total = 0, parent = el.parentElement;
+        while (parent) { total += localBegin(parent); parent = parent.parentElement; }
+        return total;
+      };
+
+      timed.forEach(p => {
+        const lineBase = inheritedBegin(p);
+        const ownBegin = parseTime(getAttr(p, 'begin')) ?? 0;
+        const start = lineBase + ownBegin;
+        let end = parseTime(getAttr(p, 'end'));
+        if (end != null) end += lineBase - ownBegin;
+        if (end == null) {
+          const dur = parseTime(getAttr(p, 'dur'));
+          end = dur != null ? start + dur : Infinity;
+        }
+
+        const wordNodes = [...p.querySelectorAll('span')].filter(el => el.textContent.trim());
+        const words = [];
+        if (wordNodes.length) {
+          wordNodes.forEach((span, i) => {
+            const parentBase = inheritedBegin(span);
+            const begin = parseTime(getAttr(span, 'begin'));
+            const finish = parseTime(getAttr(span, 'end'));
+            const textWords = span.textContent.trim().split(/\s+/);
+            const wordStart = begin == null ? start : parentBase;
+            const wordParentBase = begin == null ? start : parentBase - begin;
+            const wordEnd = finish == null ? null : wordParentBase + finish;
+            const nextNode = wordNodes[i + 1];
+            const nextBegin = nextNode ? parseTime(getAttr(nextNode, 'begin')) : null;
+            const spanEnd = wordEnd ?? (nextBegin != null ? inheritedBegin(nextNode) : end);
+            const spanDuration = Number.isFinite(spanEnd) && spanEnd > wordStart ? (spanEnd - wordStart) : 0;
+            textWords.forEach((word, wi) => {
+              const a = wordStart + (spanDuration ? spanDuration * wi / textWords.length : 0);
+              const b = wordStart + (spanDuration ? spanDuration * (wi + 1) / textWords.length : 0);
+              words.push({text:word,start:a,end:b || a});
+            });
+          });
+        } else {
+          const textValue = p.textContent.trim();
+          if (textValue) words.push({text:textValue,start,end});
+        }
+        const textValue = p.textContent.trim();
+        if (textValue) lines.push({start,end,text:textValue,words});
+      });
+      lines.sort((a,b) => a.start - b.start);
+      return {type:'ttml', lines};
+    };
+
+    const lyricCandidates = track => {
+      const audioBase = track.audio.split('/').pop().replace(/\.[^.]+$/, '');
+      const titleBase = track.title;
+      const bases = [...new Set([audioBase, titleBase])];
+      return bases.flatMap(base => [`assets/music/${base}.ttml`,`assets/music/${base}.lrc`]);
+    };
+
+    const renderEmptyLyrics = () => {
+      if (lyricsBox) lyricsBox.innerHTML = '<span class="lyrics-empty">—</span>';
+    };
+
+    const renderCurrentLyric = time => {
+      if (!lyricsBox || !lyricsData?.lines?.length) return;
+      const lines = lyricsData.lines;
+      let active = -1;
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        const next = lines[i + 1];
+        const end = Number.isFinite(line.end) ? line.end : (next ? next.start : Infinity);
+        if (time >= line.start && time < end) { active = i; break; }
+      }
+      if (active < 0) {
+        if (!lyricsBox.querySelector('.lyrics-empty')) renderEmptyLyrics();
+        return;
+      }
+      const line = lines[active];
+      if (lyricsData.type === 'lrc') {
+        const existing = lyricsBox.querySelector('.lrc-line');
+        if (!existing || existing.dataset.index !== String(active)) {
+          lyricsBox.innerHTML = `<span class="lyrics-line lrc-line" data-index="${active}">${escapeHtml(line.text)}</span>`;
+        }
+        return;
+      }
+      let el = lyricsBox.querySelector('.word-sync');
+      if (!el || el.dataset.index !== String(active)) {
+        el = document.createElement('span');
+        el.className = 'lyrics-line word-sync';
+        el.dataset.index = String(active);
+        el.innerHTML = line.words.map((word, i) => `<span class="lyrics-word" data-word="${i}">${escapeHtml(word.text)}</span>`).join(' ');
+        lyricsBox.replaceChildren(el);
+      }
+      [...el.querySelectorAll('.lyrics-word')].forEach((wordEl, i) => {
+        const word = line.words[i];
+        if (!word) return;
+        const span = Math.max(0.001, word.end - word.start);
+        const fill = Math.max(0, Math.min(100, (time - word.start) / span * 100));
+        wordEl.style.setProperty('--fill', fill.toFixed(2));
+      });
+    };
+
+    const animateLyrics = () => {
+      renderCurrentLyric(audio.currentTime || 0);
+      if (!audio.paused) lyricsRaf = requestAnimationFrame(animateLyrics);
+    };
+
+    const loadLyrics = async track => {
+      const requestId = ++lyricsRequestId;
+      lyricsData = null;
+      renderEmptyLyrics();
+      const candidates = lyricCandidates(track);
+      if (lyricsCache.has(track.audio)) { lyricsData = lyricsCache.get(track.audio); renderCurrentLyric(audio.currentTime || 0); return; }
+      for (const url of candidates) {
+        try {
+          const response = await fetch(url, {cache:'no-cache'});
+          if (!response.ok) continue;
+          const text = await response.text();
+          const data = url.toLowerCase().endsWith('.ttml') ? parseTtml(text) : parseLrc(text);
+          if (data?.lines?.length) {
+            lyricsCache.set(track.audio, data);
+            if (requestId !== lyricsRequestId) return;
+            lyricsData = data;
+            renderCurrentLyric(audio.currentTime || 0);
+            return;
+          }
+        } catch (_) {}
+      }
+    };
+
+    const updateButtons = () => {
+      play.textContent = audio.paused ? '▶' : 'Ⅱ';
+      items.forEach((item,i) => item.querySelector('.track-play').textContent = i === currentIndex && !audio.paused ? 'Ⅱ' : '▶');
+    };
+
     const load = (n, autoplay = false) => {
       currentIndex = (n + tracks.length) % tracks.length;
-      const track = tracks[currentIndex]; audio.src = track.audio; cover.src = track.cover; title.textContent = track.title; artist.textContent = track.artist; index.textContent = String(currentIndex+1).padStart(2,'0'); progressBar.value = 0; current.textContent='00:00'; duration.textContent='00:00'; items.forEach((x,i)=>x.classList.toggle('active',i===currentIndex)); updateButtons();
+      const track = tracks[currentIndex];
+      audio.src = track.audio;
+      cover.src = track.cover;
+      title.textContent = track.title;
+      artist.textContent = track.artist;
+      index.textContent = String(currentIndex+1).padStart(2,'0');
+      progressBar.value = 0;
+      current.textContent = '00:00';
+      duration.textContent = '00:00';
+      items.forEach((x,i) => x.classList.toggle('active',i===currentIndex));
+      updateButtons();
+      loadLyrics(track);
       if (autoplay) audio.play().catch(()=>{});
     };
+
     play.addEventListener('click', () => audio.paused ? audio.play().catch(()=>{}) : audio.pause());
     $('#prevTrack')?.addEventListener('click', () => load(currentIndex-1,true));
     $('#nextTrack')?.addEventListener('click', () => load(currentIndex+1,true));
     items.forEach(item => item.addEventListener('click', () => load(Number(item.dataset.index), true)));
     audio.addEventListener('loadedmetadata', () => duration.textContent = fmt(audio.duration));
-    audio.addEventListener('timeupdate', () => { current.textContent=fmt(audio.currentTime); progressBar.value=audio.duration ? audio.currentTime/audio.duration*100 : 0; });
-    progressBar.addEventListener('input', () => { if(audio.duration) audio.currentTime = progressBar.value/100*audio.duration; });
-    audio.addEventListener('play', updateButtons); audio.addEventListener('pause', updateButtons); audio.addEventListener('ended', () => load(currentIndex+1,true));
+    audio.addEventListener('timeupdate', () => { current.textContent=fmt(audio.currentTime); progressBar.value=audio.duration ? audio.currentTime/audio.duration*100 : 0; renderCurrentLyric(audio.currentTime); });
+    audio.addEventListener('play', () => { updateButtons(); cancelAnimationFrame(lyricsRaf); lyricsRaf=requestAnimationFrame(animateLyrics); });
+    audio.addEventListener('pause', () => { updateButtons(); cancelAnimationFrame(lyricsRaf); renderCurrentLyric(audio.currentTime); });
+    audio.addEventListener('ended', () => load(currentIndex+1,true));
+    progressBar.addEventListener('input', () => { if(audio.duration) { audio.currentTime = progressBar.value/100*audio.duration; renderCurrentLyric(audio.currentTime); } });
     load(0);
   }
 
