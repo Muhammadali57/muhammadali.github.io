@@ -296,29 +296,74 @@
         const matches = [...raw.matchAll(/\[(\d{1,3}):(\d{2})(?:[.:](\d{1,3}))?\]/g)];
         if (!matches.length) return;
 
-        const timeOf = m => Number(m[1]) * 60 + Number(m[2]) + (m[3] ? Number(`0.${m[3]}`) : 0);
-        const firstStart = timeOf(matches[0]);
+        const timeOf = m => {
+          const fraction = m[3] ? Number(`0.${String(m[3]).padEnd(3, '0')}`) : 0;
+          return Number(m[1]) * 60 + Number(m[2]) + fraction;
+        };
 
         if (matches.length > 1) {
-          const words = matches.map((m, i) => ({
-            text: raw.slice(m.index + m[0].length, i + 1 < matches.length ? matches[i + 1].index : raw.length).trim(),
-            start: timeOf(m),
-            end: i + 1 < matches.length ? timeOf(matches[i + 1]) : Infinity
-          })).filter(word => word.text);
+          // Word-synced LRC:
+          // [00:32.00]It's [00:32.50]magic [00:33.00]when ...
+          // Every timestamp starts the word immediately following it;
+          // the next timestamp becomes that word's end time.
+          const words = matches.map((m, i) => {
+            const next = matches[i + 1];
+            const wordStart = timeOf(m);
+            const wordEnd = next ? timeOf(next) : null;
+            const wordText = raw
+              .slice(m.index + m[0].length, next ? next.index : raw.length)
+              .trim();
+
+            return {
+              text: wordText,
+              start: wordStart,
+              end: wordEnd
+            };
+          }).filter(word => word.text);
 
           if (words.length) {
-            lines.push({start:firstStart, end:Infinity, text:words.map(w => w.text).join(' '), words});
+            lines.push({
+              start: words[0].start,
+              end: Infinity,
+              text: words.map(word => word.text).join(' '),
+              words
+            });
           }
-        } else {
-          const lyric = raw.replace(/\[[^\]]+\]/g, '').trim();
-          if (lyric) lines.push({start:firstStart, end:Infinity, text:lyric, words:null});
+          return;
         }
+
+        // Normal line-based LRC: one timestamp at the beginning of the line.
+        const start = timeOf(matches[0]);
+        const lyric = raw.slice(matches[0].index + matches[0][0].length).trim();
+        if (lyric) lines.push({start, end:Infinity, text:lyric, words:null});
       });
 
       lines.sort((a,b) => a.start - b.start);
-      lines.forEach((line, i) => { if (!line.words) line.end = lines[i + 1]?.start ?? Infinity; });
 
-      return {type:lines.some(line => line.words) ? 'lrc-word' : 'lrc', lines};
+      // A lyric line ends when the next lyric line begins.
+      // This is especially important for word-LRC: otherwise the first
+      // word-synced line would remain active for the rest of the song.
+      lines.forEach((line, i) => {
+        const nextStart = lines[i + 1]?.start;
+        if (Number.isFinite(nextStart)) line.end = nextStart;
+
+        if (line.words?.length) {
+          line.words.forEach((word, wi) => {
+            if (wi < line.words.length - 1) {
+              word.end = line.words[wi + 1].start;
+            } else if (Number.isFinite(line.end)) {
+              word.end = line.end;
+            } else {
+              // Keep the final word visible/highlighted until the next line
+              // if the file does not provide another line timestamp.
+              word.end = Infinity;
+            }
+          });
+        }
+      });
+
+      const hasWordTiming = lines.some(line => line.words?.length > 0);
+      return {type:hasWordTiming ? 'lrc-word' : 'lrc', lines};
     };
 
     const parseTtml = text => {
@@ -366,8 +411,10 @@
       const audioBase = track.audio.split('/').pop().replace(/\.[^.]+$/, '');
       const titleBase = track.title;
       const bases = [...new Set([audioBase, titleBase])];
-      // One lyrics file per track: .lrc may contain either normal LRC or full TTML XML.
-      return bases.map(base => `assets/music/${base}.lrc`);
+      return bases.flatMap(base => [
+        `assets/music/${base}.lrc`,
+        `assets/music/${base}.ttml`
+      ]);
     };
 
     const renderEmptyLyrics = () => {
@@ -433,7 +480,8 @@
           const response = await fetch(url, {cache:'no-cache'});
           if (!response.ok) continue;
           const text = await response.text();
-          const data = parseLrc(text);
+          const looksLikeTtml = /^\s*(?:<\?xml[\s\S]*?\?>\s*)?<tt\b/i.test(text) || /<tt\b[^>]*\bitunes:timing=["']Word["']/i.test(text);
+          const data = looksLikeTtml ? parseTtml(text) : parseLrc(text);
           if (data?.lines?.length) {
             lyricsCache.set(track.audio, data);
             if (requestId !== lyricsRequestId) return;
