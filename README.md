@@ -9,4 +9,4 @@ GitHub Pages personal bio/portfolio site.
 - `assets/fonts/` — supplied font
 
 ## Languages
-English, Uzbek, Russian. The first visit uses the browser language; the selected language is saved locally.
+English, Uzbek, Russian, Japanese and Chines. The first visit uses the browser language; the selected language is saved locally.
