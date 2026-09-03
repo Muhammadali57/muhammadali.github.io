@@ -313,3 +313,30 @@ body {
 .music-player .now-media .player-controls{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:8px;margin:0}
 @media(max-width:1000px){.music-player .music-now{grid-template-columns:120px 1fr;padding:18px;gap:18px}.music-player .player-controls button{height:42px}.music-player .lyrics{min-height:84px;margin-top:18px;padding:14px 0}}
 @media(max-width:520px){.music-player .music-now{grid-template-columns:1fr;padding:16px;gap:18px}.music-player .now-media{width:min(190px,100%);margin:0 auto}.music-player .player-controls button{height:42px;font-size:20px}.music-player .lyrics{min-height:76px;margin-top:16px}.music-player .lyrics-line{font-size:17px}}
+
+
+/* WORD-SYNC: Apple-Music-style glyph fill. No background rectangles. */
+.lyrics .word-sync .lyrics-word{
+  --fill:0%;
+  position:relative;
+  display:inline-block;
+  vertical-align:baseline;
+  color:var(--muted);
+  background:none !important;
+  -webkit-text-fill-color:initial;
+  overflow:visible;
+}
+.lyrics .word-sync .lyrics-word-base{
+  display:inline;
+  color:var(--muted);
+}
+.lyrics .word-sync .lyrics-word-fill{
+  position:absolute;
+  inset:0 auto auto 0;
+  width:var(--fill);
+  overflow:hidden;
+  white-space:nowrap;
+  color:var(--text);
+  pointer-events:none;
+}
+.lyrics .word-sync .lyrics-word-fill::selection{background:transparent}
