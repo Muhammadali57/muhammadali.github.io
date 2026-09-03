@@ -1,230 +1,60 @@
-<tt xmlns="http://www.w3.org/ns/ttml" xmlns:ttm="http://www.w3.org/ns/ttml#metadata" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" xmlns:itunes="http://music.apple.com/lyric-ttml-internal" xmlns:composer="https://composer.betterlyrics.org/ttml" ttp:timeBase="media" xml:lang="en" itunes:timing="Word" composer:timing="Word">
-<head>
-<metadata>
-<ttm:title>A Small Miracle [bPS8Ii6Ef14]</ttm:title>
-<composer:meta key="artists" value="Wuthering Waves, jixwang, Fleet Snowfluff"/>
-<composer:meta key="album" value="The Night the Stars Left No Trail(Original Game Soundtrack)"/>
-<ttm:agent xml:id="v1" type="person">
-<ttm:name>Lead</ttm:name>
-</ttm:agent>
-<ttm:agent xml:id="v2000" type="other">
-<ttm:name>Chorus</ttm:name>
-</ttm:agent>
-<composer:groups>
-<composer:group id="g1" label="Group 1" color="#f472b6" templateVersion="1"/>
-</composer:groups>
-</metadata>
-</head>
-<body dur="4:22.643">
-<div>
-<p begin="0:22.233" end="0:26.859" ttm:agent="v1" key="archivetune-translation-0">
-<span begin="0:22.233" end="0:22.803">Isn't</span> <span begin="0:22.803" end="0:23.951">it</span> <span begin="0:23.951" end="0:24.484">so</span> <span begin="0:24.484" end="0:26.859">incredible</span>
-</p>
-<p begin="0:26.798" end="0:32.716" ttm:agent="v1" key="archivetune-translation-1">
-<span begin="0:26.798" end="0:27.085">We're</span> <span begin="0:27.085" end="0:27.652">here</span> <span begin="0:27.652" end="0:29.356">sharing</span> <span begin="0:29.356" end="0:29.643">the</span> <span begin="0:29.643" end="0:30.172">same</span> <span begin="0:30.172" end="0:31.006">time</span> <span begin="0:31.006" end="0:31.574">and</span> <span begin="0:31.574" end="0:32.716">space</span>
-</p>
-<p begin="0:32.844" end="0:37.417" ttm:agent="v1" key="archivetune-translation-2">
-<span begin="0:32.844" end="0:32.987">In</span> <span begin="0:32.987" end="0:33.539">your</span> <span begin="0:33.539" end="0:34.689">eyes,</span> <span begin="0:34.689" end="0:34.948">the</span> <span begin="0:34.948" end="0:35.545">sparks</span> <span begin="0:35.545" end="0:36.066">look</span> <span begin="0:36.066" end="0:37.417">like</span>
-</p>
-<p begin="0:37.417" end="0:43.621" ttm:agent="v1" key="archivetune-translation-3">
-<span begin="0:37.417" end="0:38.286">Thousands</span> <span begin="0:38.286" end="0:38.725">of</span> <span begin="0:38.725" end="0:39.192">bright</span> <span begin="0:39.192" end="0:40.088">stars</span> <span begin="0:40.130" end="0:40.222">I</span> <span begin="0:40.222" end="0:40.478">have</span> <span begin="0:40.478" end="0:40.767">gazed</span> <span begin="0:40.767" end="0:41.051">at</span> <span begin="0:41.051" end="0:41.335">for</span> <span begin="0:41.335" end="0:41.625">thousands</span> <span begin="0:41.625" end="0:42.768">of</span> <span begin="0:42.768" end="0:43.621">time</span>
-</p>
-<p begin="0:43.621" end="0:46.310" ttm:agent="v1" key="archivetune-translation-4">
-<span begin="0:43.621" end="0:43.908">May</span> <span begin="0:43.908" end="0:44.195">all</span> <span begin="0:44.195" end="0:44.475">your</span> <span begin="0:44.475" end="0:44.759">sweet</span> <span begin="0:44.759" end="0:45.042">dreams</span> <span begin="0:45.042" end="0:45.329">take</span> <span begin="0:45.329" end="0:46.310">flight</span>
-</p>
-<p begin="0:46.310" end="0:48.588" ttm:agent="v1" key="archivetune-translation-5">
-<span begin="0:46.310" end="0:46.496">With</span> <span begin="0:46.496" end="0:46.704">the</span> <span begin="0:46.704" end="0:46.844">truth</span> <span begin="0:46.844" end="0:47.009">to</span> <span begin="0:47.009" end="0:47.231">be</span> <span begin="0:47.231" end="0:47.530">your</span> <span begin="0:47.530" end="0:48.009">guiding</span> <span begin="0:48.009" end="0:48.588">light</span>
-</p>
-<p begin="0:48.686" end="0:54.301" ttm:agent="v1" key="archivetune-translation-6">
-<span begin="0:48.686" end="0:49.255">Let</span> <span begin="0:49.255" end="0:49.786">your</span> <span begin="0:49.786" end="0:50.978">curiosity</span> <span begin="0:50.978" end="0:51.216">set</span> <span begin="0:51.216" end="0:51.499">your</span> <span begin="0:51.499" end="0:51.783">spirit</span> <span begin="0:51.783" end="0:52.067">free</span> <span begin="0:52.067" end="0:52.152">and</span> <span begin="0:52.152" end="0:52.594">wild</span> <span begin="0:52.594" end="0:53.164">like</span> <span begin="0:53.164" end="0:54.301">fire</span>
-</p>
-<p begin="0:54.307" end="0:57.161" ttm:agent="v1" key="archivetune-translation-7">
-<span begin="0:54.307" end="0:54.591">If</span> <span begin="0:54.591" end="0:54.874">the</span> <span begin="0:54.874" end="0:55.164">lonely</span> <span begin="0:55.164" end="0:55.448">nights</span> <span begin="0:55.448" end="0:55.731">are</span> <span begin="0:55.731" end="0:56.017">price</span> <span begin="0:56.017" end="0:56.210">to</span> <span begin="0:56.210" end="0:57.161">see</span>
-</p>
-<p begin="0:57.161" end="0:59.155" ttm:agent="v1" key="archivetune-translation-8">
-<span begin="0:57.161" end="0:57.323">Our</span> <span begin="0:57.323" end="0:57.731">dreams</span> <span begin="0:57.731" end="0:58.298">glowing</span> <span begin="0:58.298" end="0:59.155">brightly</span>
-</p>
-<p begin="0:59.243" end="1:03.517" ttm:agent="v1" key="archivetune-translation-9">
-<span begin="0:59.243" end="1:00.100">Every</span> <span begin="1:00.100" end="1:01.240">second</span> <span begin="1:01.240" end="1:01.807">is</span> <span begin="1:01.807" end="1:02.945">worth</span> <span begin="1:02.945" end="1:03.517">it</span>
-</p>
-<p begin="1:03.517" end="1:08.900" ttm:agent="v1" composer:groupId="g1" composer:instanceIdx="0" composer:templateLineIdx="0" key="archivetune-translation-10">
-<span begin="1:03.517" end="1:03.801">You</span> <span begin="1:03.801" end="1:04.084">built</span> <span begin="1:04.084" end="1:04.370">a</span> <span begin="1:04.370" end="1:05.108">world</span> <span begin="1:05.108" end="1:05.340">of</span> <span begin="1:05.340" end="1:06.659">miracles</span> <span begin="1:06.659" end="1:06.944">so</span> <span begin="1:06.944" end="1:07.509">mundane</span> <span begin="1:07.509" end="1:07.793">but</span> <span begin="1:07.793" end="1:08.900">precious</span>
-</p>
-<p begin="1:08.900" end="1:14.025" ttm:agent="v1" composer:groupId="g1" composer:instanceIdx="0" composer:templateLineIdx="1" key="archivetune-translation-11">
-<span begin="1:08.900" end="1:09.188">The</span> <span begin="1:09.188" end="1:09.471">stream</span> <span begin="1:09.471" end="1:09.644">of</span> <span begin="1:09.644" end="1:10.299">shimmering</span> <span begin="1:10.299" end="1:11.150">daily</span> <span begin="1:11.150" end="1:12.007">moments</span> <span begin="1:12.007" end="1:12.590">returned</span> <span begin="1:12.590" end="1:13.159">weight</span> <span begin="1:13.159" end="1:13.444">to</span> <span begin="1:13.444" end="1:13.724">my</span> <span begin="1:13.724" end="1:14.025">soul</span>
-</p>
-<p begin="1:14.052" end="1:16.009" ttm:agent="v1" composer:groupId="g1" composer:instanceIdx="0" composer:templateLineIdx="2" key="archivetune-translation-12">
-<span begin="1:14.052" end="1:14.337">And</span> <span begin="1:14.337" end="1:14.620">stopped</span> <span begin="1:14.620" end="1:15.090">me</span> <span begin="1:15.090" end="1:15.269">from</span> <span begin="1:15.269" end="1:16.009">drifting</span>
-</p>
-<p begin="1:16.009" end="1:18.834" ttm:agent="v1" composer:groupId="g1" composer:instanceIdx="0" composer:templateLineIdx="3" key="archivetune-translation-13">
-<span begin="1:16.009" end="1:16.296">Gave</span> <span begin="1:16.296" end="1:16.581">my</span> <span begin="1:16.581" end="1:16.870">feet</span> <span begin="1:16.870" end="1:17.156">the</span> <span begin="1:17.156" end="1:17.727">solid</span> <span begin="1:17.727" end="1:17.968">ground</span> <span begin="1:17.968" end="1:18.256">to</span> <span begin="1:18.256" end="1:18.834">stand</span>
-</p>
-<p begin="1:18.834" end="1:20.513" ttm:agent="v1" composer:groupId="g1" composer:instanceIdx="0" composer:templateLineIdx="4" key="archivetune-translation-14">
-<span begin="1:18.834" end="1:18.968">So</span> <span begin="1:18.968" end="1:19.117">let's</span> <span begin="1:19.117" end="1:19.406">sing</span> <span begin="1:19.406" end="1:20.513">together</span>
-</p>
-<p begin="1:20.293" end="1:23.983" ttm:agent="v1" composer:groupId="g1" composer:instanceIdx="0" composer:templateLineIdx="5" key="archivetune-translation-15">
-<span begin="1:20.293" end="1:20.861">Every</span> <span begin="1:20.861" end="1:21.150">light</span> <span begin="1:21.150" end="1:21.721">I'm</span> <span begin="1:21.721" end="1:22.010">giving</span> <span begin="1:22.010" end="1:22.578">all</span> <span begin="1:22.578" end="1:23.120">comes</span> <span begin="1:23.120" end="1:23.406">back</span> <span begin="1:23.406" end="1:23.694">to</span> <span begin="1:23.694" end="1:23.983">you</span>
-</p>
-<p begin="1:23.983" end="1:30.308" ttm:agent="v1" composer:groupId="g1" composer:instanceIdx="0" composer:templateLineIdx="6" key="archivetune-translation-16">
-<span begin="1:23.983" end="1:24.549">Comes</span> <span begin="1:24.549" end="1:24.834">back</span> <span begin="1:24.834" end="1:25.691">to</span> <span begin="1:25.691" end="1:30.308">you</span>
-</p>
-<p begin="1:47.447" end="1:51.930" ttm:agent="v1" key="archivetune-translation-17">
-<span begin="1:47.447" end="1:47.733">Like</span> <span begin="1:47.733" end="1:49.155">diamonds,</span> <span begin="1:49.155" end="1:49.438">they</span> <span begin="1:49.438" end="1:49.721">need</span> <span begin="1:49.721" end="1:49.908">a</span> <span begin="1:49.908" end="1:50.256">light</span> <span begin="1:50.256" end="1:50.825">to</span> <span begin="1:50.825" end="1:51.930">shine</span>
-</p>
-<p begin="1:51.930" end="1:58.090" ttm:agent="v1" key="archivetune-translation-18">
-<span begin="1:51.930" end="1:52.212">I</span> <span begin="1:52.212" end="1:52.745">was</span> <span begin="1:52.745" end="1:53.033">a</span> <span begin="1:53.033" end="1:54.742">shadow</span> <span begin="1:54.742" end="1:55.557">until</span> <span begin="1:55.557" end="1:56.135">you</span> <span begin="1:56.135" end="1:56.418">looked</span> <span begin="1:56.418" end="1:56.986">my</span> <span begin="1:56.986" end="1:58.090">way</span>
-</p>
-<p begin="1:58.090" end="2:02.626" ttm:agent="v1" key="archivetune-translation-19">
-<span begin="1:58.090" end="1:58.382">The</span> <span begin="1:58.382" end="2:00.069">rainbows</span> <span begin="2:00.069" end="2:00.343">I</span> <span begin="2:00.343" end="2:00.912">held</span> <span begin="2:00.912" end="2:02.626">inside</span>
-</p>
-<p begin="2:02.596" end="2:09.110" ttm:agent="v1" key="archivetune-translation-20">
-<span begin="2:02.596" end="2:03.165">Got</span> <span begin="2:03.165" end="2:03.450">kissed</span> <span begin="2:03.450" end="2:03.733">by</span> <span begin="2:03.733" end="2:05.459">sunshine,</span> <span begin="2:05.459" end="2:05.620">now</span> <span begin="2:05.620" end="2:05.813">they</span> <span begin="2:05.813" end="2:06.013">can</span> <span begin="2:06.013" end="2:06.543">fly</span> <span begin="2:06.543" end="2:06.828">in</span> <span begin="2:06.828" end="2:07.111">the</span> <span begin="2:07.111" end="2:07.965">flowery</span> <span begin="2:07.965" end="2:09.110">skies</span>
-</p>
-<p begin="2:09.092" end="2:11.646" ttm:agent="v1" key="archivetune-translation-21">
-<span begin="2:09.092" end="2:09.270">Rhythms</span> <span begin="2:09.270" end="2:09.670">were</span> <span begin="2:09.670" end="2:09.961">beating</span> <span begin="2:09.961" end="2:10.532">in</span> <span begin="2:10.532" end="2:10.783">my</span> <span begin="2:10.783" end="2:11.646">heart</span>
-</p>
-<p begin="2:11.746" end="2:14.274" ttm:agent="v1" key="archivetune-translation-22">
-<span begin="2:11.746" end="2:12.032">Tunes</span> <span begin="2:12.032" end="2:12.602">were ringing</span> <span begin="2:12.602" end="2:12.889">in</span> <span begin="2:12.889" end="2:13.133">my ears</span> <span begin="2:13.133" end="2:14.274">non-stop</span>
-</p>
-<p begin="2:14.274" end="2:16.473" ttm:agent="v1" key="archivetune-translation-23">
-<span begin="2:14.274" end="2:14.846">That</span> <span begin="2:14.846" end="2:15.423">moment</span> <span begin="2:15.423" end="2:15.473">I</span> <span begin="2:15.473" end="2:15.901">found</span> <span begin="2:15.901" end="2:16.473">you</span>
-</p>
-<p begin="2:16.473" end="2:19.662" ttm:agent="v1" key="archivetune-translation-24">
-<span begin="2:16.473" end="2:16.591">They</span> <span begin="2:16.591" end="2:16.800">turned</span> <span begin="2:16.800" end="2:16.959">into</span> <span begin="2:16.959" end="2:17.086">a</span> <span begin="2:17.086" end="2:17.664">song</span> <span begin="2:17.664" end="2:17.806">that</span> <span begin="2:17.806" end="2:17.953">I</span> <span begin="2:17.953" end="2:18.520">could</span> <span begin="2:18.520" end="2:18.806">sing</span> <span begin="2:18.806" end="2:19.662">out</span>
-</p>
-<p begin="2:19.877" end="2:22.425" ttm:agent="v1" key="archivetune-translation-25">
-<span begin="2:19.877" end="2:20.025">If</span> <span begin="2:20.025" end="2:20.169">it</span> <span begin="2:20.169" end="2:20.455">takes</span> <span begin="2:20.455" end="2:20.746">all</span> <span begin="2:20.746" end="2:21.030">those</span> <span begin="2:21.030" end="2:21.599">lonely</span> <span begin="2:21.599" end="2:22.425">nights</span>
-</p>
-<p begin="2:22.425" end="2:25.001" ttm:agent="v1" key="archivetune-translation-26">
-<span begin="2:22.425" end="2:22.711">Just</span> <span begin="2:22.711" end="2:22.997">to</span> <span begin="2:22.997" end="2:23.568">see</span> <span begin="2:23.568" end="2:23.854">you</span> <span begin="2:23.854" end="2:24.139">smile</span> <span begin="2:24.139" end="2:25.001">tonight</span>
-</p>
-<p begin="2:25.001" end="2:28.680" ttm:agent="v1" key="archivetune-translation-27">
-<span begin="2:25.001" end="2:25.286">Then</span> <span begin="2:25.286" end="2:25.812">it's</span> <span begin="2:25.812" end="2:26.364">all</span> <span begin="2:26.687" end="2:26.955">been</span> <span begin="2:26.955" end="2:28.378">worth</span> <span begin="2:28.378" end="2:28.680">it</span>
-</p>
-<p begin="2:29.079" end="2:34.461" ttm:agent="v1" composer:groupId="g1" composer:instanceIdx="1" composer:templateLineIdx="0" key="archivetune-translation-28">
-<span begin="2:29.079" end="2:29.360">You</span> <span begin="2:29.360" end="2:29.645">built</span> <span begin="2:29.645" end="2:29.931">a</span> <span begin="2:29.931" end="2:30.669">world</span> <span begin="2:30.669" end="2:30.902">of</span> <span begin="2:30.902" end="2:32.221">miracles</span> <span begin="2:32.221" end="2:32.503">so</span> <span begin="2:32.503" end="2:33.069">mundane</span> <span begin="2:33.069" end="2:33.354">but</span> <span begin="2:33.354" end="2:34.461">precious</span>
-</p>
-<p begin="2:34.461" end="2:39.586" ttm:agent="v1" composer:groupId="g1" composer:instanceIdx="1" composer:templateLineIdx="1" key="archivetune-translation-29">
-<span begin="2:34.461" end="2:34.750">The</span> <span begin="2:34.750" end="2:35.032">stream</span> <span begin="2:35.032" end="2:35.205">of</span> <span begin="2:35.205" end="2:35.860">shimmering</span> <span begin="2:35.860" end="2:36.711">daily</span> <span begin="2:36.711" end="2:37.568">moments</span> <span begin="2:37.568" end="2:38.151">returned</span> <span begin="2:38.151" end="2:38.718">weight</span> <span begin="2:38.718" end="2:39.006">to</span> <span begin="2:39.006" end="2:39.288">my</span> <span begin="2:39.288" end="2:39.586">soul</span>
-</p>
-<p begin="2:39.614" end="2:41.569" ttm:agent="v1" composer:groupId="g1" composer:instanceIdx="1" composer:templateLineIdx="2" key="archivetune-translation-30">
-<span begin="2:39.614" end="2:39.899">And</span> <span begin="2:39.899" end="2:40.181">stopped</span> <span begin="2:40.181" end="2:40.651">me</span> <span begin="2:40.651" end="2:40.830">from</span> <span begin="2:40.830" end="2:41.569">drifting</span>
-</p>
-<p begin="2:41.569" end="2:44.395" ttm:agent="v1" composer:groupId="g1" composer:instanceIdx="1" composer:templateLineIdx="3" key="archivetune-translation-31">
-<span begin="2:41.569" end="2:41.855">Gave</span> <span begin="2:41.855" end="2:42.143">my</span> <span begin="2:42.143" end="2:42.431">feet</span> <span begin="2:42.431" end="2:42.717">the</span> <span begin="2:42.717" end="2:43.288">solid</span> <span begin="2:43.288" end="2:43.531">ground</span> <span begin="2:43.531" end="2:43.818">to</span> <span begin="2:43.818" end="2:44.395">stand</span>
-</p>
-<p begin="2:44.395" end="2:46.074" ttm:agent="v1" composer:groupId="g1" composer:instanceIdx="1" composer:templateLineIdx="4" key="archivetune-translation-32">
-<span begin="2:44.395" end="2:44.527">So</span> <span begin="2:44.527" end="2:44.680">let's</span> <span begin="2:44.680" end="2:44.967">sing</span> <span begin="2:44.967" end="2:46.074">together</span>
-</p>
-<p begin="2:45.854" end="2:49.544" ttm:agent="v1" composer:groupId="g1" composer:instanceIdx="1" composer:templateLineIdx="5" key="archivetune-translation-33">
-<span begin="2:45.854" end="2:46.423">Every</span> <span begin="2:46.423" end="2:46.711">light</span> <span begin="2:46.711" end="2:47.282">I'm</span> <span begin="2:47.282" end="2:47.569">giving</span> <span begin="2:47.569" end="2:48.139">all</span> <span begin="2:48.139" end="2:48.681">comes</span> <span begin="2:48.681" end="2:48.967">back</span> <span begin="2:48.967" end="2:49.257">to</span> <span begin="2:49.257" end="2:49.544">you</span>
-</p>
-<p begin="2:49.544" end="2:55.870" ttm:agent="v1" composer:groupId="g1" composer:instanceIdx="1" composer:templateLineIdx="6" key="archivetune-translation-34">
-<span begin="2:49.544" end="2:50.110">Comes</span> <span begin="2:50.110" end="2:50.395">back</span> <span begin="2:50.395" end="2:51.252">to</span> <span begin="2:51.252" end="2:55.870">you</span>
-</p>
-<p begin="3:01.056" end="3:06.441" ttm:agent="v1" composer:groupId="g1" composer:instanceIdx="2" composer:templateLineIdx="0" key="archivetune-translation-35">
-<span begin="3:01.056" end="3:01.340">You</span> <span begin="3:01.340" end="3:01.625">built</span> <span begin="3:01.625" end="3:01.908">a</span> <span begin="3:01.908" end="3:02.646">world</span> <span begin="3:02.646" end="3:02.882">of</span> <span begin="3:02.882" end="3:04.199">miracles</span> <span begin="3:04.199" end="3:04.483">so</span> <span begin="3:04.483" end="3:05.049">mundane</span> <span begin="3:05.049" end="3:05.330">but</span> <span begin="3:05.330" end="3:06.441">precious</span>
-</p>
-<p begin="3:06.441" end="3:11.566" ttm:agent="v1" composer:groupId="g1" composer:instanceIdx="2" composer:templateLineIdx="1" key="archivetune-translation-36">
-<span begin="3:06.441" end="3:06.728">The</span> <span begin="3:06.728" end="3:07.012">stream</span> <span begin="3:07.012" end="3:07.182">of</span> <span begin="3:07.182" end="3:07.837">shimmering</span> <span begin="3:07.837" end="3:08.687">daily</span> <span begin="3:08.687" end="3:09.545">moments</span> <span begin="3:09.545" end="3:10.128">returned</span> <span begin="3:10.128" end="3:10.698">weight</span> <span begin="3:10.698" end="3:10.984">to</span> <span begin="3:10.984" end="3:11.264">my</span> <span begin="3:11.264" end="3:11.566">soul</span>
-</p>
-<p begin="3:11.592" end="3:13.549" ttm:agent="v1" composer:groupId="g1" composer:instanceIdx="2" composer:templateLineIdx="2" key="archivetune-translation-37">
-<span begin="3:11.592" end="3:11.877">And</span> <span begin="3:11.877" end="3:12.158">stopped</span> <span begin="3:12.158" end="3:12.631">me</span> <span begin="3:12.631" end="3:12.810">from</span> <span begin="3:12.810" end="3:13.549">drifting</span>
-</p>
-<p begin="3:13.549" end="3:16.375" ttm:agent="v1" composer:groupId="g1" composer:instanceIdx="2" composer:templateLineIdx="3" key="archivetune-translation-38">
-<span begin="3:13.549" end="3:13.835">Gave</span> <span begin="3:13.835" end="3:14.121">my</span> <span begin="3:14.121" end="3:14.411">feet</span> <span begin="3:14.411" end="3:14.693">the</span> <span begin="3:14.693" end="3:15.264">solid</span> <span begin="3:15.264" end="3:15.508">ground</span> <span begin="3:15.508" end="3:15.794">to</span> <span begin="3:15.794" end="3:16.375">stand</span>
-</p>
-<p begin="3:16.375" end="3:18.051" ttm:agent="v1" composer:groupId="g1" composer:instanceIdx="2" composer:templateLineIdx="4" key="archivetune-translation-39">
-<span begin="3:16.375" end="3:16.507">So</span> <span begin="3:16.507" end="3:16.657">let's</span> <span begin="3:16.657" end="3:16.944">sing</span> <span begin="3:16.944" end="3:18.051">together</span>
-</p>
-<p begin="3:17.831" end="3:21.521" ttm:agent="v1" composer:groupId="g1" composer:instanceIdx="2" composer:templateLineIdx="5" key="archivetune-translation-40">
-<span begin="3:17.831" end="3:18.401">Every</span> <span begin="3:18.401" end="3:18.688">light</span> <span begin="3:18.688" end="3:19.262">I'm</span> <span begin="3:19.262" end="3:19.549">giving</span> <span begin="3:19.549" end="3:20.117">all</span> <span begin="3:20.117" end="3:20.661">comes</span> <span begin="3:20.661" end="3:20.947">back</span> <span begin="3:20.947" end="3:21.235">to</span> <span begin="3:21.235" end="3:21.521">you</span>
-</p>
-<p begin="3:21.521" end="3:27.848" ttm:agent="v1" composer:groupId="g1" composer:instanceIdx="2" composer:templateLineIdx="6" key="archivetune-translation-41">
-<span begin="3:21.521" end="3:22.090">Comes</span> <span begin="3:22.090" end="3:22.372">back</span> <span begin="3:22.372" end="3:23.229">to</span> <span begin="3:23.229" end="3:27.848">you</span>
-</p>
-<p begin="3:23.038" end="3:28.371" ttm:agent="v2000" key="archivetune-translation-42">
-<span begin="3:23.038" end="3:23.616">(La</span>
-<span begin="3:23.616" end="3:24.181">-la</span>
-<span begin="3:24.181" end="3:25.621">-la,</span> <span begin="3:25.621" end="3:26.191">la</span>
-<span begin="3:26.191" end="3:26.722">-la</span>
-<span begin="3:26.722" end="3:28.371">-la</span>
-</p>
-<p begin="3:28.371" end="3:33.479" ttm:agent="v2000" key="archivetune-translation-43">
-<span begin="3:28.371" end="3:28.948">La</span>
-<span begin="3:28.948" end="3:29.230">-la</span>
-<span begin="3:29.230" end="3:30.947">-la,</span> <span begin="3:30.947" end="3:31.479">la</span>
-<span begin="3:31.479" end="3:32.051">-la</span>
-<span begin="3:32.051" end="3:33.479">-la</span>
-</p>
-<p begin="3:33.465" end="3:38.573" ttm:agent="v2000" key="archivetune-translation-44">
-<span begin="3:33.465" end="3:34.042">La</span>
-<span begin="3:34.042" end="3:34.324">-la</span>
-<span begin="3:34.324" end="3:36.042">-la,</span> <span begin="3:36.042" end="3:36.574">la</span>
-<span begin="3:36.574" end="3:37.145">-la</span>
-<span begin="3:37.145" end="3:38.573">-la</span>
-</p>
-<p begin="3:38.573" end="3:43.681" ttm:agent="v2000" key="archivetune-translation-45">
-<span begin="3:38.573" end="3:39.150">La</span>
-<span begin="3:39.150" end="3:39.432">-la</span>
-<span begin="3:39.432" end="3:41.150">-la,</span> <span begin="3:41.150" end="3:41.682">la</span>
-<span begin="3:41.682" end="3:42.253">-la</span>
-<span begin="3:42.253" end="3:43.681">-la)</span>
-</p>
-<p begin="3:44.223" end="3:49.598" ttm:agent="v1" key="archivetune-translation-46">
-<span begin="3:44.223" end="3:48.519">Whoa-oh</span>
-<span ttm:role="x-bg">
-<span begin="3:44.223" end="3:44.794">(La</span>
-<span begin="3:44.794" end="3:45.324">-la</span>
-<span begin="3:45.324" end="3:47.027">-la,</span> <span begin="3:47.027" end="3:47.602">la</span>
-<span begin="3:47.602" end="3:47.883">-la</span>
-<span begin="3:47.883" end="3:49.598">-la)</span>
-</span>
-</p>
-<p begin="3:48.519" end="3:55.024" ttm:agent="v1" key="archivetune-translation-47">
-<span begin="3:48.519" end="3:51.656">Ooh-ooh,</span> <span begin="3:51.656" end="3:54.503">ooh-whoa</span>
-<span ttm:role="x-bg">
-<span begin="3:49.649" end="3:50.217">(La</span>
-<span begin="3:50.217" end="3:50.747">-la</span>
-<span begin="3:50.747" end="3:52.450">-la,</span> <span begin="3:52.450" end="3:53.025">la</span>
-<span begin="3:53.025" end="3:53.306">-la</span>
-<span begin="3:53.306" end="3:55.024">-la)</span>
-</span>
-</p>
-<p begin="3:54.503" end="4:00.399" ttm:agent="v1" key="archivetune-translation-48">
-<span begin="3:54.503" end="3:57.027">Oh-whoa,</span> <span begin="3:57.027" end="3:59.550">ooh-ooh</span>
-<span ttm:role="x-bg">
-<span begin="3:55.024" end="3:55.592">(La</span>
-<span begin="3:55.592" end="3:56.122">-la</span>
-<span begin="3:56.122" end="3:57.825">-la,</span> <span begin="3:57.825" end="3:58.400">la</span>
-<span begin="3:58.400" end="3:58.681">-la</span>
-<span begin="3:58.681" end="4:00.399">-la)</span>
-</span>
-</p>
-<p begin="3:59.550" end="4:05.824" ttm:agent="v1" key="archivetune-translation-49">
-<span begin="3:59.550" end="4:02.115">Ooh-hoo,</span> <span begin="4:02.115" end="4:05.824">ooh-ooh-ooh-ooh</span>
-<span ttm:role="x-bg">
-<span begin="4:00.426" end="4:00.997">(La</span>
-<span begin="4:00.997" end="4:01.526">-la</span>
-<span begin="4:01.526" end="4:03.230">-la,</span> <span begin="4:03.230" end="4:03.805">la</span>
-<span begin="4:03.805" end="4:04.086">-la</span>
-<span begin="4:04.086" end="4:05.801">-la)</span>
-</span>
-</p>
-<p begin="4:05.824" end="4:11.199" ttm:agent="v2000" key="archivetune-translation-50">
-<span begin="4:05.824" end="4:06.394">(La</span>
-<span begin="4:06.394" end="4:06.923">-la</span>
-<span begin="4:06.923" end="4:08.627">-la,</span> <span begin="4:08.627" end="4:09.199">la</span>
-<span begin="4:09.199" end="4:09.484">-la</span>
-<span begin="4:09.484" end="4:11.199">-la</span>
-</p>
-<p begin="4:11.199" end="4:16.574" ttm:agent="v2000" key="archivetune-translation-51">
-<span begin="4:11.199" end="4:11.769">La</span>
-<span begin="4:11.769" end="4:12.298">-la</span>
-<span begin="4:12.298" end="4:14.002">-la,</span> <span begin="4:14.002" end="4:14.574">la</span>
-<span begin="4:14.574" end="4:14.859">-la</span>
-<span begin="4:14.859" end="4:16.574">-la)</span>
-</p>
-</div>
-</body>
-</tt>
+[ti:A Small Miracle]
+[ar:Wuthering Waves, jixwang, Fleet Snowfluff]
+[al:The Night the Stars Left No Trail (Original Game Soundtrack)]
+
+[00:22.23]Isn't [00:22.80]it [00:23.95]so [00:24.48]incredible
+[00:26.80]We're [00:27.08]here [00:27.65]sharing [00:29.36]the [00:29.64]same [00:30.17]time [00:31.01]and [00:31.57]space
+[00:32.84]In [00:32.99]your [00:33.54]eyes, [00:34.69]the [00:34.95]sparks [00:35.54]look [00:36.07]like
+[00:37.42]Thousands [00:38.29]of [00:38.72]bright [00:39.19]stars [00:40.13]I [00:40.22]have [00:40.48]gazed [00:40.77]at [00:41.05]for [00:41.34]thousands [00:41.62]of [00:42.77]time
+[00:43.62]May [00:43.91]all [00:44.20]your [00:44.48]sweet [00:44.76]dreams [00:45.04]take [00:45.33]flight
+[00:46.31]With [00:46.50]the [00:46.70]truth [00:46.84]to [00:47.01]be [00:47.23]your [00:47.53]guiding [00:48.01]light
+[00:48.69]Let [00:49.26]your [00:49.79]curiosity [00:50.98]set [00:51.22]your [00:51.50]spirit [00:51.78]free [00:52.07]and [00:52.15]wild [00:52.59]like [00:53.16]fire
+[00:54.31]If [00:54.59]the [00:54.87]lonely [00:55.16]nights [00:55.45]are [00:55.73]price [00:56.02]to [00:56.21]see
+[00:57.16]Our [00:57.32]dreams [00:57.73]glowing [00:58.30]brightly
+[00:59.24]Every [01:00.10]second [01:01.24]is [01:01.81]worth [01:02.94]it
+[01:03.52]You [01:03.80]built [01:04.08]a [01:04.37]world [01:05.11]of [01:05.34]miracles [01:06.66]so [01:06.94]mundane [01:07.51]but [01:07.79]precious
+[01:08.90]The [01:09.19]stream [01:09.47]of [01:09.64]shimmering [01:10.30]daily [01:11.15]moments [01:12.01]returned [01:12.59]weight [01:13.16]to [01:13.44]my [01:13.72]soul
+[01:14.05]And [01:14.34]stopped [01:14.62]me [01:15.09]from [01:15.27]drifting
+[01:16.01]Gave [01:16.30]my [01:16.58]feet [01:16.87]the [01:17.16]solid [01:17.73]ground [01:17.97]to [01:18.26]stand
+[01:18.83]So [01:18.97]let's [01:19.12]sing [01:19.41]together
+[01:20.29]Every [01:20.86]light [01:21.15]I'm [01:21.72]giving [01:22.01]all [01:22.58]comes [01:23.12]back [01:23.41]to [01:23.69]you
+[01:23.98]Comes [01:24.55]back [01:24.83]to [01:25.69]you
+[01:47.45]Like [01:47.73]diamonds, [01:49.16]they [01:49.44]need [01:49.72]a [01:49.91]light [01:50.26]to [01:50.82]shine
+[01:51.93]I [01:52.21]was [01:52.74]a [01:53.03]shadow [01:54.74]until [01:55.56]you [01:56.14]looked [01:56.42]my [01:56.99]way
+[01:58.09]The [01:58.38]rainbows [02:00.07]I [02:00.34]held [02:00.91]inside
+[02:02.60]Got [02:03.16]kissed [02:03.45]by [02:03.73]sunshine, [02:05.46]now [02:05.62]they [02:05.81]can [02:06.01]fly [02:06.54]in [02:06.83]the [02:07.11]flowery [02:07.96]skies
+[02:09.09]Rhythms [02:09.27]were [02:09.67]beating [02:09.96]in [02:10.53]my [02:10.78]heart
+[02:11.75]Tunes [02:12.03]were ringing [02:12.60]in [02:12.89]my ears [02:13.13]non-stop
+[02:14.27]That [02:14.85]moment [02:15.42]I [02:15.47]found [02:15.90]you
+[02:16.47]They [02:16.59]turned [02:16.80]into [02:16.96]a [02:17.09]song [02:17.66]that [02:17.81]I [02:17.95]could [02:18.52]sing [02:18.81]out
+[02:19.88]If [02:20.02]it [02:20.17]takes [02:20.45]all [02:20.75]those [02:21.03]lonely [02:21.60]nights
+[02:22.43]Just [02:22.71]to [02:23.00]see [02:23.57]you [02:23.85]smile [02:24.14]tonight
+[02:25.00]Then [02:25.29]it's [02:25.81]all [02:26.69]been [02:26.95]worth [02:28.38]it
+[02:29.08]You [02:29.36]built [02:29.65]a [02:29.93]world [02:30.67]of [02:30.90]miracles [02:32.22]so [02:32.50]mundane [02:33.07]but [02:33.35]precious
+[02:34.46]The [02:34.75]stream [02:35.03]of [02:35.20]shimmering [02:35.86]daily [02:36.71]moments [02:37.57]returned [02:38.15]weight [02:38.72]to [02:39.01]my [02:39.29]soul
+[02:39.61]And [02:39.90]stopped [02:40.18]me [02:40.65]from [02:40.83]drifting
+[02:41.57]Gave [02:41.85]my [02:42.14]feet [02:42.43]the [02:42.72]solid [02:43.29]ground [02:43.53]to [02:43.82]stand
+[02:44.40]So [02:44.53]let's [02:44.68]sing [02:44.97]together
+[02:45.85]Every [02:46.42]light [02:46.71]I'm [02:47.28]giving [02:47.57]all [02:48.14]comes [02:48.68]back [02:48.97]to [02:49.26]you
+[02:49.54]Comes [02:50.11]back [02:50.40]to [02:51.25]you
+[03:01.06]You [03:01.34]built [03:01.62]a [03:01.91]world [03:02.65]of [03:02.88]miracles [03:04.20]so [03:04.48]mundane [03:05.05]but [03:05.33]precious
+[03:06.44]The [03:06.73]stream [03:07.01]of [03:07.18]shimmering [03:07.84]daily [03:08.69]moments [03:09.54]returned [03:10.13]weight [03:10.70]to [03:10.98]my [03:11.26]soul
+[03:11.59]And [03:11.88]stopped [03:12.16]me [03:12.63]from [03:12.81]drifting
+[03:13.55]Gave [03:13.84]my [03:14.12]feet [03:14.41]the [03:14.69]solid [03:15.26]ground [03:15.51]to [03:15.79]stand
+[03:16.38]So [03:16.51]let's [03:16.66]sing [03:16.94]together
+[03:17.83]Every [03:18.40]light [03:18.69]I'm [03:19.26]giving [03:19.55]all [03:20.12]comes [03:20.66]back [03:20.95]to [03:21.24]you
+[03:21.52]Comes [03:22.09]back [03:22.37]to [03:23.23]you
+[03:23.04](La [03:23.62]-la [03:24.18]-la, [03:25.62]la [03:26.19]-la [03:26.72]-la
+[03:28.37]La [03:28.95]-la [03:29.23]-la, [03:30.95]la [03:31.48]-la [03:32.05]-la
+[03:33.46]La [03:34.04]-la [03:34.32]-la, [03:36.04]la [03:36.57]-la [03:37.14]-la
+[03:38.57]La [03:39.15]-la [03:39.43]-la, [03:41.15]la [03:41.68]-la [03:42.25]-la)
+[03:44.22]Whoa-oh
+[03:44.22](La [03:44.79]-la [03:45.32]-la, [03:47.03]la [03:47.60]-la [03:47.88]-la)
+[03:48.52]Ooh-ooh, [03:51.66]ooh-whoa
+[03:49.65](La [03:50.22]-la [03:50.75]-la, [03:52.45]la [03:53.02]-la [03:53.31]-la)
+[03:54.50]Oh-whoa, [03:57.03]ooh-ooh
+[03:55.02](La [03:55.59]-la [03:56.12]-la, [03:57.82]la [03:58.40]-la [03:58.68]-la)
+[03:59.55]Ooh-hoo, [04:02.12]ooh-ooh-ooh-ooh
+[04:00.43](La [04:01.00]-la [04:01.53]-la, [04:03.23]la [04:03.80]-la [04:04.09]-la)
+[04:05.82](La [04:06.39]-la [04:06.92]-la, [04:08.63]la [04:09.20]-la [04:09.48]-la
+[04:11.20]La [04:11.77]-la [04:12.30]-la, [04:14.00]la [04:14.57]-la [04:14.86]-la)
