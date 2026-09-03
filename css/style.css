@@ -340,3 +340,25 @@ body {
   pointer-events:none;
 }
 .lyrics .word-sync .lyrics-word-fill::selection{background:transparent}
+
+
+/* SOFT WORD BOUNCE — active sung word rises only a few pixels. */
+.lyrics .word-sync .lyrics-word {
+  transform: translateY(0);
+  will-change: transform;
+}
+.lyrics .word-sync .lyrics-word.is-active {
+  z-index: 1;
+}
+.lyrics .word-sync .lyrics-word.bounce-now {
+  animation: lyricWordBounce var(--bounce-duration, .65s) cubic-bezier(.22,.8,.25,1) 1 both;
+}
+@keyframes lyricWordBounce {
+  0%   { transform: translateY(0); }
+  35%  { transform: translateY(-3px); }
+  68%  { transform: translateY(-1px); }
+  100% { transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lyrics .word-sync .lyrics-word.bounce-now { animation: none; }
+}
