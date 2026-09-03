@@ -465,6 +465,23 @@
         const span = Math.max(0.001, end - word.start);
         const fill = Math.max(0, Math.min(100, ((time - word.start) / span) * 100));
         wordEl.style.setProperty('--fill', fill.toFixed(2) + '%');
+
+        // Give the currently sung word a very small, soft upward bounce.
+        // The bounce speed follows the word's duration: short words move quicker,
+        // long words move more slowly. It is restarted only when the active word
+        // changes, not on every animation frame.
+        const active = time >= word.start && time < end;
+        const wasActive = wordEl.classList.contains('is-active');
+        if (active && !wasActive) {
+          const bounceDuration = Math.max(0.28, Math.min(1.15, span * 0.78));
+          wordEl.style.setProperty('--bounce-duration', bounceDuration.toFixed(2) + 's');
+          wordEl.classList.add('is-active');
+          wordEl.classList.remove('bounce-now');
+          void wordEl.offsetWidth;
+          wordEl.classList.add('bounce-now');
+        } else if (!active && wasActive) {
+          wordEl.classList.remove('is-active', 'bounce-now');
+        }
       });
     };
 
