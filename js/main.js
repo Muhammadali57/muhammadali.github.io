@@ -292,78 +292,68 @@
     const parseLrc = text => {
       const lines = [];
 
+      // IMPORTANT: a physical line is a lyric line.
+      // A word-LRC line can contain many timestamps, e.g.
+      // [00:22.233]Isn't [00:22.803]it [00:23.951]so [00:24.484]incredible
+      // We must NOT merge separate physical lines into one lyric line.
       text.split(/\r?\n/).forEach(raw => {
         const matches = [...raw.matchAll(/\[(\d{1,3}):(\d{2})(?:[.:](\d{1,3}))?\]/g)];
         if (!matches.length) return;
 
         const timeOf = m => {
-          const fraction = m[3] ? Number(`0.${String(m[3]).padEnd(3, '0')}`) : 0;
+          const digits = m[3] || '';
+          const fraction = digits ? Number(`0.${digits.padEnd(3, '0').slice(0, 3)}`) : 0;
           return Number(m[1]) * 60 + Number(m[2]) + fraction;
         };
 
+        // Multiple timestamps on ONE physical line = word-synced LRC.
         if (matches.length > 1) {
-          // Word-synced LRC:
-          // [00:32.00]It's [00:32.50]magic [00:33.00]when ...
-          // Every timestamp starts the word immediately following it;
-          // the next timestamp becomes that word's end time.
-          const words = matches.map((m, i) => {
+          const words = [];
+          for (let i = 0; i < matches.length; i++) {
+            const m = matches[i];
             const next = matches[i + 1];
-            const wordStart = timeOf(m);
-            const wordEnd = next ? timeOf(next) : null;
-            const wordText = raw
-              .slice(m.index + m[0].length, next ? next.index : raw.length)
-              .trim();
-
-            return {
-              text: wordText,
-              start: wordStart,
-              end: wordEnd
-            };
-          }).filter(word => word.text);
+            const start = timeOf(m);
+            const end = next ? timeOf(next) : null;
+            const textStart = m.index + m[0].length;
+            const textEnd = next ? next.index : raw.length;
+            const wordText = raw.slice(textStart, textEnd).trim();
+            if (wordText) words.push({ text: wordText, start, end });
+          }
 
           if (words.length) {
             lines.push({
               start: words[0].start,
               end: Infinity,
-              text: words.map(word => word.text).join(' '),
+              text: words.map(w => w.text).join(' '),
               words
             });
           }
           return;
         }
 
-        // Normal line-based LRC: one timestamp at the beginning of the line.
+        // One timestamp = ordinary line LRC.
         const start = timeOf(matches[0]);
         const lyric = raw.slice(matches[0].index + matches[0][0].length).trim();
-        if (lyric) lines.push({start, end:Infinity, text:lyric, words:null});
+        if (lyric) lines.push({ start, end: Infinity, text: lyric, words: null });
       });
 
-      lines.sort((a,b) => a.start - b.start);
+      lines.sort((a, b) => a.start - b.start);
 
-      // A lyric line ends when the next lyric line begins.
-      // This is especially important for word-LRC: otherwise the first
-      // word-synced line would remain active for the rest of the song.
+      // Each physical lyric line ends exactly when the next lyric line starts.
       lines.forEach((line, i) => {
         const nextStart = lines[i + 1]?.start;
-        if (Number.isFinite(nextStart)) line.end = nextStart;
+        line.end = Number.isFinite(nextStart) ? nextStart : Infinity;
 
         if (line.words?.length) {
-          line.words.forEach((word, wi) => {
-            if (wi < line.words.length - 1) {
-              word.end = line.words[wi + 1].start;
-            } else if (Number.isFinite(line.end)) {
-              word.end = line.end;
-            } else {
-              // Keep the final word visible/highlighted until the next line
-              // if the file does not provide another line timestamp.
-              word.end = Infinity;
-            }
+          line.words.forEach((word, i) => {
+            const nextWord = line.words[i + 1];
+            word.end = nextWord ? nextWord.start : line.end;
           });
         }
       });
 
-      const hasWordTiming = lines.some(line => line.words?.length > 0);
-      return {type:hasWordTiming ? 'lrc-word' : 'lrc', lines};
+      const hasWordTiming = lines.some(line => Array.isArray(line.words) && line.words.length > 0);
+      return { type: hasWordTiming ? 'lrc-word' : 'lrc', lines };
     };
 
     const parseTtml = text => {
@@ -424,14 +414,20 @@
     const renderCurrentLyric = time => {
       if (!lyricsBox || !lyricsData?.lines?.length) return;
       const lines = lyricsData.lines;
-      let active = -1;
 
-      for (let i = 0; i < lines.length; i++) {
-        const line = lines[i];
-        if (time >= line.start && time < line.end) { active = i; break; }
+      // Find the active physical lyric line. Using the start times makes this
+      // reliable even when there is a small gap between two lyric lines.
+      let lo = 0, hi = lines.length - 1, active = -1;
+      while (lo <= hi) {
+        const mid = (lo + hi) >> 1;
+        if (lines[mid].start <= time) {
+          active = mid;
+          lo = mid + 1;
+        } else {
+          hi = mid - 1;
+        }
       }
-
-      if (active < 0) {
+      if (active < 0 || time >= lines[active].end) {
         if (!lyricsBox.querySelector('.lyrics-empty')) renderEmptyLyrics();
         return;
       }
@@ -451,15 +447,21 @@
         el = document.createElement('span');
         el.className = 'lyrics-line word-sync';
         el.dataset.index = String(active);
-        el.innerHTML = line.words.map((word, i) => `<span class="lyrics-word" data-word="${i}">${escapeHtml(word.text)}</span>`).join(' ');
+        el.innerHTML = line.words.map((word, i) =>
+          `<span class="lyrics-word" data-word="${i}">${escapeHtml(word.text)}</span>`
+        ).join(' ');
         lyricsBox.replaceChildren(el);
       }
 
-      [...el.querySelectorAll('.lyrics-word')].forEach((wordEl, i) => {
+      const wordEls = [...el.querySelectorAll('.lyrics-word')];
+      wordEls.forEach((wordEl, i) => {
         const word = line.words[i];
         if (!word) return;
-        const span = Math.max(0.001, word.end - word.start);
-        const fill = Math.max(0, Math.min(100, (time - word.start) / span * 100));
+
+        // Only the LETTERS are filled. No rectangle/pseudo-element overlay.
+        const end = Number.isFinite(word.end) ? word.end : word.start + 0.35;
+        const span = Math.max(0.001, end - word.start);
+        const fill = Math.max(0, Math.min(100, ((time - word.start) / span) * 100));
         wordEl.style.setProperty('--fill', fill.toFixed(2));
       });
     };
