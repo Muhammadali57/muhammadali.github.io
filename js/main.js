@@ -447,9 +447,10 @@
         el = document.createElement('span');
         el.className = 'lyrics-line word-sync';
         el.dataset.index = String(active);
-        el.innerHTML = line.words.map((word, i) =>
-          `<span class="lyrics-word" data-word="${i}">${escapeHtml(word.text)}</span>`
-        ).join(' ');
+        el.innerHTML = line.words.map((word, i) => {
+          const safe = escapeHtml(word.text);
+          return `<span class="lyrics-word" data-word="${i}"><span class="lyrics-word-base">${safe}</span><span class="lyrics-word-fill" aria-hidden="true">${safe}</span></span>`;
+        }).join(' ');
         lyricsBox.replaceChildren(el);
       }
 
@@ -458,11 +459,12 @@
         const word = line.words[i];
         if (!word) return;
 
-        // Only the LETTERS are filled. No rectangle/pseudo-element overlay.
+        // Fill only the glyphs themselves. The fill layer is transparent outside
+        // the letters, so there is never a rectangular highlight behind a word.
         const end = Number.isFinite(word.end) ? word.end : word.start + 0.35;
         const span = Math.max(0.001, end - word.start);
         const fill = Math.max(0, Math.min(100, ((time - word.start) / span) * 100));
-        wordEl.style.setProperty('--fill', fill.toFixed(2));
+        wordEl.style.setProperty('--fill', fill.toFixed(2) + '%');
       });
     };
 
