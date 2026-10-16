@@ -375,3 +375,6 @@ body {
 #inspiration .inspiration-signoff{display:flex;gap:20px;align-items:flex-end;justify-content:space-between;margin-top:30px;padding-top:20px;border-top:1px solid var(--line,rgba(255,255,255,.12));font-size:13px;line-height:1.7}
 #inspiration .inspiration-signoff b{white-space:nowrap;font-size:11px;letter-spacing:.14em;color:var(--muted,#969aa6)}
 @media(max-width:700px){#inspiration .inspiration-layout{grid-template-columns:1fr;gap:18px}#inspiration .inspiration-mark{min-height:140px}#inspiration .inspiration-mark span{font-size:68px}}
+
+/* Prevent the mobile browser's text caret/selection handles from appearing on accidental taps. */
+body{ -webkit-tap-highlight-color:transparent; }
