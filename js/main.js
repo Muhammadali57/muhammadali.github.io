@@ -58,7 +58,7 @@
       footer:{tagline:'O\'yin dasturchisi · O\'yinchi · Musiqa ishqibozi',backTop:'YUQORIGA ↑'},
       page:{title:'Muhammadali — Shaxsiy makon',description:'Muhammadali — O\'yin dasturchisi · O\'yinchi · Musiqa ishqibozi. O\'yinlar, musiqa, dasturlash va men sevgan narsalar.'},
       nav:{inspiration:"Ilhom manbai"},
-      inspiration:{eyebrow:"ILHOM MANBAI / 03",title:"Menga ilhom beradigan inson",code:"BOSHLANISH / KELAJAK",person:"Solon Lee · Kuro Games",lead:"Men uning bugungi mavqeigagina emas — shu yerga yetib kelish yo'liga ham havas qilaman.",text:"Uning UI dizayneri sifatida ish boshlaganidan keyin o'yin sanoatida kattaroq mas'uliyatlarga erishgani haqidagi yo'li katta muvaffaqiyatlar kichik boshlanishlardan ham paydo bo'lishini eslatadi.",personal:"Men ham o'z yo'limning boshidaman. O'rganaman, loyihalar yarataman va ko'nikmalarimni rivojlantiraman. Orzum — o'yin dasturchisi bo'lish va bir kun kelib [maxfiy maqsad] o'yinlarini yaratishga hissa qo'shish.",motto:"Har bir katta yo'l bir joydan boshlanadi. Mening yo'lim esa shu yerdan boshlanmoqda."},
+      inspiration:{eyebrow:"ILHOM MANBAI / 03",title:"Menga ilhom beradigan inson",code:"BOSHLANISH / KELAJAK",person:"Solon Lee · Kuro Games",lead:"Men uning bugungi mavqeigagina emas — shu yerga yetib kelish yo'liga ham havas qilaman.",text:"Uning UI dizayneri sifatida ish boshlaganidan keyin o'yin sanoatida kattaroq mas'uliyatlarga erishgani haqidagi yo'li katta muvaffaqiyatlar kichik boshlanishlardan ham paydo bo'lishini eslatadi.",personal:"Men ham o'z yo'limning boshidaman. O'rganaman, loyihalar yarataman va ko'nikmalarimni rivojlantiraman. Orzum — o'yin dasturchisi bo'lish va bir kun kelib <span class=\"secret-goal\" aria-label=\"Maxfiy maqsad\" title=\"Maxfiy maqsad\"></span> o'yinlarini yaratishga hissa qo'shish.",motto:"Har bir katta yo'l bir joydan boshlanadi. Mening yo'lim esa shu yerdan boshlanmoqda."},
     },
     en: {
       loader:{loading:'MUHAMMADALI / LOADING'}, ui:{menu:'Open menu',backTop:'Back to top'},
@@ -76,7 +76,7 @@
       account:{eyebrow:'WUTHERING WAVES / ACCOUNT',title:'My Resonator Profile',code:'PLAYER / 605549481',playerName:'PLAYER NAME',unionLevel:'UNION LEVEL',server:'SERVER',favorite:'MAIN / FAVORITE RESONATORS'}, footer:{tagline:'Game Programmer · Gamer · Music Lover',backTop:'BACK TO TOP ↑'},
       page:{title:'Muhammadali — Personal Space',description:'Muhammadali — Game Programmer · Gamer · Music Lover. Games, music, programming and things I love.'},
       nav:{inspiration:"Inspiration"},
-      inspiration:{eyebrow:"INSPIRATION / 03",title:"My Inspiration",code:"BEGINNINGS / FUTURE",person:"Solon Lee · Kuro Games",lead:"I don't just admire where he is today — I admire the journey that brought him there.",text:"His reported path from starting out as a UI designer to taking on a larger role in the game industry reminds me that meaningful achievements can grow from small beginnings.",personal:"I'm still at the beginning of my own journey. I'm learning, building projects, and improving my skills with the dream of becoming a game programmer and one day contributing to games at [hidden studio].",motto:"Every great journey starts somewhere. This is where mine begins."},
+      inspiration:{eyebrow:"INSPIRATION / 03",title:"My Inspiration",code:"BEGINNINGS / FUTURE",person:"Solon Lee · Kuro Games",lead:"I don't just admire where he is today — I admire the journey that brought him there.",text:"His reported path from starting out as a UI designer to taking on a larger role in the game industry reminds me that meaningful achievements can grow from small beginnings.",personal:"I'm still at the beginning of my own journey. I'm learning, building projects, and improving my skills with the dream of becoming a game programmer and one day contributing to games at <span class=\"secret-goal\" aria-label=\"Hidden studio\" title=\"Hidden studio\"></span>.",motto:"Every great journey starts somewhere. This is where mine begins."},
     },
     ru: {
       loader:{loading:'MUHAMMADALI / ЗАГРУЗКА'}, ui:{menu:'Открыть меню',backTop:'Наверх'},
@@ -94,7 +94,7 @@
       account:{eyebrow:'WUTHERING WAVES / АККАУНТ',title:'Мой профиль резонаторов',code:'ИГРОК / 605549481',playerName:'ИМЯ ИГРОКА',unionLevel:'УРОВЕНЬ СОЮЗА',server:'СЕРВЕР',favorite:'ОСНОВНЫЕ / ЛЮБИМЫЕ РЕЗОНАТОРЫ'}, footer:{tagline:'Разработчик игр · Геймер · Любитель музыки',backTop:'НАВЕРХ ↑'},
       page:{title:'Muhammadali — Личное пространство',description:'Muhammadali — разработчик игр · геймер · любитель музыки. Игры, музыка, программирование и то, что я люблю.'},
       nav:{inspiration:"Источник вдохновения"},
-      inspiration:{eyebrow:"ВДОХНОВЕНИЕ / 03",title:"Мой источник вдохновения",code:"НАЧАЛО / БУДУЩЕЕ",person:"Solon Lee · Kuro Games",lead:"Я восхищаюсь не только тем, кем он стал, но и путём, который его к этому привёл.",text:"Его путь — от начала карьеры UI-дизайнером до более значимой роли в игровой индустрии — напоминает мне, что большие достижения могут вырасти из скромного начала.",personal:"Я тоже только начинаю свой путь. Я учусь, создаю проекты и развиваю навыки, мечтая стать программистом игр и однажды внести свой вклад в создание игр [скрытая студия].",motto:"Любой большой путь с чего-то начинается. Мой начинается здесь."},
+      inspiration:{eyebrow:"ВДОХНОВЕНИЕ / 03",title:"Мой источник вдохновения",code:"НАЧАЛО / БУДУЩЕЕ",person:"Solon Lee · Kuro Games",lead:"Я восхищаюсь не только тем, кем он стал, но и путём, который его к этому привёл.",text:"Его путь — от начала карьеры UI-дизайнером до более значимой роли в игровой индустрии — напоминает мне, что большие достижения могут вырасти из скромного начала.",personal:"Я тоже только начинаю свой путь. Я учусь, создаю проекты и развиваю навыки, мечтая стать программистом игр и однажды внести свой вклад в создание игр <span class=\"secret-goal\" aria-label=\"Скрытая студия\" title=\"Скрытая студия\"></span>.",motto:"Любой большой путь с чего-то начинается. Мой начинается здесь."},
     },
     ja: {
       loader:{loading:'MUHAMMADALI / 読み込み中'}, ui:{menu:'メニューを開く',backTop:'トップへ戻る'},
@@ -112,7 +112,7 @@
       account:{eyebrow:'WUTHERING WAVES / アカウント',title:'レゾネータープロフィール',code:'PLAYER / 605549481',playerName:'プレイヤー名',unionLevel:'ユニオンレベル',server:'サーバー',favorite:'メイン / お気に入りレゾネーター'}, footer:{tagline:'ゲームプログラマー · ゲーマー · 音楽好き',backTop:'トップへ戻る ↑'},
       page:{title:'Muhammadali — パーソナルスペース',description:'Muhammadali — ゲームプログラマー · ゲーマー · 音楽好き。ゲーム、音楽、プログラミング、そして好きなもの。'},
       nav:{inspiration:"インスピレーション"},
-      inspiration:{eyebrow:"インスピレーション / 03",title:"私の憧れの人",code:"始まり / 未来",person:"Solon Lee · Kuro Games",lead:"私は彼の今の地位だけでなく、そこに至るまでの道のりに憧れています。",text:"UIデザイナーとしてキャリアを始め、ゲーム業界でより大きな役割を担うようになった彼の歩みは、大きな成果も小さな一歩から生まれることを教えてくれます。",personal:"私もまだ自分の道を歩み始めたばかりです。学び、作品を作り、スキルを磨きながら、ゲームプログラマーになり、いつか[非公開のスタジオ]のゲーム制作に貢献することを目指しています。",motto:"どんな大きな道も、最初の一歩から。私の道はここから始まります。"},
+      inspiration:{eyebrow:"インスピレーション / 03",title:"私の憧れの人",code:"始まり / 未来",person:"Solon Lee · Kuro Games",lead:"私は彼の今の地位だけでなく、そこに至るまでの道のりに憧れています。",text:"UIデザイナーとしてキャリアを始め、ゲーム業界でより大きな役割を担うようになった彼の歩みは、大きな成果も小さな一歩から生まれることを教えてくれます。",personal:"私もまだ自分の道を歩み始めたばかりです。学び、作品を作り、スキルを磨きながら、ゲームプログラマーになり、いつか<span class=\"secret-goal\" aria-label=\"非公開のスタジオ\" title=\"非公開のスタジオ\"></span>のゲーム制作に貢献することを目指しています。",motto:"どんな大きな道も、最初の一歩から。私の道はここから始まります。"},
     },
     zh: {
       loader:{loading:'MUHAMMADALI / 加载中'}, ui:{menu:'打开菜单',backTop:'返回顶部'},
@@ -130,7 +130,7 @@
       account:{eyebrow:'WUTHERING WAVES / 账号',title:'我的共鸣者档案',code:'玩家 / 605549481',playerName:'玩家名称',unionLevel:'联觉等级',server:'服务器',favorite:'主力 / 喜爱共鸣者'}, footer:{tagline:'游戏程序员 · 游戏玩家 · 音乐爱好者',backTop:'返回顶部 ↑'},
       page:{title:'Muhammadali — 个人空间',description:'Muhammadali — 游戏程序员 · 游戏玩家 · 音乐爱好者。游戏、音乐、编程以及我喜欢的一切。'},
       nav:{inspiration:"灵感来源"},
-      inspiration:{eyebrow:"灵感来源 / 03",title:"我的灵感来源",code:"起点 / 未来",person:"Solon Lee · Kuro Games",lead:"我不仅敬佩他今天取得的成就，也敬佩他一路走来的历程。",text:"据公开介绍，他从 UI 设计师起步，后来在游戏行业承担了更重要的职责。他的经历让我明白，伟大的成就也可以从微小的起点逐渐成长。",personal:"我也正处于自己旅程的起点。我不断学习、制作项目、提升技能，希望成为一名游戏程序员，并有一天为[暂不公开的工作室]的游戏开发贡献力量。",motto:"每一段伟大的旅程都有起点。我的旅程，就从这里开始。"},
+      inspiration:{eyebrow:"灵感来源 / 03",title:"我的灵感来源",code:"起点 / 未来",person:"Solon Lee · Kuro Games",lead:"我不仅敬佩他今天取得的成就，也敬佩他一路走来的历程。",text:"据公开介绍，他从 UI 设计师起步，后来在游戏行业承担了更重要的职责。他的经历让我明白，伟大的成就也可以从微小的起点逐渐成长。",personal:"我也正处于自己旅程的起点。我不断学习、制作项目、提升技能，希望成为一名游戏程序员，并有一天为<span class=\"secret-goal\" aria-label=\"暂不公开的工作室\" title=\"暂不公开的工作室\"></span>的游戏开发贡献力量。",motto:"每一段伟大的旅程都有起点。我的旅程，就从这里开始。"},
     }
   };
   const get = (obj, path) => path.split('.').reduce((v, k) => v?.[k], obj);
