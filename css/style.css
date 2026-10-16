@@ -378,3 +378,39 @@ body {
 
 /* Prevent the mobile browser's text caret/selection handles from appearing on accidental taps. */
 body{ -webkit-tap-highlight-color:transparent; }
+
+
+/* Secret goal effect: obscure the studio name without showing replacement text. */
+.secret-goal{
+  display:inline-block;
+  position:relative;
+  width:5.6em;
+  height:.78em;
+  vertical-align:-.02em;
+  border-radius:3px;
+  overflow:hidden;
+  background:
+    repeating-linear-gradient(135deg,rgba(235,240,248,.14) 0 3px,rgba(5,8,13,.88) 3px 6px),
+    linear-gradient(90deg,#303641,#11141a,#3a414d);
+  box-shadow:inset 0 0 0 1px rgba(210,220,235,.28),0 0 12px rgba(150,170,200,.08);
+}
+.secret-goal::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(105deg,transparent 15%,rgba(255,255,255,.22) 48%,transparent 68%);
+  transform:translateX(-110%);
+  animation:secretSweep 3.2s ease-in-out infinite;
+}
+.secret-goal::after{
+  content:"";
+  position:absolute;
+  left:10%;right:10%;top:50%;
+  height:1px;
+  background:rgba(235,240,248,.42);
+}
+@keyframes secretSweep{
+  0%,20%{transform:translateX(-110%)}
+  65%,100%{transform:translateX(110%)}
+}
+@media(prefers-reduced-motion:reduce){.secret-goal::before{animation:none}}
