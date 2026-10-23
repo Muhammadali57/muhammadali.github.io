@@ -331,19 +331,25 @@
             const fragment = segment.trim();
 
             if (fragment) {
+              const syllable = { text: fragment, start };
               if (!pending) {
-                pending = { text: fragment, start };
+                pending = { text: fragment, start, syllables: [syllable] };
               } else {
-                // No whitespace before this timestamp means the timestamp
-                // splits a single word into syllables (e.g. Sa[00:10.200]lom).
+                // Keep syllable-level timing even when fragments form one word.
                 pending.text += fragment;
+                pending.syllables.push(syllable);
               }
             }
 
             // Whitespace before the next timestamp marks a real word boundary.
-            // Keep the timing of the first syllable as the whole word's start.
+            // Fragments without whitespace stay one visual word, but animate separately.
             if (pending && (i === matches.length - 1 || /\s$/.test(segment))) {
-              words.push({ text: pending.text, start: pending.start, end: next ? timeOf(next) : null });
+              words.push({
+                text: pending.text,
+                start: pending.start,
+                end: next ? timeOf(next) : null,
+                syllables: pending.syllables
+              });
               pending = null;
             }
           }
@@ -376,6 +382,12 @@
           line.words.forEach((word, i) => {
             const nextWord = line.words[i + 1];
             word.end = nextWord ? nextWord.start : line.end;
+            if (word.syllables?.length) {
+              word.syllables.forEach((syllable, j) => {
+                const nextSyllable = word.syllables[j + 1];
+                syllable.end = nextSyllable ? nextSyllable.start : word.end;
+              });
+            }
           });
         }
       });
@@ -476,40 +488,45 @@
         el.className = 'lyrics-line word-sync';
         el.dataset.index = String(active);
         el.innerHTML = line.words.map((word, i) => {
-          const safe = escapeHtml(word.text);
-          return `<span class="lyrics-word" data-word="${i}"><span class="lyrics-word-base">${safe}</span><span class="lyrics-word-fill" aria-hidden="true">${safe}</span></span>`;
+          const syllables = word.syllables?.length
+            ? word.syllables
+            : [{ text: word.text, start: word.start, end: word.end }];
+          const parts = syllables.map((syllable, j) => {
+            const safe = escapeHtml(syllable.text);
+            return `<span class="lyrics-syllable" data-syllable="${j}"><span class="lyrics-syllable-base">${safe}</span><span class="lyrics-syllable-fill" aria-hidden="true">${safe}</span></span>`;
+          }).join('');
+          return `<span class="lyrics-word" data-word="${i}">${parts}</span>`;
         }).join(' ');
         lyricsBox.replaceChildren(el);
       }
 
+      // The text remains grouped into whole words for natural spacing, while each
+      // timed fragment inside a word fills and bounces independently.
       const wordEls = [...el.querySelectorAll('.lyrics-word')];
       wordEls.forEach((wordEl, i) => {
         const word = line.words[i];
         if (!word) return;
+        const syllableEls = [...wordEl.querySelectorAll('.lyrics-syllable')];
+        syllableEls.forEach((syllableEl, j) => {
+          const syllable = word.syllables?.[j] || word;
+          const end = Number.isFinite(syllable.end) ? syllable.end : syllable.start + 0.35;
+          const span = Math.max(0.001, end - syllable.start);
+          const fill = Math.max(0, Math.min(100, ((time - syllable.start) / span) * 100));
+          syllableEl.style.setProperty('--fill', fill.toFixed(2) + '%');
 
-        // Fill only the glyphs themselves. The fill layer is transparent outside
-        // the letters, so there is never a rectangular highlight behind a word.
-        const end = Number.isFinite(word.end) ? word.end : word.start + 0.35;
-        const span = Math.max(0.001, end - word.start);
-        const fill = Math.max(0, Math.min(100, ((time - word.start) / span) * 100));
-        wordEl.style.setProperty('--fill', fill.toFixed(2) + '%');
-
-        // Give the currently sung word a very small, soft upward bounce.
-        // The bounce speed follows the word's duration: short words move quicker,
-        // long words move more slowly. It is restarted only when the active word
-        // changes, not on every animation frame.
-        const active = time >= word.start && time < end;
-        const wasActive = wordEl.classList.contains('is-active');
-        if (active && !wasActive) {
-          const bounceDuration = Math.max(0.28, Math.min(1.15, span * 0.78));
-          wordEl.style.setProperty('--bounce-duration', bounceDuration.toFixed(2) + 's');
-          wordEl.classList.add('is-active');
-          wordEl.classList.remove('bounce-now');
-          void wordEl.offsetWidth;
-          wordEl.classList.add('bounce-now');
-        } else if (!active && wasActive) {
-          wordEl.classList.remove('is-active', 'bounce-now');
-        }
+          const active = time >= syllable.start && time < end;
+          const wasActive = syllableEl.classList.contains('is-active');
+          if (active && !wasActive) {
+            const bounceDuration = Math.max(0.28, Math.min(1.15, span * 0.78));
+            syllableEl.style.setProperty('--bounce-duration', bounceDuration.toFixed(2) + 's');
+            syllableEl.classList.add('is-active');
+            syllableEl.classList.remove('bounce-now');
+            void syllableEl.offsetWidth;
+            syllableEl.classList.add('bounce-now');
+          } else if (!active && wasActive) {
+            syllableEl.classList.remove('is-active', 'bounce-now');
+          }
+        });
       });
     };
 
