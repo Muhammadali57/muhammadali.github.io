@@ -319,15 +319,33 @@
         // Multiple timestamps on ONE physical line = word-synced LRC.
         if (matches.length > 1) {
           const words = [];
+          let pending = null;
+
           for (let i = 0; i < matches.length; i++) {
             const m = matches[i];
             const next = matches[i + 1];
             const start = timeOf(m);
-            const end = next ? timeOf(next) : null;
             const textStart = m.index + m[0].length;
             const textEnd = next ? next.index : raw.length;
-            const wordText = raw.slice(textStart, textEnd).trim();
-            if (wordText) words.push({ text: wordText, start, end });
+            const segment = raw.slice(textStart, textEnd);
+            const fragment = segment.trim();
+
+            if (fragment) {
+              if (!pending) {
+                pending = { text: fragment, start };
+              } else {
+                // No whitespace before this timestamp means the timestamp
+                // splits a single word into syllables (e.g. Sa[00:10.200]lom).
+                pending.text += fragment;
+              }
+            }
+
+            // Whitespace before the next timestamp marks a real word boundary.
+            // Keep the timing of the first syllable as the whole word's start.
+            if (pending && (i === matches.length - 1 || /\s$/.test(segment))) {
+              words.push({ text: pending.text, start: pending.start, end: next ? timeOf(next) : null });
+              pending = null;
+            }
           }
 
           if (words.length) {
