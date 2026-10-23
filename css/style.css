@@ -319,6 +319,8 @@ body {
 .lyrics .word-sync .lyrics-word{
   display:inline;
   color:var(--muted);
+  background:none !important;
+  -webkit-text-fill-color:initial;
 }
 .lyrics .word-sync .lyrics-syllable{
   --fill:0%;
@@ -333,8 +335,10 @@ body {
 .lyrics .word-sync .lyrics-syllable-base{
   display:inline;
   color:var(--muted);
+  -webkit-text-fill-color:var(--muted);
 }
 .lyrics .word-sync .lyrics-syllable-fill{
+  -webkit-text-fill-color:var(--text);
   position:absolute;
   inset:0 auto auto 0;
   width:var(--fill);
