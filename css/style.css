@@ -315,22 +315,26 @@ body {
 @media(max-width:520px){.music-player .music-now{grid-template-columns:1fr;padding:16px;gap:18px}.music-player .now-media{width:min(190px,100%);margin:0 auto}.music-player .player-controls button{height:42px;font-size:20px}.music-player .lyrics{min-height:76px;margin-top:16px}.music-player .lyrics-line{font-size:17px}}
 
 
-/* WORD-SYNC: Apple-Music-style glyph fill. No background rectangles. */
+/* WORD-SYNC: glyph fill and bounce at each timed syllable, without splitting word spacing. */
 .lyrics .word-sync .lyrics-word{
+  display:inline;
+  color:var(--muted);
+}
+.lyrics .word-sync .lyrics-syllable{
   --fill:0%;
   position:relative;
   display:inline-block;
   vertical-align:baseline;
   color:var(--muted);
-  background:none !important;
-  -webkit-text-fill-color:initial;
   overflow:visible;
+  transform:translateY(0);
+  will-change:transform;
 }
-.lyrics .word-sync .lyrics-word-base{
+.lyrics .word-sync .lyrics-syllable-base{
   display:inline;
   color:var(--muted);
 }
-.lyrics .word-sync .lyrics-word-fill{
+.lyrics .word-sync .lyrics-syllable-fill{
   position:absolute;
   inset:0 auto auto 0;
   width:var(--fill);
@@ -339,28 +343,19 @@ body {
   color:var(--text);
   pointer-events:none;
 }
-.lyrics .word-sync .lyrics-word-fill::selection{background:transparent}
-
-
-/* SOFT WORD BOUNCE — active sung word rises only a few pixels. */
-.lyrics .word-sync .lyrics-word {
-  transform: translateY(0);
-  will-change: transform;
+.lyrics .word-sync .lyrics-syllable-fill::selection{background:transparent}
+.lyrics .word-sync .lyrics-syllable.is-active{z-index:1}
+.lyrics .word-sync .lyrics-syllable.bounce-now{
+  animation:lyricSyllableBounce var(--bounce-duration,.65s) cubic-bezier(.22,.8,.25,1) 1 both;
 }
-.lyrics .word-sync .lyrics-word.is-active {
-  z-index: 1;
-}
-.lyrics .word-sync .lyrics-word.bounce-now {
-  animation: lyricWordBounce var(--bounce-duration, .65s) cubic-bezier(.22,.8,.25,1) 1 both;
-}
-@keyframes lyricWordBounce {
-  0%   { transform: translateY(0); }
-  35%  { transform: translateY(-3px); }
-  68%  { transform: translateY(-1px); }
-  100% { transform: translateY(0); }
+@keyframes lyricSyllableBounce {
+  0%   { transform:translateY(0); }
+  35%  { transform:translateY(-3px); }
+  68%  { transform:translateY(-1px); }
+  100% { transform:translateY(0); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .lyrics .word-sync .lyrics-word.bounce-now { animation: none; }
+  .lyrics .word-sync .lyrics-syllable.bounce-now { animation:none; }
 }
 
 
